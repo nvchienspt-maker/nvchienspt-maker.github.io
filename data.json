@@ -40,6 +40,7 @@
   "files": [
     {
       "name": "ADB TV Tools",
+      "group": "Công Cụ System",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "adb.apk",
@@ -51,6 +52,7 @@
     },
     {
       "name": "Chợ Phim 4K",
+      "group": "Xem Phim",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "chophim.apk",
@@ -62,6 +64,7 @@
     },
     {
       "name": "Cốc Cốc TV Browser",
+      "group": "Công Cụ System",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "coccoc.apk",
@@ -73,6 +76,7 @@
     },
     {
       "name": "EZVIZ Camera TV",
+      "group": "Công Cụ System",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "ezviz.apk",
@@ -84,6 +88,7 @@
     },
     {
       "name": "FPT Play Box",
+      "group": "Truyền Hình",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "fptplay.apk",
@@ -95,6 +100,7 @@
     },
     {
       "name": "Get Out TV",
+      "group": "Ứng Dụng TV",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "getout.apk",
@@ -106,6 +112,7 @@
     },
     {
       "name": "HBO Max TV",
+      "group": "Xem Phim",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "hbomax.apk",
@@ -117,6 +124,7 @@
     },
     {
       "name": "Imou Life TV",
+      "group": "Công Cụ System",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "imou.apk",
@@ -128,6 +136,7 @@
     },
     {
       "name": "Kiki Auto Voice",
+      "group": "Tiện Ích Voice",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "kiki.apk",
@@ -139,6 +148,7 @@
     },
     {
       "name": "Map Voice Assistant",
+      "group": "Tiện Ích Voice",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "mapvoice.apk",
@@ -150,6 +160,7 @@
     },
     {
       "name": "M Store TV",
+      "group": "Ứng Dụng TV",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "mstore.apk",
@@ -161,6 +172,7 @@
     },
     {
       "name": "MyTV Box",
+      "group": "Truyền Hình",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "mytv.apk",
@@ -172,6 +184,7 @@
     },
     {
       "name": "Netflix TV",
+      "group": "Xem Phim",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "netflix.apk",
@@ -183,6 +196,7 @@
     },
     {
       "name": "NVC Store TV",
+      "group": "Ứng Dụng TV",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "NVC.apk",
@@ -194,6 +208,7 @@
     },
     {
       "name": "Phim 4K Cinema",
+      "group": "Xem Phim",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "phim4k.apk",
@@ -205,6 +220,7 @@
     },
     {
       "name": "Projector TV",
+      "group": "Ứng Dụng TV",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "project.apk",
@@ -216,6 +232,7 @@
     },
     {
       "name": "Quán TV",
+      "group": "Truyền Hình",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "quantv.apk",
@@ -227,6 +244,7 @@
     },
     {
       "name": "Rạp Phim HD",
+      "group": "Xem Phim",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "rapphim.apk",
@@ -238,6 +256,7 @@
     },
     {
       "name": "Sài Gòn Phim",
+      "group": "Xem Phim",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "sgphim.apk",
@@ -249,6 +268,7 @@
     },
     {
       "name": "SmartTube Next (YouTube TV)",
+      "group": "Giải Trí",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "smarttube.apk",
@@ -260,6 +280,7 @@
     },
     {
       "name": "Super Voice TV",
+      "group": "Tiện Ích Voice",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "supervoice.apk",
@@ -271,6 +292,7 @@
     },
     {
       "name": "TikTok Lite TV",
+      "group": "Giải Trí",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "tiktok.apk",
@@ -282,6 +304,7 @@
     },
     {
       "name": "TV360 Viettel",
+      "group": "Truyền Hình",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "tv360.apk",
@@ -293,6 +316,7 @@
     },
     {
       "name": "TV Bro Browser",
+      "group": "Truyền Hình",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "tvbro.apk",
@@ -304,6 +328,7 @@
     },
     {
       "name": "VApp TV",
+      "group": "Truyền Hình",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "vapp.apk",
@@ -315,6 +340,7 @@
     },
     {
       "name": "Việt Mí TV",
+      "group": "Truyền Hình",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "vietmitv.apk",
@@ -326,6 +352,7 @@
     },
     {
       "name": "Việt Mí TV Premium",
+      "group": "Truyền Hình",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "vietmitv99.apk",
@@ -337,6 +364,7 @@
     },
     {
       "name": "Việt Play TV",
+      "group": "Truyền Hình",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "vietplaytv.apk",
@@ -348,6 +376,7 @@
     },
     {
       "name": "VTV Go Official",
+      "group": "Truyền Hình",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "vtvgo.apk",
@@ -359,6 +388,7 @@
     },
     {
       "name": "VTV Prime TV",
+      "group": "Truyền Hình",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "vtvprime.apk",
@@ -370,6 +400,7 @@
     },
     {
       "name": "VXM Store TV",
+      "group": "Ứng Dụng TV",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "vxmstore.apk",
@@ -381,6 +412,7 @@
     },
     {
       "name": "Yoosee Camera TV",
+      "group": "Công Cụ System",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "yoosee.apk",
@@ -392,6 +424,7 @@
     },
     {
       "name": "YouTube TV Premium",
+      "group": "Giải Trí",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "ytb.apk",
@@ -403,6 +436,7 @@
     },
     {
       "name": "YouTube TV V2",
+      "group": "Giải Trí",
       "release_tag": "v1.0.0",
       "release_title": "Bản phát hành APK",
       "file_name": "ytb2.apk",
