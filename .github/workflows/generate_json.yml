@@ -90,9 +90,9 @@ jobs:
 
           def get_app_group(file_name):
               stem = os.path.splitext(file_name)[0].lower()
-              if any(k in stem for k in ["phim", "cinema", "rap", "hbomax", "netflix"]):
+              if any(k in stem for k in ["movie", "phim", "cinema", "rap", "hbomax", "netflix"]):
                   return "Xem Phim"
-              if any(k in stem for k in ["tv", "vtv", "mytv", "fpt", "vietmi", "vietplay", "vapp"]):
+              if any(k in stem for k in ["tivi", "vtv", "mytv", "fpt", "vietmi", "vietplay", "vapp"]):
                   return "Truyền Hình"
               if any(k in stem for k in ["ytb", "youtube", "smarttube", "tiktok"]):
                   return "Giải Trí"
