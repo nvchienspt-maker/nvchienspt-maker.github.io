@@ -7,7 +7,7 @@ on:
     branches:
       - main
     paths:
-      - 'icons/**'             # Chạy khi có icon mới được upload/thay đổi
+      - 'icons/**'              # Chạy khi có icon mới được upload/thay đổi
   workflow_dispatch:          # Cho phép bấm nút chạy thủ công bất kỳ lúc nào
 
 jobs:
@@ -45,6 +45,52 @@ jobs:
               "Accept": "application/vnd.github.v3+json"
           }
 
+          # Bảng ánh xạ tên hiển thị theo tiền tố tên file
+          APP_NAMES = {
+              "adb": "ADB TV Tools",
+              "chophim": "Chợ Phim 4K",
+              "coccoc": "Cốc Cốc TV Browser",
+              "ezviz": "EZVIZ Camera TV",
+              "fptplay": "FPT Play Box",
+              "getout": "Get Out TV",
+              "hbomax": "HBO Max TV",
+              "imou": "Imou Life TV",
+              "kiki": "Kiki Auto Voice",
+              "mapvoice": "Map Voice Assistant",
+              "mstore": "M Store TV",
+              "mytv": "MyTV Box",
+              "netflix": "Netflix TV",
+              "nvc": "NVC Store TV",
+              "phim4k": "Phim 4K Cinema",
+              "project": "Projector TV",
+              "quantv": "Quán TV",
+              "rapphim": "Rạp Phim HD",
+              "sgphim": "Sài Gòn Phim",
+              "smarttube": "SmartTube Next (YouTube TV)",
+              "supervoice": "Super Voice TV",
+              "tiktok": "TikTok Lite TV",
+              "tv360": "TV360 Viettel",
+              "tvbro": "TV Bro Browser",
+              "vapp": "VApp TV",
+              "vietmitv99": "Việt Mí TV Premium",
+              "vietmitv": "Việt Mí TV",
+              "vietplaytv": "Việt Play TV",
+              "vtvgo": "VTV Go Official",
+              "vtvprime": "VTV Prime TV",
+              "vxmstore": "VXM Store TV",
+              "yoosee": "Yoosee Camera TV",
+              "ytb2": "YouTube TV V2",
+              "ytb": "YouTube TV Premium"
+          }
+
+          def get_app_display_name(file_name):
+              stem = os.path.splitext(file_name)[0].lower()
+              # Ưu tiên khớp các từ khóa dài trước để tránh nhầm (vd: vietmitv99 trước vietmitv)
+              for key in sorted(APP_NAMES.keys(), key=len, reverse=True):
+                  if stem.startswith(key):
+                      return APP_NAMES[key]
+              return os.path.splitext(file_name)[0]
+
           # 1. Lấy toàn bộ assets từ tất cả Releases
           releases_url = f"https://api.github.com/repos/{repo}/releases"
           res = requests.get(releases_url, headers=headers)
@@ -57,10 +103,14 @@ jobs:
               published_at = rel.get("published_at")
               
               for asset in rel.get("assets", []):
+                  file_name = asset.get("name") or ""
+                  app_name = get_app_display_name(file_name)
+                  
                   files_list.append({
+                      "name": app_name,
                       "release_tag": tag_name,
                       "release_title": release_name,
-                      "file_name": asset.get("name"),
+                      "file_name": file_name,
                       "size_bytes": asset.get("size"),
                       "download_count": asset.get("download_count"),
                       "download_url": asset.get("browser_download_url"),
