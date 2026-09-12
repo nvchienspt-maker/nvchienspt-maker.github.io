@@ -1,40 +1,893 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NVC STORE</title>
+  <title>NVC Store - Kho Ứng Dụng</title>
+  
+  <!-- Font chữ & Icon -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: #f6f8fa; margin: 0; padding: 40px 20px; }
-    .container { max-width: 700px; margin: 0 auto; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); padding: 24px; }
-    h1 { margin-top: 0; font-size: 24px; color: #24292f; }
-    ul { list-style: none; padding: 0; margin-top: 20px; }
-    li { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-bottom: 1px solid #d0d7de; }
-    li:last-child { border-bottom: none; }
-    .file-name { font-weight: 500; color: #0969da; }
-    .download-btn { background: #2da44e; color: white; padding: 6px 12px; border-radius: 6px; text-decoration: none; font-size: 14px; font-weight: 500; }
-    .download-btn:hover { background: #2c974b; }
+    /* ================= CẤU HÌNH THEME ================= */
+    :root[data-theme="dark"] {
+      --bg-body: #0a0e17;
+      --bg-header: rgba(16, 23, 38, 0.85);
+      --bg-card: #131b2e;
+      --bg-card-hover: #19233c;
+      --border-color: #23304d;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --primary: #3b82f6;
+      --primary-glow: rgba(59, 130, 246, 0.25);
+      --input-bg: #0d1424;
+      --pill-bg: #1c2742;
+      --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    :root[data-theme="light"] {
+      --bg-body: #f8fafc;
+      --bg-header: rgba(255, 255, 255, 0.85);
+      --bg-card: #ffffff;
+      --bg-card-hover: #fcfdfe;
+      --border-color: #e2e8f0;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-dim: #94a3b8;
+      --primary: #2563eb;
+      --primary-glow: rgba(37, 99, 235, 0.15);
+      --input-bg: #f1f5f9;
+      --pill-bg: #e2e8f0;
+      --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.25s ease, border-color 0.25s ease;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* ================= HEADER ================= */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-header);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 14px 24px;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 20px;
+      box-shadow: 0 6px 16px var(--primary-glow);
+    }
+
+    .brand-title {
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+    }
+
+    .brand-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Nút Đổi Theme */
+    .theme-toggle-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-main);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      transition: all 0.2s;
+    }
+
+    .theme-toggle-btn:hover {
+      border-color: var(--primary);
+      transform: rotate(15deg);
+    }
+
+    /* ================= HERO BANNER ================= */
+    .hero-section {
+      max-width: 1200px;
+      margin: 28px auto 0;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    .hero-box {
+      background: linear-gradient(135deg, rgba(59,130,246,0.12) 0%, rgba(139,92,246,0.08) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .hero-text h2 {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .hero-text p {
+      color: var(--text-muted);
+      font-size: 14px;
+      max-width: 520px;
+      line-height: 1.5;
+    }
+
+    .stats-container {
+      display: flex;
+      gap: 16px;
+    }
+
+    .stat-badge {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 14px 20px;
+      border-radius: 14px;
+      text-align: center;
+      min-width: 110px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .stat-badge .stat-num {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .stat-badge .stat-lbl {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+
+    /* ================= BỘ LỌC & TÌM KIẾM ================= */
+    .controls-wrapper {
+      max-width: 1200px;
+      margin: 28px auto 0;
+      padding: 0 24px;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .search-input-group {
+      position: relative;
+      flex: 1;
+      max-width: 440px;
+      min-width: 260px;
+    }
+
+    .search-input-group i {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-dim);
+      font-size: 15px;
+    }
+
+    .search-input-group input {
+      width: 100%;
+      padding: 12px 16px 12px 44px;
+      background: var(--input-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      color: var(--text-main);
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .search-input-group input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-glow);
+    }
+
+    .category-pills {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .pill-btn {
+      background: var(--pill-bg);
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .pill-btn:hover, .pill-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 4px 12px var(--primary-glow);
+    }
+
+    /* ================= DANH SÁCH APP (GRID) ================= */
+    main {
+      max-width: 1200px;
+      margin: 24px auto 40px;
+      padding: 0 24px;
+      width: 100%;
+      flex: 1;
+    }
+
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 20px;
+    }
+
+    .app-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+    }
+
+    .app-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(59, 130, 246, 0.4);
+      box-shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.35);
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .app-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 16px;
+      background: var(--input-bg);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .app-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .app-avatar i {
+      font-size: 26px;
+    }
+
+    .app-meta {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .app-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 4px;
+    }
+
+    .app-tags-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+
+    .badge-version {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: var(--pill-bg);
+      color: var(--primary);
+      border: 1px solid var(--border-color);
+    }
+
+    .badge-cat {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-dim);
+    }
+
+    .app-release-title {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Thông số file */
+    .file-specs {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 0;
+      margin-bottom: 16px;
+      border-top: 1px dashed var(--border-color);
+      border-bottom: 1px dashed var(--border-color);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .spec-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ================= CÁC NÚT TẢI VỀ THÔNG MINH ================= */
+    .card-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-dl {
+      flex: 1;
+      padding: 11px 16px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+    }
+
+    /* Style theo từng loại file */
+    .btn-dl-apk {
+      background: #10b981;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25);
+    }
+    .btn-dl-apk:hover {
+      background: #059669;
+      transform: translateY(-2px);
+    }
+
+    .btn-dl-windows {
+      background: #0284c7;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+    }
+    .btn-dl-windows:hover {
+      background: #0369a1;
+      transform: translateY(-2px);
+    }
+
+    .btn-dl-archive {
+      background: #f59e0b;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.25);
+    }
+    .btn-dl-archive:hover {
+      background: #d97706;
+      transform: translateY(-2px);
+    }
+
+    .btn-dl-generic {
+      background: var(--primary);
+      color: #ffffff;
+      box-shadow: 0 4px 14px var(--primary-glow);
+    }
+    .btn-dl-generic:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    .btn-icon-action {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      background: var(--input-bg);
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      transition: all 0.2s;
+    }
+
+    .btn-icon-action:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* Trạng thái trống */
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+    }
+    .empty-state i {
+      font-size: 42px;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+    }
+
+    /* Toast */
+    .toast-popup {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #10b981;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 200;
+    }
+
+    .toast-popup.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-color);
+      background: var(--bg-card);
+      padding: 20px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 640px) {
+      .hero-box { padding: 20px; }
+      .stats-container { width: 100%; }
+      .stat-badge { flex: 1; }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Danh sách ứng dụng</h1>
-    <ul>
-      <!-- File lưu trực tiếp trong thư mục /files -->
-      <li>
-        <span class="file-name">APP1</span>
-        <a class="download-btn" href="./files/Tai_lieu_hoc_tap.pdf" download>Tải về</a>
-      </li>
-      <li>
-        <span class="file-name">APP2</span>
-        <a class="download-btn" href="./files/Hinh_anh_demo.zip" download>Tải về</a>
-      </li>
-      <!-- File dung lượng lớn lưu trên dịch vụ khác -->
-      <li>
-        <span class="file-name">APP3</span>
-        <a class="download-btn" href="https://drive.google.com/your-file-link" target="_blank">Tải về</a>
-      </li>
-    </ul>
+
+  <!-- Thanh tiêu đề (Header) -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="brand">
+        <div class="brand-logo"><i class="fa-solid fa-shapes"></i></div>
+        <div>
+          <div class="brand-title">NVC Store</div>
+          <div class="brand-desc">Kho ứng dụng & Công cụ</div>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <!-- Nút chuyển Giao diện Sáng / Tối -->
+        <button class="theme-toggle-btn" id="themeToggle" title="Đổi chế độ Sáng / Tối">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Banner thống kê nhanh -->
+  <div class="hero-section">
+    <div class="hero-box">
+      <div class="hero-text">
+        <h2>Khám phá & Tải ứng dụng</h2>
+        <p>Các ứng dụng, công cụ và bản cài đặt được xây dựng và cập nhật trực tiếp qua GitHub Releases.</p>
+      </div>
+      <div class="stats-container">
+        <div class="stat-badge">
+          <div class="stat-num" id="statFiles">0</div>
+          <div class="stat-lbl">Ứng dụng</div>
+        </div>
+        <div class="stat-badge">
+          <div class="stat-num" id="statDownloads">0</div>
+          <div class="stat-lbl">Lượt tải</div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- Bộ lọc danh mục & Tìm kiếm -->
+  <div class="controls-wrapper">
+    <div class="category-pills">
+      <button class="pill-btn active" data-filter="all"><i class="fa-solid fa-border-all"></i> Tất cả</button>
+      <button class="pill-btn" data-filter="apk"><i class="fa-brands fa-android"></i> Android</button>
+      <button class="pill-btn" data-filter="windows"><i class="fa-brands fa-windows"></i> Windows</button>
+      <button class="pill-btn" data-filter="archive"><i class="fa-solid fa-box-archive"></i> File nén</button>
+    </div>
+
+    <div class="search-input-group">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" id="searchInput" placeholder="Tìm kiếm ứng dụng hoặc phiên bản...">
+    </div>
+  </div>
+
+  <!-- Danh sách App -->
+  <main>
+    <div class="apps-grid" id="appsGrid">
+      <div class="empty-state">
+        <i class="fa-solid fa-circle-notch fa-spin"></i>
+        <p>Đang tải danh sách ứng dụng từ GitHub...</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2026 NVC Store &bull; Nền tảng phân phối phát triển bởi <strong>nvchienspt-maker</strong>
+  </footer>
+
+  <!-- Thông báo Toast -->
+  <div class="toast-popup" id="toast">
+    <i class="fa-solid fa-check-circle"></i>
+    <span>Đã sao chép liên kết tải về!</span>
+  </div>
+
+  <script>
+    // Link JSON trực tiếp từ kho GitHub Pages hoặc fallback RAW link
+    const DATA_URL = './data.json';
+    const RAW_URL = 'https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/data.json';
+
+    let filesData = [];
+    let iconsMap = {};
+    let currentFilter = 'all';
+
+    // Elements
+    const appsGrid = document.getElementById('appsGrid');
+    const searchInput = document.getElementById('searchInput');
+    const pillButtons = document.querySelectorAll('.pill-btn');
+    const statFiles = document.getElementById('statFiles');
+    const statDownloads = document.getElementById('statDownloads');
+    const themeToggle = document.getElementById('themeToggle');
+    const toast = document.getElementById('toast');
+
+    // ================= XỬ LÝ SÁNG / TỐI =================
+    function initTheme() {
+      const saved = localStorage.getItem('nvc-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = saved || (prefersDark ? 'dark' : 'light');
+      
+      document.documentElement.setAttribute('data-theme', theme);
+      updateThemeIcon(theme);
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('nvc-theme', next);
+      updateThemeIcon(next);
+    }
+
+    function updateThemeIcon(theme) {
+      themeToggle.innerHTML = theme === 'dark' 
+        ? '<i class="fa-solid fa-sun" style="color: #f59e0b;"></i>' 
+        : '<i class="fa-solid fa-moon" style="color: #6366f1;"></i>';
+    }
+
+    themeToggle.addEventListener('click', toggleTheme);
+
+    // ================= HELPER FUNCTIONS =================
+    function formatBytes(bytes) {
+      if (!bytes || bytes === 0) return '0 B';
+      const k = 1024;
+      const sizes = ['B', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return (bytes / Math.pow(k, i)).toFixed(1) + ' ' + sizes[i];
+    }
+
+    function getFileType(fileName) {
+      const ext = fileName.split('.').pop().toLowerCase();
+      if (ext === 'apk') return 'apk';
+      if (['exe', 'msi'].includes(ext)) return 'windows';
+      if (['zip', 'rar', '7z', 'tar', 'gz'].includes(ext)) return 'archive';
+      return 'other';
+    }
+
+    // Tự động chọn icon và màu sắc cho từng loại
+    function getFileVisuals(fileName) {
+      const type = getFileType(fileName);
+      
+      // Kiểm tra trong object icons map
+      const cleanName = fileName.toLowerCase();
+      for (const [key, url] of Object.entries(iconsMap)) {
+        const keyBase = key.toLowerCase().split('.')[0];
+        if (cleanName.includes(keyBase)) {
+          return {
+            avatarHtml: `<img src="${url}" alt="${fileName}">`,
+            type: type
+          };
+        }
+      }
+
+      // Nếu không có ảnh icon riêng, dùng FontAwesome theo định dạng
+      switch(type) {
+        case 'apk':
+          return {
+            avatarHtml: `<i class="fa-brands fa-android" style="color: #10b981;"></i>`,
+            type: 'apk'
+          };
+        case 'windows':
+          return {
+            avatarHtml: `<i class="fa-brands fa-windows" style="color: #0284c7;"></i>`,
+            type: 'windows'
+          };
+        case 'archive':
+          return {
+            avatarHtml: `<i class="fa-solid fa-file-zipper" style="color: #f59e0b;"></i>`,
+            type: 'archive'
+          };
+        default:
+          return {
+            avatarHtml: `<i class="fa-solid fa-cube" style="color: #8b5cf6;"></i>`,
+            type: 'other'
+          };
+      }
+    }
+
+    // Tự động render nút tải về phù hợp với file
+    function getDownloadButton(item) {
+      const type = getFileType(item.file_name);
+      let btnClass = 'btn-dl-generic';
+      let icon = 'fa-solid fa-download';
+      let label = 'Tải Xuống';
+
+      if (type === 'apk') {
+        btnClass = 'btn-dl-apk';
+        icon = 'fa-brands fa-android';
+        label = 'Cài đặt APK';
+      } else if (type === 'windows') {
+        btnClass = 'btn-dl-windows';
+        icon = 'fa-brands fa-windows';
+        label = 'Tải cho PC';
+      } else if (type === 'archive') {
+        btnClass = 'btn-dl-archive';
+        icon = 'fa-solid fa-file-zipper';
+        label = 'Tải file nén';
+      }
+
+      return `
+        <a href="${item.download_url}" class="btn-dl ${btnClass}" target="_blank" rel="noopener noreferrer">
+          <i class="${icon}"></i> ${label}
+        </a>
+      `;
+    }
+
+    function showToast() {
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
+
+    function copyToClipboard(url) {
+      navigator.clipboard.writeText(url).then(showToast);
+    }
+
+    // ================= HIỂN THỊ DANH SÁCH =================
+    function renderApps() {
+      const q = searchInput.value.toLowerCase().trim();
+
+      const filtered = filesData.filter(item => {
+        const name = (item.file_name || '').toLowerCase();
+        const tag = (item.release_tag || '').toLowerCase();
+        const title = (item.release_title || '').toLowerCase();
+        const matchesQuery = name.includes(q) || tag.includes(q) || title.includes(q);
+
+        const type = getFileType(item.file_name);
+        const matchesFilter = (currentFilter === 'all') || (type === currentFilter);
+
+        return matchesQuery && matchesFilter;
+      });
+
+      if (filtered.length === 0) {
+        appsGrid.innerHTML = `
+          <div class="empty-state">
+            <i class="fa-solid fa-box-open"></i>
+            <p>Không tìm thấy bản tải nào phù hợp yêu cầu.</p>
+          </div>
+        `;
+        return;
+      }
+
+      appsGrid.innerHTML = filtered.map(item => {
+        const visuals = getFileVisuals(item.file_name);
+        const dlBtn = getDownloadButton(item);
+        const sizeStr = formatBytes(item.size_bytes);
+        const dlCount = item.download_count || 0;
+
+        return `
+          <div class="app-card">
+            <div>
+              <div class="card-top">
+                <div class="app-avatar">
+                  ${visuals.avatarHtml}
+                </div>
+                <div class="app-meta">
+                  <div class="app-title" title="${item.file_name}">${item.file_name}</div>
+                  <div class="app-tags-row">
+                    <span class="badge-version">${item.release_tag || 'v1.0'}</span>
+                    <span class="badge-cat">${visuals.type.toUpperCase()}</span>
+                  </div>
+                  <div class="app-release-title">${item.release_title || 'Bản phát hành chính thức'}</div>
+                </div>
+              </div>
+
+              <div class="file-specs">
+                <div class="spec-item" title="Kích thước tệp">
+                  <i class="fa-solid fa-hard-drive"></i>
+                  <span>${sizeStr}</span>
+                </div>
+                <div class="spec-item" title="Tổng lượt tải xuống">
+                  <i class="fa-solid fa-cloud-arrow-down"></i>
+                  <span>${dlCount.toLocaleString()} lượt</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card-actions">
+              ${dlBtn}
+              <button class="btn-icon-action" title="Sao chép link tải trực tiếp" onclick="copyToClipboard('${item.download_url}')">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // ================= TẢI DỮ LIỆU TỪ DATA.JSON =================
+    async function fetchData() {
+      try {
+        let res;
+        try {
+          res = await fetch(`${DATA_URL}?v=${Date.now()}`);
+          if (!res.ok) throw new Error();
+        } catch {
+          res = await fetch(`${RAW_URL}?v=${Date.now()}`);
+        }
+
+        const data = await res.json();
+        filesData = data.files || [];
+        iconsMap = data.icons || {};
+
+        // Cập nhật thống kê
+        statFiles.innerText = filesData.length;
+        const totalDl = filesData.reduce((acc, curr) => acc + (curr.download_count || 0), 0);
+        statDownloads.innerText = totalDl.toLocaleString();
+
+        renderApps();
+      } catch (e) {
+        appsGrid.innerHTML = `
+          <div class="empty-state">
+            <i class="fa-solid fa-triangle-exclamation" style="color: #ef4444;"></i>
+            <p>Không thể tải dữ liệu từ data.json.<br>Hãy chắc chắn file data.json đã được commit trên nhánh main.</p>
+          </div>
+        `;
+      }
+    }
+
+    // ================= SỰ KIỆN =================
+    searchInput.addEventListener('input', renderApps);
+
+    pillButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        pillButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        renderApps();
+      });
+    });
+
+    // Khởi tạo
+    initTheme();
+    fetchData();
+  </script>
 </body>
 </html>
