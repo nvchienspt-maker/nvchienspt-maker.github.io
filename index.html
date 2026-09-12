@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi" data-theme="dark">
+<html lang="vi" data-theme="dark" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,8 +12,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-    /* ================= CẤU HÌNH THEME SÁNG / TỐI ================= */
-    :root[data-theme="dark"] {
+    /* ================= CẤU HÌNH THEME (TỐI & SÁNG) ================= */
+    :root,
+    [data-theme="dark"],
+    html.dark,
+    body.dark-theme {
       --bg-body: #0a0e17;
       --bg-header: rgba(16, 23, 38, 0.85);
       --bg-card: #131b2e;
@@ -29,7 +32,9 @@
       --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
     }
 
-    :root[data-theme="light"] {
+    [data-theme="light"],
+    html.light,
+    body.light-theme {
       --bg-body: #f8fafc;
       --bg-header: rgba(255, 255, 255, 0.85);
       --bg-card: #ffffff;
@@ -49,7 +54,6 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      transition: background-color 0.25s ease, border-color 0.25s ease;
     }
 
     body {
@@ -60,6 +64,7 @@
       display: flex;
       flex-direction: column;
       overflow-x: hidden;
+      transition: background-color 0.25s ease, color 0.25s ease;
     }
 
     /* ================= HEADER ================= */
@@ -72,6 +77,7 @@
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-color);
       padding: 14px 24px;
+      transition: background-color 0.25s ease, border-color 0.25s ease;
     }
 
     .nav-container {
@@ -134,7 +140,7 @@
       align-items: center;
       justify-content: center;
       font-size: 16px;
-      transition: transform 0.2s, border-color 0.2s;
+      transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.25s ease;
     }
 
     .theme-toggle-btn:hover {
@@ -160,12 +166,14 @@
       align-items: center;
       justify-content: space-between;
       gap: 24px;
+      transition: border-color 0.25s ease;
     }
 
     .hero-text h2 {
       font-size: 24px;
       font-weight: 800;
       margin-bottom: 6px;
+      color: var(--text-main);
     }
 
     .hero-text p {
@@ -188,6 +196,7 @@
       text-align: center;
       min-width: 110px;
       box-shadow: var(--shadow-card);
+      transition: background-color 0.25s ease, border-color 0.25s ease;
     }
 
     .stat-badge .stat-num {
@@ -238,7 +247,7 @@
       align-items: center;
       gap: 6px;
       white-space: nowrap;
-      transition: all 0.2s;
+      transition: all 0.2s ease;
     }
 
     .pill-btn:hover, .pill-btn.active {
@@ -274,7 +283,7 @@
       font-size: 14px;
       font-family: inherit;
       outline: none;
-      transition: all 0.2s;
+      transition: all 0.2s ease;
     }
 
     .search-input-group input:focus {
@@ -306,7 +315,7 @@
       flex-direction: column;
       justify-content: space-between;
       box-shadow: var(--shadow-card);
-      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.25s ease;
     }
 
     .app-card:hover {
@@ -322,7 +331,6 @@
       margin-bottom: 16px;
     }
 
-    /* KHUNG ICON: Định dạng vuông tròn, căn giữa tuyệt đối */
     .app-avatar {
       width: 58px;
       height: 58px;
@@ -334,6 +342,7 @@
       justify-content: center;
       flex-shrink: 0;
       overflow: hidden;
+      transition: background-color 0.25s ease, border-color 0.25s ease;
     }
 
     .app-avatar img {
@@ -390,7 +399,7 @@
       font-size: 11px;
       font-weight: 500;
       color: var(--text-muted);
-      background: rgba(148, 163, 184, 0.1);
+      background: rgba(148, 163, 184, 0.12);
       padding: 2px 6px;
       border-radius: 4px;
       max-width: 140px;
@@ -502,7 +511,7 @@
       align-items: center;
       justify-content: center;
       font-size: 15px;
-      transition: all 0.2s;
+      transition: all 0.2s ease;
     }
 
     .btn-icon-action:hover {
@@ -522,7 +531,6 @@
       margin-bottom: 12px;
     }
 
-    /* Toast */
     .toast-popup {
       position: fixed;
       bottom: 28px;
@@ -555,6 +563,7 @@
       text-align: center;
       font-size: 13px;
       color: var(--text-muted);
+      transition: background-color 0.25s ease, border-color 0.25s ease;
     }
 
     @media (max-width: 640px) {
@@ -564,8 +573,9 @@
     }
   </style>
 </head>
-<body>
+<body class="dark-theme">
 
+  <!-- Thanh tiêu đề -->
   <header>
     <div class="nav-container">
       <a href="#" class="brand">
@@ -577,13 +587,15 @@
       </a>
 
       <div class="header-actions">
-        <button class="theme-toggle-btn" id="themeToggle" title="Chuyển chế độ Sáng / Tối">
-          <i class="fa-solid fa-moon"></i>
+        <!-- Nút chuyển đổi sáng/tối gắn sẵn onclick trực tiếp -->
+        <button type="button" class="theme-toggle-btn" id="themeToggle" onclick="toggleTheme()" title="Chuyển chế độ Sáng / Tối">
+          <i class="fa-solid fa-sun" style="color: #f59e0b;"></i>
         </button>
       </div>
     </div>
   </header>
 
+  <!-- Banner thông tin -->
   <div class="hero-section">
     <div class="hero-box">
       <div class="hero-text">
@@ -603,6 +615,7 @@
     </div>
   </div>
 
+  <!-- Bộ lọc & Tìm kiếm -->
   <div class="controls-wrapper">
     <div class="category-pills">
       <button class="pill-btn active" data-filter="all"><i class="fa-solid fa-border-all"></i> Tất cả</button>
@@ -617,6 +630,7 @@
     </div>
   </div>
 
+  <!-- Danh sách ứng dụng -->
   <main>
     <div class="apps-grid" id="appsGrid">
       <div class="empty-state">
@@ -651,33 +665,65 @@
     const themeToggle = document.getElementById('themeToggle');
     const toast = document.getElementById('toast');
 
-    // ================= XỬ LÝ SÁNG / TỐI =================
-    function initTheme() {
-      const saved = localStorage.getItem('nvc-theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const theme = saved || (prefersDark ? 'dark' : 'light');
-      
+    // ================= XỬ LÝ SÁNG / TỐI AN TOÀN TUYỆT ĐỐI =================
+    function applyTheme(theme) {
+      const isDark = (theme === 'dark');
+
+      // 1. Gán cả attribute lẫn class cho thẻ HTML và BODY (đảm bảo tương thích mọi trình duyệt)
       document.documentElement.setAttribute('data-theme', theme);
-      updateThemeIcon(theme);
+      document.body.setAttribute('data-theme', theme);
+
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('light');
+        document.body.classList.add('dark-theme');
+        document.body.classList.remove('light-theme');
+      } else {
+        document.documentElement.classList.add('light');
+        document.documentElement.classList.remove('dark');
+        document.body.classList.add('light-theme');
+        document.body.classList.remove('dark-theme');
+      }
+
+      // 2. Cập nhật Icon nút bấm
+      if (themeToggle) {
+        themeToggle.innerHTML = isDark 
+          ? '<i class="fa-solid fa-sun" style="color: #f59e0b;"></i>' 
+          : '<i class="fa-solid fa-moon" style="color: #4f46e5;"></i>';
+      }
+
+      // 3. Lưu cấu hình an toàn (chống lỗi SecurityError khi mở dạng file cục bộ)
+      try {
+        localStorage.setItem('nvc-theme', theme);
+      } catch (e) {}
     }
 
     function toggleTheme() {
-      const current = document.documentElement.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('nvc-theme', next);
-      updateThemeIcon(next);
+      const current = document.documentElement.getAttribute('data-theme') || 'dark';
+      const nextTheme = (current === 'dark') ? 'light' : 'dark';
+      applyTheme(nextTheme);
+    }
+    // Gán vào window để HTML onclick luôn tìm thấy
+    window.toggleTheme = toggleTheme;
+
+    function initTheme() {
+      let saved = null;
+      try {
+        saved = localStorage.getItem('nvc-theme');
+      } catch (e) {}
+
+      let preferred = 'dark';
+      try {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+          preferred = 'light';
+        }
+      } catch (e) {}
+
+      const activeTheme = saved || preferred;
+      applyTheme(activeTheme);
     }
 
-    function updateThemeIcon(theme) {
-      themeToggle.innerHTML = theme === 'dark' 
-        ? '<i class="fa-solid fa-sun" style="color: #f59e0b;"></i>' 
-        : '<i class="fa-solid fa-moon" style="color: #6366f1;"></i>';
-    }
-
-    themeToggle.addEventListener('click', toggleTheme);
-
-    // ================= HÀM XỬ LÝ LỖI ICON (TRÁNH XUNG ĐỘT DẤU NGOẶC) =================
+    // ================= XỬ LÝ LỖI ICON DỰ PHÒNG =================
     window.handleIconError = function(imgElement, type) {
       let iconHtml = '';
       switch(type) {
@@ -861,7 +907,6 @@
       }
 
       appsGrid.innerHTML = filtered.map(item => {
-        // Ưu tiên hiển thị item.name, nếu không có mới dùng file_name
         const appName = item.name || item.file_name || 'Ứng dụng';
         const fileName = item.file_name || '';
         const visuals = getFileVisuals(fileName, appName);
@@ -869,7 +914,6 @@
         const sizeStr = formatBytes(item.size_bytes);
         const dlCount = item.download_count || 0;
 
-        // Hiển thị file_name phụ nếu có item.name riêng biệt
         const hasCustomName = item.name && item.file_name && item.name !== item.file_name;
 
         return `
@@ -954,6 +998,7 @@
       });
     });
 
+    // Khởi tạo theme trước, sau đó nạp dữ liệu
     initTheme();
     fetchData();
   </script>
