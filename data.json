@@ -1,9 +1,8 @@
 {
   "repository": "nvchienspt-maker/nvchienspt-maker.github.io",
   "total_files": 36,
-  "total_icons": 47,
+  "total_icons": 45,
   "icons": {
-    "app-NVC.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-NVC.png",
     "app-adb.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-adb.png",
     "app-chophim.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-chophim.png",
     "app-coccoc.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-coccoc.png",
@@ -11,7 +10,6 @@
     "app-fptplay.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-fptplay.png",
     "app-get-out.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-get-out.png",
     "app-getout.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-getout.png",
-    "app-googletv-ytb.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-googletv-ytb.png",
     "app-googletvytb.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-googletvytb.png",
     "app-hbomax.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-hbomax.png",
     "app-imou.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-imou.png",
