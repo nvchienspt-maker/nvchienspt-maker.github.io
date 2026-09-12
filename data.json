@@ -113,7 +113,7 @@
     {
       "name": "Get Out",
       "version": "",
-      "group": "Xem Phim",
+      "group": "Truyền Hình",
       "release_tag": "v1.0.1",
       "release_title": "Upload bởi NVC",
       "file_name": "getout_v2End.apk",
@@ -295,7 +295,7 @@
     {
       "name": "QuanTV",
       "version": "",
-      "group": "Xem Phim",
+      "group": "Truyền Hình",
       "release_tag": "v1.0.1",
       "release_title": "Upload bởi NVC",
       "file_name": "quantv_v250921.apk",
@@ -373,7 +373,7 @@
     {
       "name": "TV360",
       "version": "5.4",
-      "group": "Xem Phim",
+      "group": "Truyền Hình",
       "release_tag": "v1.0.1",
       "release_title": "Upload bởi NVC",
       "file_name": "tv360_v5.4.apk",
