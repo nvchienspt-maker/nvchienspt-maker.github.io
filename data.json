@@ -1,7 +1,7 @@
 {
   "repository": "nvchienspt-maker/nvchienspt-maker.github.io",
   "total_files": 36,
-  "total_icons": 41,
+  "total_icons": 47,
   "icons": {
     "app-NVC.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-NVC.png",
     "app-adb.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-adb.png",
@@ -12,6 +12,7 @@
     "app-get-out.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-get-out.png",
     "app-getout.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-getout.png",
     "app-googletv-ytb.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-googletv-ytb.png",
+    "app-googletvytb.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-googletvytb.png",
     "app-hbomax.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-hbomax.png",
     "app-imou.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-imou.png",
     "app-kiki.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-kiki.png",
@@ -20,6 +21,7 @@
     "app-mytv.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-mytv.png",
     "app-netflix.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-netflix.png",
     "app-nvcmovie.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-nvcmovie.png",
+    "app-nvcphim.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-nvcphim.png",
     "app-nvctivi.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-nvctivi.png",
     "app-phim4k.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-phim4k.png",
     "app-project.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-project.png",
@@ -29,11 +31,13 @@
     "app-smarttube.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-smarttube.png",
     "app-supervoice.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-supervoice.png",
     "app-tiktok-lite.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-tiktok-lite.png",
+    "app-tiktoklite.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-tiktoklite.png",
     "app-tv360.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-tv360.png",
     "app-tvbro.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-tvbro.png",
     "app-vapptv.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-vapptv.png",
     "app-vietmitv-voicey.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-vietmitv-voicey.png",
     "app-vietmitv.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-vietmitv.png",
+    "app-vietmitvvoicey.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-vietmitvvoicey.png",
     "app-vietplaytv.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-vietplaytv.png",
     "app-vtvgo.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-vtvgo.png",
     "app-vtvprime.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-vtvprime.png",
@@ -42,7 +46,9 @@
     "app-yoosee.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-yoosee.png",
     "app-ytb-TQ.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-ytb-TQ.png",
     "app-ytb.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-ytb.png",
+    "app-ytbTQ.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-ytbTQ.png",
     "app-ytb_tizen.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-ytb_tizen.png",
+    "app-ytbtizen.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-ytbtizen.png",
     "nvcstore.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/nvcstore.png"
   },
   "files": [
@@ -307,7 +313,7 @@
       "published_at": "2026-09-12T08:43:44Z"
     },
     {
-      "name": "Sài Gòn Phim",
+      "name": "saigonphim",
       "version": "1.7",
       "group": "Xem Phim",
       "release_tag": "v1.0.1",
@@ -502,7 +508,7 @@
       "published_at": "2026-09-12T08:43:44Z"
     },
     {
-      "name": "ytbTQ",
+      "name": "YouTube XiaomiTV Nội Địa",
       "version": "1.0.8",
       "group": "Giải Trí",
       "release_tag": "v1.0.1",
