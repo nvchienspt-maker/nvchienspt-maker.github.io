@@ -88,11 +88,15 @@ jobs:
           }
 
           def get_app_display_name(file_name):
-              stem = os.path.splitext(file_name)[0].lower()
+              stem = os.path.splitext(file_name)[0]
+              # Lấy đoạn đầu của tên app trước dấu '_' (ví dụ: chophim_v1.1.0.apk -> chophim)
+              app_key = stem.split('_')[0].strip().lower()
+              if app_key in APP_NAMES:
+                  return APP_NAMES[app_key]
               for key in sorted(APP_NAMES.keys(), key=len, reverse=True):
-                  if stem.startswith(key):
+                  if stem.lower().startswith(key):
                       return APP_NAMES[key]
-              return os.path.splitext(file_name)[0]
+              return stem.split('_')[0].strip()
 
           def get_app_group(file_name):
               stem = os.path.splitext(file_name)[0].lower()
