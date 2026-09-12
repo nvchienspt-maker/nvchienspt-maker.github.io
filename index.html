@@ -5,14 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NVC Store - Kho Ứng Dụng</title>
   
-  <!-- Font chữ & Icon -->
+  <!-- Font chữ Plus Jakarta Sans & Icon FontAwesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-    /* ================= CẤU HÌNH THEME ================= */
+    /* ================= CẤU HÌNH THEME SÁNG / TỐI ================= */
     :root[data-theme="dark"] {
       --bg-body: #0a0e17;
       --bg-header: rgba(16, 23, 38, 0.85);
@@ -53,7 +53,7 @@
     }
 
     body {
-      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--bg-body);
       color: var(--text-main);
       min-height: 100vh;
@@ -122,7 +122,6 @@
       gap: 12px;
     }
 
-    /* Nút Đổi Theme */
     .theme-toggle-btn {
       width: 42px;
       height: 42px;
@@ -135,7 +134,7 @@
       align-items: center;
       justify-content: center;
       font-size: 16px;
-      transition: all 0.2s;
+      transition: transform 0.2s, border-color 0.2s;
     }
 
     .theme-toggle-btn:hover {
@@ -143,7 +142,7 @@
       transform: rotate(15deg);
     }
 
-    /* ================= HERO BANNER ================= */
+    /* ================= HERO SECTION ================= */
     .hero-section {
       max-width: 1200px;
       margin: 28px auto 0;
@@ -155,7 +154,7 @@
       background: linear-gradient(135deg, rgba(59,130,246,0.12) 0%, rgba(139,92,246,0.08) 100%);
       border: 1px solid var(--border-color);
       border-radius: 20px;
-      padding: 32px;
+      padding: 28px 32px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -164,15 +163,15 @@
     }
 
     .hero-text h2 {
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 800;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     .hero-text p {
       color: var(--text-muted);
       font-size: 14px;
-      max-width: 520px;
+      max-width: 540px;
       line-height: 1.5;
     }
 
@@ -184,7 +183,7 @@
     .stat-badge {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
-      padding: 14px 20px;
+      padding: 12px 20px;
       border-radius: 14px;
       text-align: center;
       min-width: 110px;
@@ -219,40 +218,6 @@
       gap: 16px;
     }
 
-    .search-input-group {
-      position: relative;
-      flex: 1;
-      max-width: 440px;
-      min-width: 260px;
-    }
-
-    .search-input-group i {
-      position: absolute;
-      left: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-dim);
-      font-size: 15px;
-    }
-
-    .search-input-group input {
-      width: 100%;
-      padding: 12px 16px 12px 44px;
-      background: var(--input-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      color: var(--text-main);
-      font-size: 14px;
-      font-family: inherit;
-      outline: none;
-      transition: all 0.2s;
-    }
-
-    .search-input-group input:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px var(--primary-glow);
-    }
-
     .category-pills {
       display: flex;
       gap: 8px;
@@ -283,7 +248,41 @@
       box-shadow: 0 4px 12px var(--primary-glow);
     }
 
-    /* ================= DANH SÁCH APP (GRID) ================= */
+    .search-input-group {
+      position: relative;
+      flex: 1;
+      max-width: 420px;
+      min-width: 260px;
+    }
+
+    .search-input-group i {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-dim);
+      font-size: 14px;
+    }
+
+    .search-input-group input {
+      width: 100%;
+      padding: 11px 16px 11px 44px;
+      background: var(--input-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      color: var(--text-main);
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .search-input-group input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px var(--primary-glow);
+    }
+
+    /* ================= GRID DANH SÁCH ================= */
     main {
       max-width: 1200px;
       margin: 24px auto 40px;
@@ -302,13 +301,12 @@
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 18px;
-      padding: 22px;
+      padding: 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       box-shadow: var(--shadow-card);
       transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-      position: relative;
     }
 
     .app-card:hover {
@@ -396,7 +394,6 @@
       overflow: hidden;
     }
 
-    /* Thông số file */
     .file-specs {
       display: flex;
       align-items: center;
@@ -424,7 +421,7 @@
 
     .btn-dl {
       flex: 1;
-      padding: 11px 16px;
+      padding: 10px 16px;
       border-radius: 12px;
       font-size: 14px;
       font-weight: 700;
@@ -435,10 +432,9 @@
       gap: 8px;
       cursor: pointer;
       border: none;
-      transition: all 0.2s ease;
+      transition: transform 0.2s ease, background-color 0.2s ease;
     }
 
-    /* Style theo từng loại file */
     .btn-dl-apk {
       background: #10b981;
       color: #ffffff;
@@ -480,8 +476,8 @@
     }
 
     .btn-icon-action {
-      width: 44px;
-      height: 44px;
+      width: 42px;
+      height: 42px;
       border-radius: 12px;
       border: 1px solid var(--border-color);
       background: var(--input-bg);
@@ -499,7 +495,6 @@
       color: var(--primary);
     }
 
-    /* Trạng thái trống */
     .empty-state {
       grid-column: 1 / -1;
       text-align: center;
@@ -556,7 +551,7 @@
 </head>
 <body>
 
-  <!-- Thanh tiêu đề (Header) -->
+  <!-- Thanh tiêu đề -->
   <header>
     <div class="nav-container">
       <a href="#" class="brand">
@@ -568,20 +563,19 @@
       </a>
 
       <div class="header-actions">
-        <!-- Nút chuyển Giao diện Sáng / Tối -->
-        <button class="theme-toggle-btn" id="themeToggle" title="Đổi chế độ Sáng / Tối">
+        <button class="theme-toggle-btn" id="themeToggle" title="Chuyển chế độ Sáng / Tối">
           <i class="fa-solid fa-moon"></i>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Banner thống kê nhanh -->
+  <!-- Banner thông tin -->
   <div class="hero-section">
     <div class="hero-box">
       <div class="hero-text">
         <h2>Khám phá & Tải ứng dụng</h2>
-        <p>Các ứng dụng, công cụ và bản cài đặt được xây dựng và cập nhật trực tiếp qua GitHub Releases.</p>
+        <p>Kho lưu trữ phần mềm, bản dựng Android APK và công cụ được đồng bộ trực tiếp từ GitHub Releases.</p>
       </div>
       <div class="stats-container">
         <div class="stat-badge">
@@ -596,7 +590,7 @@
     </div>
   </div>
 
-  <!-- Bộ lọc danh mục & Tìm kiếm -->
+  <!-- Bộ lọc & Tìm kiếm -->
   <div class="controls-wrapper">
     <div class="category-pills">
       <button class="pill-btn active" data-filter="all"><i class="fa-solid fa-border-all"></i> Tất cả</button>
@@ -607,25 +601,25 @@
 
     <div class="search-input-group">
       <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="text" id="searchInput" placeholder="Tìm kiếm ứng dụng hoặc phiên bản...">
+      <input type="text" id="searchInput" placeholder="Tìm kiếm ứng dụng, phiên bản...">
     </div>
   </div>
 
-  <!-- Danh sách App -->
+  <!-- Vùng danh sách thẻ ứng dụng -->
   <main>
     <div class="apps-grid" id="appsGrid">
       <div class="empty-state">
         <i class="fa-solid fa-circle-notch fa-spin"></i>
-        <p>Đang tải danh sách ứng dụng từ GitHub...</p>
+        <p>Đang tải dữ liệu từ GitHub...</p>
       </div>
     </div>
   </main>
 
   <footer>
-    &copy; 2026 NVC Store &bull; Nền tảng phân phối phát triển bởi <strong>nvchienspt-maker</strong>
+    &copy; 2026 NVC Store &bull; Phân phối trực tiếp qua GitHub Pages
   </footer>
 
-  <!-- Thông báo Toast -->
+  <!-- Toast phản hồi -->
   <div class="toast-popup" id="toast">
     <i class="fa-solid fa-check-circle"></i>
     <span>Đã sao chép liên kết tải về!</span>
@@ -640,7 +634,7 @@
     let iconsMap = {};
     let currentFilter = 'all';
 
-    // Elements
+    // DOM Elements
     const appsGrid = document.getElementById('appsGrid');
     const searchInput = document.getElementById('searchInput');
     const pillButtons = document.querySelectorAll('.pill-btn');
@@ -649,7 +643,7 @@
     const themeToggle = document.getElementById('themeToggle');
     const toast = document.getElementById('toast');
 
-    // ================= XỬ LÝ SÁNG / TỐI =================
+    // ================= XỬ LÝ THEME SÁNG / TỐI =================
     function initTheme() {
       const saved = localStorage.getItem('nvc-theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -692,62 +686,91 @@
       return 'other';
     }
 
-    function getFileVisuals(fileName) {
-  const type = getFileType(fileName);
-  const cleanFileName = (fileName || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+    // ================= THUẬT TOÁN SO KHỚP ICON THÔNG MINH =================
+    // Khớp app-adb.png với adb.apk, adb-release.apk,...
+    function findBestMatchingIcon(fileName, iconsMap) {
+      if (!iconsMap || Object.keys(iconsMap).length === 0) return null;
 
-  let matchedIconUrl = null;
+      // Chuẩn hóa tên file ứng dụng
+      const cleanAppName = (fileName || '').toLowerCase().replace(/\.[^/.]+$/, "");
+      const strippedAppName = cleanAppName
+        .replace(/^(app|icon|logo|img)[-_]/, '')
+        .replace(/([-_](release|debug|universal|arm64|v\d+.*))$/, '');
 
-  // 1. So khớp thông minh theo tên file (loại bỏ gạch ngang, gạch dưới, khoảng trắng)
-  for (const [key, url] of Object.entries(iconsMap)) {
-    const keyBase = key.toLowerCase().split('.')[0].replace(/[^a-z0-9]/g, '');
-    if (keyBase && (cleanFileName.includes(keyBase) || keyBase.includes(cleanFileName))) {
-      matchedIconUrl = url;
-      break;
+      const appTokens = strippedAppName.split(/[-_.\s]+/).filter(t => t.length >= 2);
+
+      let bestMatchUrl = null;
+      let highestScore = 0;
+
+      for (const [iconFile, url] of Object.entries(iconsMap)) {
+        let score = 0;
+        const cleanIconName = iconFile.toLowerCase().replace(/\.[^/.]+$/, "");
+        const strippedIconName = cleanIconName.replace(/^(app|icon|logo|img)[-_]/, '');
+
+        // 1. Khớp hoàn toàn sau khi bỏ tiền tố (app-adb == adb)
+        if (strippedIconName === strippedAppName || cleanIconName === cleanAppName) {
+          score += 100;
+        }
+        // 2. Tên icon nằm trọn trong tên app (adb nằm trong adb-release)
+        else if (cleanAppName.includes(strippedIconName)) {
+          score += 60 + strippedIconName.length * 2;
+        }
+        // 3. Tên app nằm trọn trong tên icon (adb nằm trong app-adb)
+        else if (cleanIconName.includes(strippedAppName)) {
+          score += 50 + strippedAppName.length * 2;
+        }
+
+        // 4. Khớp theo từng từ khóa
+        const iconTokens = strippedIconName.split(/[-_.\s]+/).filter(t => t.length >= 2);
+        for (const token of iconTokens) {
+          if (appTokens.includes(token)) {
+            score += 25;
+          }
+        }
+
+        if (score > highestScore) {
+          highestScore = score;
+          bestMatchUrl = url;
+        }
+      }
+
+      return highestScore >= 25 ? bestMatchUrl : null;
     }
-  }
 
-  // 2. Nếu không khớp tên: Tự động lấy icon có tên logo/icon/app/default, hoặc lấy luôn icon đầu tiên có trong kho
-  if (!matchedIconUrl && Object.keys(iconsMap).length > 0) {
-    const keys = Object.keys(iconsMap);
-    const defaultKey = keys.find(k => {
-      const lower = k.toLowerCase();
-      return lower.includes('logo') || lower.includes('icon') || lower.includes('app') || lower.includes('default');
-    });
-    matchedIconUrl = defaultKey ? iconsMap[defaultKey] : iconsMap[keys[0]];
-  }
+    // Lấy giao diện hiển thị cho Icon
+    function getFileVisuals(fileName) {
+      const type = getFileType(fileName);
+      const matchedIconUrl = findBestMatchingIcon(fileName, iconsMap);
 
-  // 3. Biểu tượng dự phòng FontAwesome tương ứng từng hệ máy
-  let fallbackHtml = '';
-  switch(type) {
-    case 'apk':
-      fallbackHtml = '<i class="fa-brands fa-android" style="color: #10b981;"></i>';
-      break;
-    case 'windows':
-      fallbackHtml = '<i class="fa-brands fa-windows" style="color: #0284c7;"></i>';
-      break;
-    case 'archive':
-      fallbackHtml = '<i class="fa-solid fa-file-zipper" style="color: #f59e0b;"></i>';
-      break;
-    default:
-      fallbackHtml = '<i class="fa-solid fa-cube" style="color: #8b5cf6;"></i>';
-  }
+      let fallbackHtml = '';
+      switch(type) {
+        case 'apk':
+          fallbackHtml = '<i class="fa-brands fa-android" style="color: #10b981;"></i>';
+          break;
+        case 'windows':
+          fallbackHtml = '<i class="fa-brands fa-windows" style="color: #0284c7;"></i>';
+          break;
+        case 'archive':
+          fallbackHtml = '<i class="fa-solid fa-file-zipper" style="color: #f59e0b;"></i>';
+          break;
+        default:
+          fallbackHtml = '<i class="fa-solid fa-cube" style="color: #8b5cf6;"></i>';
+      }
 
-  // 4. Trả về thẻ img có gắn onerror (tự chuyển sang biểu tượng nếu link ảnh bị lỗi mạng)
-  if (matchedIconUrl) {
-    return {
-      avatarHtml: `<img src="${matchedIconUrl}" alt="${fileName}" onerror="this.onerror=null; this.parentElement.innerHTML='${fallbackHtml}';">`,
-      type: type
-    };
-  }
+      if (matchedIconUrl) {
+        return {
+          avatarHtml: `<img src="${matchedIconUrl}" alt="${fileName}" onerror="this.onerror=null; this.parentElement.innerHTML='${fallbackHtml}';">`,
+          type: type
+        };
+      }
 
-  return {
-    avatarHtml: fallbackHtml,
-    type: type
-  };
-}
+      return {
+        avatarHtml: fallbackHtml,
+        type: type
+      };
+    }
 
-    // Tự động render nút tải về phù hợp với file
+    // Nút tải theo định dạng file
     function getDownloadButton(item) {
       const type = getFileType(item.file_name);
       let btnClass = 'btn-dl-generic';
@@ -784,7 +807,7 @@
       navigator.clipboard.writeText(url).then(showToast);
     }
 
-    // ================= HIỂN THỊ DANH SÁCH =================
+    // ================= RENDER GIAO DIỆN =================
     function renderApps() {
       const q = searchInput.value.toLowerCase().trim();
 
@@ -804,7 +827,7 @@
         appsGrid.innerHTML = `
           <div class="empty-state">
             <i class="fa-solid fa-box-open"></i>
-            <p>Không tìm thấy bản tải nào phù hợp yêu cầu.</p>
+            <p>Không tìm thấy ứng dụng hoặc file phù hợp.</p>
           </div>
         `;
         return;
@@ -829,7 +852,7 @@
                     <span class="badge-version">${item.release_tag || 'v1.0'}</span>
                     <span class="badge-cat">${visuals.type.toUpperCase()}</span>
                   </div>
-                  <div class="app-release-title">${item.release_title || 'Bản phát hành chính thức'}</div>
+                  <div class="app-release-title">${item.release_title || 'Bản phát hành GitHub'}</div>
                 </div>
               </div>
 
@@ -887,7 +910,7 @@
       }
     }
 
-    // ================= SỰ KIỆN =================
+    // ================= LẮNG NGHE SỰ KIỆN =================
     searchInput.addEventListener('input', renderApps);
 
     pillButtons.forEach(btn => {
@@ -899,7 +922,7 @@
       });
     });
 
-    // Khởi tạo
+    // Khởi chạy
     initTheme();
     fetchData();
   </script>
