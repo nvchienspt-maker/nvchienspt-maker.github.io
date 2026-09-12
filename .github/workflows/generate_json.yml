@@ -46,46 +46,36 @@ jobs:
               "Accept": "application/vnd.github.v3+json"
           }
 
-          # Bảng ánh xạ tên hiển thị cập nhật theo danh sách ứng dụng Store
-          APP_NAMES = {
-              "adb": "Việt Xiaomi ADB Terminal",
-              "chophim": "Chợ Phim",
-              "coccoc": "Trình duyệt Cốc Cốc TV",
-              "ezviz": "EZVIZ Camera",
-              "fptplay": "FPT Play",
-              "getout": "Get Out",
-              "hbomax": "HBO Max",
-              "imou": "Imou Camera",
-              "kiki": "Giọng nói Kiki",
-              "mapvoice": "MapVoice",
-              "mstore": "MStore2",
-              "mytv": "MyTV",
-              "netflix": "Netflix",
-              "nvcphim": "NVC Phim",
-              "nvcmovie": "NVC Movie",
-              "nvctivi": "NVC Tivi",
-              "nvcstore": "NVC Store",
-              "phim4k": "Phim4K",
-              "project": "Projectivy Launcher",
-              "quantv": "QuanTV",
-              "rapphim": "Rạp Phim",
-              "saigonphim": "Sài Gòn Phim",
-              "smarttube": "SmartTube Stable",
-              "supervoice": "Super Voice",
-              "tiktok": "TikTok AndroidTV",
-              "tv360": "TV360",
-              "tvbro": "Trình duyệt TV Bro",
-              "vapp": "VAppTV",
-              "vietmitv99": "VietMITV Gán Phím",
-              "vietmitv": "VietMITV",
-              "vietplaytv": "VietPlayTV",
-              "vtvgo": "VTV Go",
-              "vtvprime": "VTV Prime",
-              "vxmstore": "Việt Xiaomi Store",
-              "yoosee": "Yoosee Camera",
-              "ytbtizen": "Tizen Tube GoogleTV",
-              "ytbTQ": "YouTube XiaomiTV Nội Địa"
-          }
+          # Tải bảng ánh xạ tên hiển thị từ file app_name.txt online
+          APP_NAMES = {}
+          APP_NAMES_URL = "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/refs/heads/main/files/app_name.txt"
+          try:
+              res_names = requests.get(APP_NAMES_URL, timeout=15)
+              if res_names.status_code == 200:
+                  content = res_names.text.strip()
+                  # Thử parse JSON hoặc Python dictionary
+                  try:
+                      parsed = json.loads(content)
+                  except Exception:
+                      try:
+                          import ast
+                          parsed = ast.literal_eval(content)
+                      except Exception:
+                          # Đọc theo từng dòng nếu là dạng text thuần (key: value, key = value hoặc key|value)
+                          parsed = {}
+                          for line in content.splitlines():
+                              line = line.strip()
+                              if not line or line.startswith("#"):
+                                  continue
+                              for sep in [":", "=", "|"]:
+                                  if sep in line:
+                                      k, v = line.split(sep, 1)
+                                      parsed[k.strip().strip('"\'').lower()] = v.strip().strip('"\',')
+                                      break
+                  if isinstance(parsed, dict):
+                      APP_NAMES = {str(k).strip().lower(): str(v).strip() for k, v in parsed.items()}
+          except Exception as e:
+              print(f"Cảnh báo: Không thể tải app_name.txt ({e})")
 
           def get_app_display_name(file_name):
               stem = os.path.splitext(file_name)[0]
