@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NVC Store - Kho Ứng Dụng</title>
+  <title>NVC Store - Kho Ứng Dụng & Bản Dựng</title>
   
   <!-- Font chữ Plus Jakarta Sans & Icon FontAwesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -317,15 +317,16 @@
 
     .card-top {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       gap: 16px;
       margin-bottom: 16px;
     }
 
+    /* KHUNG ICON: Định dạng vuông tròn, căn giữa tuyệt đối */
     .app-avatar {
-      width: 60px;
-      height: 60px;
-      border-radius: 16px;
+      width: 58px;
+      height: 58px;
+      border-radius: 14px;
       background: var(--input-bg);
       border: 1px solid var(--border-color);
       display: flex;
@@ -339,10 +340,11 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
     .app-avatar i {
-      font-size: 26px;
+      font-size: 28px;
     }
 
     .app-meta {
@@ -351,7 +353,7 @@
     }
 
     .app-title {
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 700;
       color: var(--text-main);
       white-space: nowrap;
@@ -382,6 +384,19 @@
       font-size: 11px;
       font-weight: 600;
       color: var(--text-dim);
+    }
+
+    .badge-filename {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      background: rgba(148, 163, 184, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+      max-width: 140px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .app-release-title {
@@ -551,7 +566,6 @@
 </head>
 <body>
 
-  <!-- Thanh tiêu đề -->
   <header>
     <div class="nav-container">
       <a href="#" class="brand">
@@ -570,7 +584,6 @@
     </div>
   </header>
 
-  <!-- Banner thông tin -->
   <div class="hero-section">
     <div class="hero-box">
       <div class="hero-text">
@@ -590,7 +603,6 @@
     </div>
   </div>
 
-  <!-- Bộ lọc & Tìm kiếm -->
   <div class="controls-wrapper">
     <div class="category-pills">
       <button class="pill-btn active" data-filter="all"><i class="fa-solid fa-border-all"></i> Tất cả</button>
@@ -601,11 +613,10 @@
 
     <div class="search-input-group">
       <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="text" id="searchInput" placeholder="Tìm kiếm ứng dụng, phiên bản...">
+      <input type="text" id="searchInput" placeholder="Tìm tên ứng dụng, file APK...">
     </div>
   </div>
 
-  <!-- Vùng danh sách thẻ ứng dụng -->
   <main>
     <div class="apps-grid" id="appsGrid">
       <div class="empty-state">
@@ -619,14 +630,12 @@
     &copy; 2026 NVC Store &bull; Phân phối trực tiếp qua GitHub Pages
   </footer>
 
-  <!-- Toast phản hồi -->
   <div class="toast-popup" id="toast">
     <i class="fa-solid fa-check-circle"></i>
     <span>Đã sao chép liên kết tải về!</span>
   </div>
 
   <script>
-    // Link JSON trực tiếp từ kho GitHub Pages hoặc fallback RAW link
     const DATA_URL = './data.json';
     const RAW_URL = 'https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/data.json';
 
@@ -634,7 +643,6 @@
     let iconsMap = {};
     let currentFilter = 'all';
 
-    // DOM Elements
     const appsGrid = document.getElementById('appsGrid');
     const searchInput = document.getElementById('searchInput');
     const pillButtons = document.querySelectorAll('.pill-btn');
@@ -643,7 +651,7 @@
     const themeToggle = document.getElementById('themeToggle');
     const toast = document.getElementById('toast');
 
-    // ================= XỬ LÝ THEME SÁNG / TỐI =================
+    // ================= XỬ LÝ SÁNG / TỐI =================
     function initTheme() {
       const saved = localStorage.getItem('nvc-theme');
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -669,7 +677,25 @@
 
     themeToggle.addEventListener('click', toggleTheme);
 
-    // ================= HELPER FUNCTIONS =================
+    // ================= HÀM XỬ LÝ LỖI ICON (TRÁNH XUNG ĐỘT DẤU NGOẶC) =================
+    window.handleIconError = function(imgElement, type) {
+      let iconHtml = '';
+      switch(type) {
+        case 'apk':
+          iconHtml = '<i class="fa-brands fa-android" style="color: #10b981;"></i>';
+          break;
+        case 'windows':
+          iconHtml = '<i class="fa-brands fa-windows" style="color: #0284c7;"></i>';
+          break;
+        case 'archive':
+          iconHtml = '<i class="fa-solid fa-file-zipper" style="color: #f59e0b;"></i>';
+          break;
+        default:
+          iconHtml = '<i class="fa-solid fa-cube" style="color: #8b5cf6;"></i>';
+      }
+      imgElement.parentElement.innerHTML = iconHtml;
+    };
+
     function formatBytes(bytes) {
       if (!bytes || bytes === 0) return '0 B';
       const k = 1024;
@@ -679,52 +705,54 @@
     }
 
     function getFileType(fileName) {
-      const ext = fileName.split('.').pop().toLowerCase();
+      const ext = (fileName || '').split('.').pop().toLowerCase();
       if (ext === 'apk') return 'apk';
       if (['exe', 'msi'].includes(ext)) return 'windows';
       if (['zip', 'rar', '7z', 'tar', 'gz'].includes(ext)) return 'archive';
       return 'other';
     }
 
-    // ================= THUẬT TOÁN SO KHỚP ICON THÔNG MINH =================
-    // Khớp app-adb.png với adb.apk, adb-release.apk,...
-    function findBestMatchingIcon(fileName, iconsMap) {
+    // ================= SO KHỚP ICON THÔNG MINH =================
+    function removeAccents(str) {
+      return (str || '').normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/đ/g, "d").replace(/Đ/g, "D");
+    }
+
+    function findBestMatchingIcon(fileName, appName, iconsMap) {
       if (!iconsMap || Object.keys(iconsMap).length === 0) return null;
 
-      // Chuẩn hóa tên file ứng dụng
-      const cleanAppName = (fileName || '').toLowerCase().replace(/\.[^/.]+$/, "");
-      const strippedAppName = cleanAppName
-        .replace(/^(app|icon|logo|img)[-_]/, '')
-        .replace(/([-_](release|debug|universal|arm64|v\d+.*))$/, '');
-
-      const appTokens = strippedAppName.split(/[-_.\s]+/).filter(t => t.length >= 2);
+      const candidates = [
+        (fileName || '').toLowerCase().replace(/\.[^/.]+$/, ""),
+        (appName || '').toLowerCase()
+      ];
 
       let bestMatchUrl = null;
       let highestScore = 0;
 
       for (const [iconFile, url] of Object.entries(iconsMap)) {
         let score = 0;
-        const cleanIconName = iconFile.toLowerCase().replace(/\.[^/.]+$/, "");
+        const cleanIconName = removeAccents(iconFile.toLowerCase().replace(/\.[^/.]+$/, ""));
         const strippedIconName = cleanIconName.replace(/^(app|icon|logo|img)[-_]/, '');
-
-        // 1. Khớp hoàn toàn sau khi bỏ tiền tố (app-adb == adb)
-        if (strippedIconName === strippedAppName || cleanIconName === cleanAppName) {
-          score += 100;
-        }
-        // 2. Tên icon nằm trọn trong tên app (adb nằm trong adb-release)
-        else if (cleanAppName.includes(strippedIconName)) {
-          score += 60 + strippedIconName.length * 2;
-        }
-        // 3. Tên app nằm trọn trong tên icon (adb nằm trong app-adb)
-        else if (cleanIconName.includes(strippedAppName)) {
-          score += 50 + strippedAppName.length * 2;
-        }
-
-        // 4. Khớp theo từng từ khóa
         const iconTokens = strippedIconName.split(/[-_.\s]+/).filter(t => t.length >= 2);
-        for (const token of iconTokens) {
-          if (appTokens.includes(token)) {
-            score += 25;
+
+        for (const rawTarget of candidates) {
+          const target = removeAccents(rawTarget);
+          const strippedTarget = target
+            .replace(/^(app|icon|logo|img)[-_]/, '')
+            .replace(/([-_](release|debug|universal|arm64|v\d+.*))$/, '');
+          const targetTokens = strippedTarget.split(/[-_.\s]+/).filter(t => t.length >= 2);
+
+          if (strippedIconName === strippedTarget || cleanIconName === target) {
+            score = Math.max(score, 100);
+          } else if (target.includes(strippedIconName)) {
+            score = Math.max(score, 60 + strippedIconName.length * 2);
+          } else if (cleanIconName.includes(strippedTarget)) {
+            score = Math.max(score, 50 + strippedTarget.length * 2);
+          }
+
+          for (const token of iconTokens) {
+            if (targetTokens.includes(token)) {
+              score = Math.max(score, 30);
+            }
           }
         }
 
@@ -737,10 +765,16 @@
       return highestScore >= 25 ? bestMatchUrl : null;
     }
 
-    // Lấy giao diện hiển thị cho Icon
-    function getFileVisuals(fileName) {
+    function getFileVisuals(fileName, appName) {
       const type = getFileType(fileName);
-      const matchedIconUrl = findBestMatchingIcon(fileName, iconsMap);
+      const matchedIconUrl = findBestMatchingIcon(fileName, appName, iconsMap);
+
+      if (matchedIconUrl) {
+        return {
+          avatarHtml: `<img src="${matchedIconUrl}" alt="${appName}" onerror="handleIconError(this, '${type}')">`,
+          type: type
+        };
+      }
 
       let fallbackHtml = '';
       switch(type) {
@@ -757,20 +791,12 @@
           fallbackHtml = '<i class="fa-solid fa-cube" style="color: #8b5cf6;"></i>';
       }
 
-      if (matchedIconUrl) {
-        return {
-          avatarHtml: `<img src="${matchedIconUrl}" alt="${fileName}" onerror="this.onerror=null; this.parentElement.innerHTML='${fallbackHtml}';">`,
-          type: type
-        };
-      }
-
       return {
         avatarHtml: fallbackHtml,
         type: type
       };
     }
 
-    // Nút tải theo định dạng file
     function getDownloadButton(item) {
       const type = getFileType(item.file_name);
       let btnClass = 'btn-dl-generic';
@@ -812,11 +838,12 @@
       const q = searchInput.value.toLowerCase().trim();
 
       const filtered = filesData.filter(item => {
-        const name = (item.file_name || '').toLowerCase();
+        const appName = (item.name || '').toLowerCase();
+        const fileName = (item.file_name || '').toLowerCase();
         const tag = (item.release_tag || '').toLowerCase();
         const title = (item.release_title || '').toLowerCase();
-        const matchesQuery = name.includes(q) || tag.includes(q) || title.includes(q);
 
+        const matchesQuery = appName.includes(q) || fileName.includes(q) || tag.includes(q) || title.includes(q);
         const type = getFileType(item.file_name);
         const matchesFilter = (currentFilter === 'all') || (type === currentFilter);
 
@@ -827,17 +854,23 @@
         appsGrid.innerHTML = `
           <div class="empty-state">
             <i class="fa-solid fa-box-open"></i>
-            <p>Không tìm thấy ứng dụng hoặc file phù hợp.</p>
+            <p>Không tìm thấy ứng dụng phù hợp yêu cầu.</p>
           </div>
         `;
         return;
       }
 
       appsGrid.innerHTML = filtered.map(item => {
-        const visuals = getFileVisuals(item.file_name);
+        // Ưu tiên hiển thị item.name, nếu không có mới dùng file_name
+        const appName = item.name || item.file_name || 'Ứng dụng';
+        const fileName = item.file_name || '';
+        const visuals = getFileVisuals(fileName, appName);
         const dlBtn = getDownloadButton(item);
         const sizeStr = formatBytes(item.size_bytes);
         const dlCount = item.download_count || 0;
+
+        // Hiển thị file_name phụ nếu có item.name riêng biệt
+        const hasCustomName = item.name && item.file_name && item.name !== item.file_name;
 
         return `
           <div class="app-card">
@@ -847,12 +880,13 @@
                   ${visuals.avatarHtml}
                 </div>
                 <div class="app-meta">
-                  <div class="app-title" title="${item.file_name}">${item.file_name}</div>
+                  <div class="app-title" title="${appName}">${appName}</div>
                   <div class="app-tags-row">
                     <span class="badge-version">${item.release_tag || 'v1.0'}</span>
                     <span class="badge-cat">${visuals.type.toUpperCase()}</span>
+                    ${hasCustomName ? `<span class="badge-filename" title="${fileName}">${fileName}</span>` : ''}
                   </div>
-                  <div class="app-release-title">${item.release_title || 'Bản phát hành GitHub'}</div>
+                  <div class="app-release-title">${item.release_title || 'Bản phát hành chính thức'}</div>
                 </div>
               </div>
 
@@ -870,7 +904,7 @@
 
             <div class="card-actions">
               ${dlBtn}
-              <button class="btn-icon-action" title="Sao chép link tải trực tiếp" onclick="copyToClipboard('${item.download_url}')">
+              <button class="btn-icon-action" title="Sao chép link tải" onclick="copyToClipboard('${item.download_url}')">
                 <i class="fa-regular fa-copy"></i>
               </button>
             </div>
@@ -879,7 +913,7 @@
       }).join('');
     }
 
-    // ================= TẢI DỮ LIỆU TỪ DATA.JSON =================
+    // ================= NẠP DỮ LIỆU JSON =================
     async function fetchData() {
       try {
         let res;
@@ -894,7 +928,6 @@
         filesData = data.files || [];
         iconsMap = data.icons || {};
 
-        // Cập nhật thống kê
         statFiles.innerText = filesData.length;
         const totalDl = filesData.reduce((acc, curr) => acc + (curr.download_count || 0), 0);
         statDownloads.innerText = totalDl.toLocaleString();
@@ -904,13 +937,12 @@
         appsGrid.innerHTML = `
           <div class="empty-state">
             <i class="fa-solid fa-triangle-exclamation" style="color: #ef4444;"></i>
-            <p>Không thể tải dữ liệu từ data.json.<br>Hãy chắc chắn file data.json đã được commit trên nhánh main.</p>
+            <p>Không thể tải dữ liệu từ data.json.<br>Vui lòng kiểm tra lại file data.json trên nhánh main.</p>
           </div>
         `;
       }
     }
 
-    // ================= LẮNG NGHE SỰ KIỆN =================
     searchInput.addEventListener('input', renderApps);
 
     pillButtons.forEach(btn => {
@@ -922,7 +954,6 @@
       });
     });
 
-    // Khởi chạy
     initTheme();
     fetchData();
   </script>
