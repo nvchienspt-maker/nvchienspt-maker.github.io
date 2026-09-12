@@ -1,0 +1,106 @@
+name: Generate Files and Icons JSON
+
+on:
+  release:
+    types: [published, edited, deleted]
+  push:
+    branches:
+      - main
+    paths:
+      - 'icons/**'             # Chạy khi có icon mới được upload/thay đổi
+  workflow_dispatch:          # Cho phép bấm nút chạy thủ công bất kỳ lúc nào
+
+jobs:
+  build-json:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install requests
+        run: pip install requests
+
+      - name: Generate data.json
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO_NAME: ${{ github.repository }}
+        run: |
+          python - << 'EOF'
+          import os
+          import json
+          import requests
+
+          token = os.environ.get("GITHUB_TOKEN")
+          repo = os.environ.get("REPO_NAME")
+          headers = {
+              "Authorization": f"Bearer {token}",
+              "Accept": "application/vnd.github.v3+json"
+          }
+
+          # 1. Lấy toàn bộ assets từ tất cả Releases
+          releases_url = f"https://api.github.com/repos/{repo}/releases"
+          res = requests.get(releases_url, headers=headers)
+          releases_data = res.json() if res.status_code == 200 else []
+
+          files_list = []
+          for rel in releases_data:
+              tag_name = rel.get("tag_name")
+              release_name = rel.get("name") or tag_name
+              published_at = rel.get("published_at")
+              
+              for asset in rel.get("assets", []):
+                  files_list.append({
+                      "release_tag": tag_name,
+                      "release_title": release_name,
+                      "file_name": asset.get("name"),
+                      "size_bytes": asset.get("size"),
+                      "download_count": asset.get("download_count"),
+                      "download_url": asset.get("browser_download_url"),
+                      "created_at": asset.get("created_at"),
+                      "published_at": published_at
+                  })
+
+          # 2. Quét link các file icon trong thư mục 'icons'
+          # Hỗ trợ lấy link CDN raw trực tiếp
+          icons_dict = {}
+          icon_dir = "icons"
+          valid_exts = (".png", ".jpg", ".jpeg", ".svg", ".webp", ".ico")
+
+          if os.path.exists(icon_dir):
+              for root, _, files in os.walk(icon_dir):
+                  for f in sorted(files):
+                      if f.lower().endswith(valid_exts):
+                          rel_path = os.path.relpath(os.path.join(root, f), ".")
+                          # Link raw trực tiếp từ GitHub
+                          raw_url = f"https://raw.githubusercontent.com/{repo}/main/{rel_path}"
+                          icons_dict[f] = raw_url
+
+          # 3. Ghi dữ liệu ra file data.json
+          output = {
+              "repository": repo,
+              "total_files": len(files_list),
+              "total_icons": len(icons_dict),
+              "icons": icons_dict,
+              "files": files_list
+          }
+
+          with open("data.json", "w", encoding="utf-8") as f:
+              json.dump(output, f, ensure_ascii=False, indent=2)
+
+          print(f"Done! Exported {len(files_list)} files and {len(icons_dict)} icons.")
+          EOF
+
+      - name: Commit and Push data.json
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update data.json" && git push)
