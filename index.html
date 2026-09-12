@@ -231,7 +231,8 @@
       display: flex;
       gap: 8px;
       overflow-x: auto;
-      padding-bottom: 4px;
+      padding-bottom: 6px;
+      max-width: 100%;
     }
 
     .pill-btn {
@@ -291,13 +292,61 @@
       box-shadow: 0 0 0 3px var(--primary-glow);
     }
 
-    /* ================= GRID DANH SÁCH ================= */
+    /* ================= CẤU TRÚC PHÂN NHÓM (GROUPS) ================= */
     main {
       max-width: 1200px;
       margin: 24px auto 40px;
       padding: 0 24px;
       width: 100%;
       flex: 1;
+    }
+
+    .group-section {
+      margin-bottom: 36px;
+    }
+
+    .group-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .group-header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .group-icon-tag {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: var(--pill-bg);
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 15px;
+    }
+
+    .group-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.3px;
+    }
+
+    .group-count {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--pill-bg);
+      padding: 4px 10px;
+      border-radius: 12px;
     }
 
     .apps-grid {
@@ -520,10 +569,10 @@
     }
 
     .empty-state {
-      grid-column: 1 / -1;
       text-align: center;
       padding: 60px 20px;
       color: var(--text-muted);
+      width: 100%;
     }
     .empty-state i {
       font-size: 42px;
@@ -575,7 +624,6 @@
 </head>
 <body class="dark-theme">
 
-  <!-- Thanh tiêu đề -->
   <header>
     <div class="nav-container">
       <a href="#" class="brand">
@@ -587,7 +635,6 @@
       </a>
 
       <div class="header-actions">
-        <!-- Nút chuyển đổi sáng/tối gắn sẵn onclick trực tiếp -->
         <button type="button" class="theme-toggle-btn" id="themeToggle" onclick="toggleTheme()" title="Chuyển chế độ Sáng / Tối">
           <i class="fa-solid fa-sun" style="color: #f59e0b;"></i>
         </button>
@@ -595,12 +642,11 @@
     </div>
   </header>
 
-  <!-- Banner thông tin -->
   <div class="hero-section">
     <div class="hero-box">
       <div class="hero-text">
         <h2>Khám phá & Tải ứng dụng</h2>
-        <p>Kho lưu trữ phần mềm, bản dựng Android APK và công cụ được đồng bộ trực tiếp từ GitHub Releases.</p>
+        <p>Kho lưu trữ phần mềm, bản dựng Android APK và công cụ được phân nhóm và đồng bộ trực tiếp từ GitHub Releases.</p>
       </div>
       <div class="stats-container">
         <div class="stat-badge">
@@ -615,13 +661,10 @@
     </div>
   </div>
 
-  <!-- Bộ lọc & Tìm kiếm -->
   <div class="controls-wrapper">
-    <div class="category-pills">
+    <!-- Danh sách các tab nhóm sinh tự động -->
+    <div class="category-pills" id="categoryPills">
       <button class="pill-btn active" data-filter="all"><i class="fa-solid fa-border-all"></i> Tất cả</button>
-      <button class="pill-btn" data-filter="apk"><i class="fa-brands fa-android"></i> Android</button>
-      <button class="pill-btn" data-filter="windows"><i class="fa-brands fa-windows"></i> Windows</button>
-      <button class="pill-btn" data-filter="archive"><i class="fa-solid fa-box-archive"></i> File nén</button>
     </div>
 
     <div class="search-input-group">
@@ -630,13 +673,11 @@
     </div>
   </div>
 
-  <!-- Danh sách ứng dụng -->
-  <main>
-    <div class="apps-grid" id="appsGrid">
-      <div class="empty-state">
-        <i class="fa-solid fa-circle-notch fa-spin"></i>
-        <p>Đang tải dữ liệu từ GitHub...</p>
-      </div>
+  <!-- Vùng chứa các nhóm ứng dụng -->
+  <main id="mainContent">
+    <div class="empty-state">
+      <i class="fa-solid fa-circle-notch fa-spin"></i>
+      <p>Đang tải dữ liệu từ GitHub...</p>
     </div>
   </main>
 
@@ -657,19 +698,18 @@
     let iconsMap = {};
     let currentFilter = 'all';
 
-    const appsGrid = document.getElementById('appsGrid');
+    const mainContent = document.getElementById('mainContent');
+    const categoryPills = document.getElementById('categoryPills');
     const searchInput = document.getElementById('searchInput');
-    const pillButtons = document.querySelectorAll('.pill-btn');
     const statFiles = document.getElementById('statFiles');
     const statDownloads = document.getElementById('statDownloads');
     const themeToggle = document.getElementById('themeToggle');
     const toast = document.getElementById('toast');
 
-    // ================= XỬ LÝ SÁNG / TỐI AN TOÀN TUYỆT ĐỐI =================
+    // ================= XỬ LÝ THEME SÁNG / TỐI =================
     function applyTheme(theme) {
       const isDark = (theme === 'dark');
 
-      // 1. Gán cả attribute lẫn class cho thẻ HTML và BODY (đảm bảo tương thích mọi trình duyệt)
       document.documentElement.setAttribute('data-theme', theme);
       document.body.setAttribute('data-theme', theme);
 
@@ -685,14 +725,12 @@
         document.body.classList.remove('dark-theme');
       }
 
-      // 2. Cập nhật Icon nút bấm
       if (themeToggle) {
         themeToggle.innerHTML = isDark 
           ? '<i class="fa-solid fa-sun" style="color: #f59e0b;"></i>' 
           : '<i class="fa-solid fa-moon" style="color: #4f46e5;"></i>';
       }
 
-      // 3. Lưu cấu hình an toàn (chống lỗi SecurityError khi mở dạng file cục bộ)
       try {
         localStorage.setItem('nvc-theme', theme);
       } catch (e) {}
@@ -703,7 +741,6 @@
       const nextTheme = (current === 'dark') ? 'light' : 'dark';
       applyTheme(nextTheme);
     }
-    // Gán vào window để HTML onclick luôn tìm thấy
     window.toggleTheme = toggleTheme;
 
     function initTheme() {
@@ -719,8 +756,7 @@
         }
       } catch (e) {}
 
-      const activeTheme = saved || preferred;
-      applyTheme(activeTheme);
+      applyTheme(saved || preferred);
     }
 
     // ================= XỬ LÝ LỖI ICON DỰ PHÒNG =================
@@ -879,25 +915,76 @@
       navigator.clipboard.writeText(url).then(showToast);
     }
 
-    // ================= RENDER GIAO DIỆN =================
-    function renderApps() {
+    // ================= XỬ LÝ ĐỘ ƯU TIÊN VÀ ICON CHO GROUP =================
+    // Cho các nhóm "Xem TV", "Xem phim" lên đầu danh sách
+    function getGroupPriority(groupName) {
+      const g = (groupName || '').toLowerCase().trim();
+      if (g.includes('tv') || g.includes('truyền hình')) return 1;
+      if (g.includes('phim') || g.includes('movie') || g.includes('cinema')) return 2;
+      if (g.includes('media') || g.includes('video')) return 3;
+      if (g.includes('công cụ') || g.includes('tiện ích') || g.includes('tool')) return 4;
+      if (g === 'khác' || g === 'other' || !g) return 999;
+      return 10;
+    }
+
+    function getGroupIcon(groupName) {
+      const g = (groupName || '').toLowerCase().trim();
+      if (g.includes('tv') || g.includes('truyền hình')) return 'fa-solid fa-tv';
+      if (g.includes('phim') || g.includes('movie')) return 'fa-solid fa-film';
+      if (g.includes('công cụ') || g.includes('tiện ích')) return 'fa-solid fa-wrench';
+      if (g.includes('nhạc') || g.includes('audio')) return 'fa-solid fa-music';
+      if (g.includes('game') || g.includes('trò chơi')) return 'fa-solid fa-gamepad';
+      return 'fa-solid fa-layer-group';
+    }
+
+    // Tạo thanh tab bộ lọc động từ danh sách nhóm
+    function updateCategoryPills(groups) {
+      let pillsHtml = `
+        <button class="pill-btn ${currentFilter === 'all' ? 'active' : ''}" data-filter="all">
+          <i class="fa-solid fa-border-all"></i> Tất cả
+        </button>
+      `;
+
+      groups.forEach(groupName => {
+        const icon = getGroupIcon(groupName);
+        const isActive = (currentFilter === groupName) ? 'active' : '';
+        pillsHtml += `
+          <button class="pill-btn ${isActive}" data-filter="${groupName}">
+            <i class="${icon}"></i> ${groupName}
+          </button>
+        `;
+      });
+
+      categoryPills.innerHTML = pillsHtml;
+
+      // Gán sự kiện click cho các tab
+      categoryPills.querySelectorAll('.pill-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          categoryPills.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentFilter = btn.dataset.filter;
+          renderGroups();
+        });
+      });
+    }
+
+    // ================= RENDER CÁC NHÓM ỨNG DỤNG =================
+    function renderGroups() {
       const q = searchInput.value.toLowerCase().trim();
 
+      // 1. Lọc theo từ khóa tìm kiếm
       const filtered = filesData.filter(item => {
         const appName = (item.name || '').toLowerCase();
         const fileName = (item.file_name || '').toLowerCase();
         const tag = (item.release_tag || '').toLowerCase();
         const title = (item.release_title || '').toLowerCase();
+        const group = (item.group || '').toLowerCase();
 
-        const matchesQuery = appName.includes(q) || fileName.includes(q) || tag.includes(q) || title.includes(q);
-        const type = getFileType(item.file_name);
-        const matchesFilter = (currentFilter === 'all') || (type === currentFilter);
-
-        return matchesQuery && matchesFilter;
+        return appName.includes(q) || fileName.includes(q) || tag.includes(q) || title.includes(q) || group.includes(q);
       });
 
       if (filtered.length === 0) {
-        appsGrid.innerHTML = `
+        mainContent.innerHTML = `
           <div class="empty-state">
             <i class="fa-solid fa-box-open"></i>
             <p>Không tìm thấy ứng dụng phù hợp yêu cầu.</p>
@@ -906,58 +993,113 @@
         return;
       }
 
-      appsGrid.innerHTML = filtered.map(item => {
-        const appName = item.name || item.file_name || 'Ứng dụng';
-        const fileName = item.file_name || '';
-        const visuals = getFileVisuals(fileName, appName);
-        const dlBtn = getDownloadButton(item);
-        const sizeStr = formatBytes(item.size_bytes);
-        const dlCount = item.download_count || 0;
+      // 2. Gom nhóm ứng dụng theo biến "group"
+      const groupedData = {};
+      filtered.forEach(item => {
+        const groupName = (item.group && item.group.trim()) ? item.group.trim() : 'Ứng dụng khác';
+        if (!groupedData[groupName]) {
+          groupedData[groupName] = [];
+        }
+        groupedData[groupName].push(item);
+      });
 
-        const hasCustomName = item.name && item.file_name && item.name !== item.file_name;
+      // 3. Sắp xếp danh sách nhóm: Đưa "Xem TV", "Xem phim" lên đầu
+      const sortedGroupKeys = Object.keys(groupedData).sort((a, b) => {
+        const pA = getGroupPriority(a);
+        const pB = getGroupPriority(b);
+        if (pA !== pB) return pA - pB;
+        return a.localeCompare(b, 'vi');
+      });
 
-        return `
-          <div class="app-card">
-            <div>
-              <div class="card-top">
-                <div class="app-avatar">
-                  ${visuals.avatarHtml}
-                </div>
-                <div class="app-meta">
-                  <div class="app-title" title="${appName}">${appName}</div>
-                  <div class="app-tags-row">
-                    <span class="badge-version">${item.release_tag || 'v1.0'}</span>
-                    <span class="badge-cat">${visuals.type.toUpperCase()}</span>
-                    ${hasCustomName ? `<span class="badge-filename" title="${fileName}">${fileName}</span>` : ''}
-                  </div>
-                  <div class="app-release-title">${item.release_title || 'Bản phát hành chính thức'}</div>
-                </div>
-              </div>
+      // 4. Lọc theo Tab đã chọn
+      const displayGroups = (currentFilter === 'all') 
+        ? sortedGroupKeys 
+        : sortedGroupKeys.filter(g => g === currentFilter);
 
-              <div class="file-specs">
-                <div class="spec-item" title="Kích thước tệp">
-                  <i class="fa-solid fa-hard-drive"></i>
-                  <span>${sizeStr}</span>
-                </div>
-                <div class="spec-item" title="Tổng lượt tải xuống">
-                  <i class="fa-solid fa-cloud-arrow-down"></i>
-                  <span>${dlCount.toLocaleString()} lượt</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="card-actions">
-              ${dlBtn}
-              <button class="btn-icon-action" title="Sao chép link tải" onclick="copyToClipboard('${item.download_url}')">
-                <i class="fa-regular fa-copy"></i>
-              </button>
-            </div>
+      if (displayGroups.length === 0) {
+        mainContent.innerHTML = `
+          <div class="empty-state">
+            <i class="fa-solid fa-box-open"></i>
+            <p>Không có ứng dụng nào trong nhóm này.</p>
           </div>
         `;
-      }).join('');
+        return;
+      }
+
+      // 5. Kết xuất HTML từng nhóm
+      let html = '';
+      displayGroups.forEach(groupName => {
+        const items = groupedData[groupName];
+        const groupIcon = getGroupIcon(groupName);
+
+        html += `
+          <section class="group-section">
+            <div class="group-header">
+              <div class="group-header-left">
+                <div class="group-icon-tag"><i class="${groupIcon}"></i></div>
+                <h3 class="group-title">${groupName}</h3>
+              </div>
+              <span class="group-count">${items.length} ứng dụng</span>
+            </div>
+
+            <div class="apps-grid">
+              ${items.map(item => {
+                const appName = item.name || item.file_name || 'Ứng dụng';
+                const fileName = item.file_name || '';
+                const visuals = getFileVisuals(fileName, appName);
+                const dlBtn = getDownloadButton(item);
+                const sizeStr = formatBytes(item.size_bytes);
+                const dlCount = item.download_count || 0;
+                const hasCustomName = item.name && item.file_name && item.name !== item.file_name;
+
+                return `
+                  <div class="app-card">
+                    <div>
+                      <div class="card-top">
+                        <div class="app-avatar">
+                          ${visuals.avatarHtml}
+                        </div>
+                        <div class="app-meta">
+                          <div class="app-title" title="${appName}">${appName}</div>
+                          <div class="app-tags-row">
+                            <span class="badge-version">${item.release_tag || 'v1.0'}</span>
+                            <span class="badge-cat">${visuals.type.toUpperCase()}</span>
+                            ${hasCustomName ? `<span class="badge-filename" title="${fileName}">${fileName}</span>` : ''}
+                          </div>
+                          <div class="app-release-title">${item.release_title || 'Bản phát hành chính thức'}</div>
+                        </div>
+                      </div>
+
+                      <div class="file-specs">
+                        <div class="spec-item" title="Kích thước tệp">
+                          <i class="fa-solid fa-hard-drive"></i>
+                          <span>${sizeStr}</span>
+                        </div>
+                        <div class="spec-item" title="Tổng lượt tải xuống">
+                          <i class="fa-solid fa-cloud-arrow-down"></i>
+                          <span>${dlCount.toLocaleString()} lượt</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card-actions">
+                      ${dlBtn}
+                      <button class="btn-icon-action" title="Sao chép link tải" onclick="copyToClipboard('${item.download_url}')">
+                        <i class="fa-regular fa-copy"></i>
+                      </button>
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </section>
+        `;
+      });
+
+      mainContent.innerHTML = html;
     }
 
-    // ================= NẠP DỮ LIỆU JSON =================
+    // ================= NẠP DỮ LIỆU DATA.JSON =================
     async function fetchData() {
       try {
         let res;
@@ -976,9 +1118,26 @@
         const totalDl = filesData.reduce((acc, curr) => acc + (curr.download_count || 0), 0);
         statDownloads.innerText = totalDl.toLocaleString();
 
-        renderApps();
+        // Thu thập các nhóm duy nhất và tạo tab
+        const allGroups = new Set();
+        filesData.forEach(item => {
+          if (item.group && item.group.trim()) {
+            allGroups.add(item.group.trim());
+          }
+        });
+
+        // Sắp xếp các tab theo thứ tự ưu tiên
+        const sortedPillGroups = Array.from(allGroups).sort((a, b) => {
+          const pA = getGroupPriority(a);
+          const pB = getGroupPriority(b);
+          if (pA !== pB) return pA - pB;
+          return a.localeCompare(b, 'vi');
+        });
+
+        updateCategoryPills(sortedPillGroups);
+        renderGroups();
       } catch (e) {
-        appsGrid.innerHTML = `
+        mainContent.innerHTML = `
           <div class="empty-state">
             <i class="fa-solid fa-triangle-exclamation" style="color: #ef4444;"></i>
             <p>Không thể tải dữ liệu từ data.json.<br>Vui lòng kiểm tra lại file data.json trên nhánh main.</p>
@@ -987,18 +1146,8 @@
       }
     }
 
-    searchInput.addEventListener('input', renderApps);
+    searchInput.addEventListener('input', renderGroups);
 
-    pillButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        pillButtons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentFilter = btn.dataset.filter;
-        renderApps();
-      });
-    });
-
-    // Khởi tạo theme trước, sau đó nạp dữ liệu
     initTheme();
     fetchData();
   </script>
