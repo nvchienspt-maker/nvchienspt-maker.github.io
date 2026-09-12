@@ -229,7 +229,7 @@
       "published_at": "2026-09-12T08:43:44Z"
     },
     {
-      "name": "NVC_Movie_v3.5.3",
+      "name": "NVC",
       "version": "3.5.3",
       "group": "Ứng Dụng TV",
       "release_tag": "v1.0.1",
@@ -242,7 +242,7 @@
       "published_at": "2026-09-12T08:43:44Z"
     },
     {
-      "name": "NVC_Tivi2_v1.1.2",
+      "name": "NVC",
       "version": "1.1.2",
       "group": "Ứng Dụng TV",
       "release_tag": "v1.0.1",
@@ -307,7 +307,7 @@
       "published_at": "2026-09-12T08:43:44Z"
     },
     {
-      "name": "saigonphim_v1.7",
+      "name": "Sài Gòn Phim",
       "version": "1.7",
       "group": "Xem Phim",
       "release_tag": "v1.0.1",
@@ -489,7 +489,7 @@
       "published_at": "2026-09-12T08:43:44Z"
     },
     {
-      "name": "YouTube XiaomiTV Nội Địa",
+      "name": "ytb-TQ",
       "version": "1.0.8",
       "group": "Giải Trí",
       "release_tag": "v1.0.1",
@@ -502,7 +502,7 @@
       "published_at": "2026-09-12T08:43:44Z"
     },
     {
-      "name": "YouTube XiaomiTV Nội Địa",
+      "name": "Tizen Tube GoogleTV",
       "version": "1.0.8",
       "group": "Giải Trí",
       "release_tag": "v1.0.1",
