@@ -1,7 +1,7 @@
 {
   "repository": "nvchienspt-maker/nvchienspt-maker.github.io",
   "total_files": 36,
-  "total_icons": 45,
+  "total_icons": 43,
   "icons": {
     "app-adb.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-adb.png",
     "app-chophim.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-chophim.png",
@@ -33,7 +33,6 @@
     "app-tv360.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-tv360.png",
     "app-tvbro.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-tvbro.png",
     "app-vapptv.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-vapptv.png",
-    "app-vietmitv-voicey.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-vietmitv-voicey.png",
     "app-vietmitv.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-vietmitv.png",
     "app-vietmitvvoicey.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-vietmitvvoicey.png",
     "app-vietplaytv.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-vietplaytv.png",
@@ -45,7 +44,6 @@
     "app-ytb-TQ.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-ytb-TQ.png",
     "app-ytb.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-ytb.png",
     "app-ytbTQ.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-ytbTQ.png",
-    "app-ytb_tizen.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-ytb_tizen.png",
     "app-ytbtizen.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-ytbtizen.png",
     "nvcstore.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/nvcstore.png"
   },
