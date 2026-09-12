@@ -33,5 +33,5 @@ vtvgo: VTV Go,
 vtvprime: VTV Prime,
 vxmstore: Việt Xiaomi Store,
 yoosee: Yoosee Camera,
-ytb2: Tizen Tube GoogleTV,
-ytb: YouTube XiaomiTV Nội Địa
+ytbtizen: Tizen Tube GoogleTV,
+ytbTQ: YouTube XiaomiTV Nội Địa
