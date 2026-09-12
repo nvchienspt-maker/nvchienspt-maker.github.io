@@ -35,6 +35,7 @@ jobs:
         run: |
           python - << 'EOF'
           import os
+          import re
           import json
           import requests
 
@@ -45,42 +46,45 @@ jobs:
               "Accept": "application/vnd.github.v3+json"
           }
 
-          # Bảng ánh xạ tên hiển thị theo tiền tố tên file
+          # Bảng ánh xạ tên hiển thị cập nhật theo danh sách ứng dụng Store
           APP_NAMES = {
-              "adb": "ADB TV Tools",
-              "chophim": "Chợ Phim 4K",
-              "coccoc": "Cốc Cốc TV Browser",
-              "ezviz": "EZVIZ Camera TV",
-              "fptplay": "FPT Play Box",
-              "getout": "Get Out TV",
-              "hbomax": "HBO Max TV",
-              "imou": "Imou Life TV",
-              "kiki": "Kiki Auto Voice",
-              "mapvoice": "Map Voice Assistant",
-              "mstore": "M Store TV",
-              "mytv": "MyTV Box",
-              "netflix": "Netflix TV",
-              "nvc": "NVC Store TV",
-              "phim4k": "Phim 4K Cinema",
-              "project": "Projector TV",
-              "quantv": "Quán TV",
-              "rapphim": "Rạp Phim HD",
+              "adb": "Việt Xiaomi ADB Terminal",
+              "chophim": "Chợ Phim",
+              "coccoc": "Trình duyệt Cốc Cốc TV",
+              "ezviz": "EZVIZ Camera",
+              "fptplay": "FPT Play",
+              "getout": "Get Out",
+              "hbomax": "HBO Max",
+              "imou": "Imou Camera",
+              "kiki": "Giọng nói Kiki",
+              "mapvoice": "MapVoice",
+              "mstore": "MStore2",
+              "mytv": "MyTV",
+              "netflix": "Netflix",
+              "nvcphim": "NVC Phim",
+              "nvcmovie": "NVC Movie",
+              "nvctivi": "NVC Tivi",
+              "nvcstore": "NVC Store",
+              "phim4k": "Phim4K",
+              "project": "Projectivy Launcher",
+              "quantv": "QuanTV",
+              "rapphim": "Rạp Phim",
               "sgphim": "Sài Gòn Phim",
-              "smarttube": "SmartTube Next (YouTube TV)",
-              "supervoice": "Super Voice TV",
-              "tiktok": "TikTok Lite TV",
-              "tv360": "TV360 Viettel",
-              "tvbro": "TV Bro Browser",
-              "vapp": "VApp TV",
-              "vietmitv99": "Việt Mí TV Premium",
-              "vietmitv": "Việt Mí TV",
-              "vietplaytv": "Việt Play TV",
-              "vtvgo": "VTV Go Official",
-              "vtvprime": "VTV Prime TV",
-              "vxmstore": "VXM Store TV",
-              "yoosee": "Yoosee Camera TV",
-              "ytb2": "YouTube TV V2",
-              "ytb": "YouTube TV Premium"
+              "smarttube": "SmartTube Stable",
+              "supervoice": "Super Voice",
+              "tiktok": "TikTok AndroidTV",
+              "tv360": "TV360",
+              "tvbro": "Trình duyệt TV Bro",
+              "vapp": "VAppTV",
+              "vietmitv99": "VietMITV Gán Phím",
+              "vietmitv": "VietMITV",
+              "vietplaytv": "VietPlayTV",
+              "vtvgo": "VTV Go",
+              "vtvprime": "VTV Prime",
+              "vxmstore": "Việt Xiaomi Store",
+              "yoosee": "Yoosee Camera",
+              "ytb2": "Tizen Tube GoogleTV",
+              "ytb": "YouTube XiaomiTV Nội Địa"
           }
 
           def get_app_display_name(file_name):
@@ -104,6 +108,12 @@ jobs:
                   return "Công Cụ System"
               return "Ứng Dụng TV"
 
+          def get_app_version(file_name):
+              match = re.search(r'[_-]v?(\d+(?:\.\d+)+)', file_name, re.IGNORECASE)
+              if match:
+                  return match.group(1)
+              return ""
+
           # 1. Lấy toàn bộ assets từ tất cả Releases
           releases_url = f"https://api.github.com/repos/{repo}/releases"
           res = requests.get(releases_url, headers=headers)
@@ -119,9 +129,11 @@ jobs:
                   file_name = asset.get("name") or ""
                   app_name = get_app_display_name(file_name)
                   app_group = get_app_group(file_name)
+                  app_version = get_app_version(file_name)
                   
                   files_list.append({
                       "name": app_name,
+                      "version": app_version,
                       "group": app_group,
                       "release_tag": tag_name,
                       "release_title": release_name,
