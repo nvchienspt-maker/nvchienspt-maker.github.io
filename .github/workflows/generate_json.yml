@@ -85,11 +85,24 @@ jobs:
 
           def get_app_display_name(file_name):
               stem = os.path.splitext(file_name)[0].lower()
-              # Ưu tiên khớp các từ khóa dài trước để tránh nhầm (vd: vietmitv99 trước vietmitv)
               for key in sorted(APP_NAMES.keys(), key=len, reverse=True):
                   if stem.startswith(key):
                       return APP_NAMES[key]
               return os.path.splitext(file_name)[0]
+
+          def get_app_group(file_name):
+              stem = os.path.splitext(file_name)[0].lower()
+              if any(k in stem for k in ["phim", "cinema", "rap", "hbomax", "netflix"]):
+                  return "Xem Phim"
+              if any(k in stem for k in ["tv", "vtv", "mytv", "fpt", "vietmi", "vietplay", "vapp"]):
+                  return "Truyền Hình"
+              if any(k in stem for k in ["ytb", "youtube", "smarttube", "tiktok"]):
+                  return "Giải Trí"
+              if any(k in stem for k in ["voice", "kiki", "map"]):
+                  return "Tiện Ích Voice"
+              if any(k in stem for k in ["ezviz", "yoosee", "imou", "adb", "coccoc", "tvbro"]):
+                  return "Công Cụ System"
+              return "Ứng Dụng TV"
 
           # 1. Lấy toàn bộ assets từ tất cả Releases
           releases_url = f"https://api.github.com/repos/{repo}/releases"
@@ -105,9 +118,11 @@ jobs:
               for asset in rel.get("assets", []):
                   file_name = asset.get("name") or ""
                   app_name = get_app_display_name(file_name)
+                  app_group = get_app_group(file_name)
                   
                   files_list.append({
                       "name": app_name,
+                      "group": app_group,
                       "release_tag": tag_name,
                       "release_title": release_name,
                       "file_name": file_name,
@@ -119,7 +134,6 @@ jobs:
                   })
 
           # 2. Quét link các file icon trong thư mục 'icons'
-          # Hỗ trợ lấy link CDN raw trực tiếp
           icons_dict = {}
           icon_dir = "icons"
           valid_exts = (".png", ".jpg", ".jpeg", ".svg", ".webp", ".ico")
@@ -129,7 +143,6 @@ jobs:
                   for f in sorted(files):
                       if f.lower().endswith(valid_exts):
                           rel_path = os.path.relpath(os.path.join(root, f), ".")
-                          # Link raw trực tiếp từ GitHub
                           raw_url = f"https://raw.githubusercontent.com/{repo}/main/{rel_path}"
                           icons_dict[f] = raw_url
 
