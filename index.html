@@ -692,46 +692,60 @@
       return 'other';
     }
 
-    // Tự động chọn icon và màu sắc cho từng loại
     function getFileVisuals(fileName) {
-      const type = getFileType(fileName);
-      
-      // Kiểm tra trong object icons map
-      const cleanName = fileName.toLowerCase();
-      for (const [key, url] of Object.entries(iconsMap)) {
-        const keyBase = key.toLowerCase().split('.')[0];
-        if (cleanName.includes(keyBase)) {
-          return {
-            avatarHtml: `<img src="${url}" alt="${fileName}">`,
-            type: type
-          };
-        }
-      }
+  const type = getFileType(fileName);
+  const cleanFileName = (fileName || '').toLowerCase().replace(/[^a-z0-9]/g, '');
 
-      // Nếu không có ảnh icon riêng, dùng FontAwesome theo định dạng
-      switch(type) {
-        case 'apk':
-          return {
-            avatarHtml: `<i class="fa-brands fa-android" style="color: #10b981;"></i>`,
-            type: 'apk'
-          };
-        case 'windows':
-          return {
-            avatarHtml: `<i class="fa-brands fa-windows" style="color: #0284c7;"></i>`,
-            type: 'windows'
-          };
-        case 'archive':
-          return {
-            avatarHtml: `<i class="fa-solid fa-file-zipper" style="color: #f59e0b;"></i>`,
-            type: 'archive'
-          };
-        default:
-          return {
-            avatarHtml: `<i class="fa-solid fa-cube" style="color: #8b5cf6;"></i>`,
-            type: 'other'
-          };
-      }
+  let matchedIconUrl = null;
+
+  // 1. So khớp thông minh theo tên file (loại bỏ gạch ngang, gạch dưới, khoảng trắng)
+  for (const [key, url] of Object.entries(iconsMap)) {
+    const keyBase = key.toLowerCase().split('.')[0].replace(/[^a-z0-9]/g, '');
+    if (keyBase && (cleanFileName.includes(keyBase) || keyBase.includes(cleanFileName))) {
+      matchedIconUrl = url;
+      break;
     }
+  }
+
+  // 2. Nếu không khớp tên: Tự động lấy icon có tên logo/icon/app/default, hoặc lấy luôn icon đầu tiên có trong kho
+  if (!matchedIconUrl && Object.keys(iconsMap).length > 0) {
+    const keys = Object.keys(iconsMap);
+    const defaultKey = keys.find(k => {
+      const lower = k.toLowerCase();
+      return lower.includes('logo') || lower.includes('icon') || lower.includes('app') || lower.includes('default');
+    });
+    matchedIconUrl = defaultKey ? iconsMap[defaultKey] : iconsMap[keys[0]];
+  }
+
+  // 3. Biểu tượng dự phòng FontAwesome tương ứng từng hệ máy
+  let fallbackHtml = '';
+  switch(type) {
+    case 'apk':
+      fallbackHtml = '<i class="fa-brands fa-android" style="color: #10b981;"></i>';
+      break;
+    case 'windows':
+      fallbackHtml = '<i class="fa-brands fa-windows" style="color: #0284c7;"></i>';
+      break;
+    case 'archive':
+      fallbackHtml = '<i class="fa-solid fa-file-zipper" style="color: #f59e0b;"></i>';
+      break;
+    default:
+      fallbackHtml = '<i class="fa-solid fa-cube" style="color: #8b5cf6;"></i>';
+  }
+
+  // 4. Trả về thẻ img có gắn onerror (tự chuyển sang biểu tượng nếu link ảnh bị lỗi mạng)
+  if (matchedIconUrl) {
+    return {
+      avatarHtml: `<img src="${matchedIconUrl}" alt="${fileName}" onerror="this.onerror=null; this.parentElement.innerHTML='${fallbackHtml}';">`,
+      type: type
+    };
+  }
+
+  return {
+    avatarHtml: fallbackHtml,
+    type: type
+  };
+}
 
     // Tự động render nút tải về phù hợp với file
     function getDownloadButton(item) {
