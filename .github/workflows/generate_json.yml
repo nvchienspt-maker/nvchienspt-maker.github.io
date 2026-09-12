@@ -83,8 +83,8 @@ jobs:
               "vtvprime": "VTV Prime",
               "vxmstore": "Việt Xiaomi Store",
               "yoosee": "Yoosee Camera",
-              "ytb_tizen": "Tizen Tube GoogleTV",
-              "ytb-TQ": "YouTube XiaomiTV Nội Địa"
+              "ytbtizen": "Tizen Tube GoogleTV",
+              "ytbTQ": "YouTube XiaomiTV Nội Địa"
           }
 
           def get_app_display_name(file_name):
