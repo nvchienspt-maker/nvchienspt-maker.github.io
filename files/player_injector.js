@@ -29,7 +29,7 @@
     function handleAutoActions(doc) {
         if (!doc) return;
 
-        // 1. TỰ ĐỘNG BỎ QUA QUẢNG CÁO (Skip Ads) theo class
+        // 1. TỰ ĐỘNG BỎ QUA QUẢNG CÁO (Skip Ads)
         var directSelectors = [
             '.art-ads-skip',
             '.art-skip',
@@ -52,12 +52,11 @@
             var el = all[i];
             var txt = (el.textContent || '').trim().toLowerCase();
 
-            // 1.2 Tự động bấm nút Bỏ qua quảng cáo qua text
+            // Xử lý nút bỏ qua quảng cáo qua text
             if (txt.includes('bỏ qua') || txt.includes('skip ad')) {
                 var hasChildSkip = false;
                 for (var c = 0; c < el.children.length; c++) {
-                    var cTxt = (el.children[c].textContent || '').toLowerCase();
-                    if (cTxt.includes('bỏ qua') || cTxt.includes('skip ad')) {
+                    if ((el.children[c].textContent || '').toLowerCase().includes('bỏ qua')) {
                         hasChildSkip = true;
                         break;
                     }
@@ -74,8 +73,8 @@
             if (!hasHandledResume && (txt === 'xem tiếp' || txt === 'tiếp tục xem' || txt.includes('xem tiếp từ'))) {
                 var hasChildResume = false;
                 for (var k = 0; k < el.children.length; k++) {
-                    var childTxt = (el.children[k].textContent || '').toLowerCase();
-                    if (childTxt.includes('xem tiếp') || childTxt.includes('tiếp tục xem')) {
+                    var cTxt = (el.children[k].textContent || '').toLowerCase();
+                    if (cTxt.includes('xem tiếp') || cTxt.includes('tiếp tục xem')) {
                         hasChildResume = true;
                         break;
                     }
@@ -85,14 +84,14 @@
                     hasHandledResume = true; // Khóa cờ ngay lập tức để không click lặp lại
                     simClick(el);
 
-                    // Ẩn thông báo ngay lập tức để không chập chờn khung hình
+                    // Ẩn thông báo ngay lập tức để giao diện không bị chập chờn
                     el.style.display = 'none';
                     var noticeContainer = el.closest('.art-notice, [class*="notice"], [class*="dialog"]');
                     if (noticeContainer) {
                         noticeContainer.style.display = 'none';
                     }
 
-                    // Chờ player nhảy mốc thời gian (800ms) rồi kích hoạt play lại nếu đang tạm dừng
+                    // Chờ player nhảy mốc thời gian xong (800ms) rồi mới kích hoạt Play nếu video vẫn đang dừng
                     setTimeout(function() {
                         var v = doc.querySelector('video');
                         if (v && v.paused) {
@@ -103,7 +102,7 @@
                 }
             }
 
-            // 3. ẨN CẢNH BÁO CHẶN QUẢNG CÁO
+            // 3. Ẩn cảnh báo chặn quảng cáo
             if (txt.includes('có dấu hiệu chặn quảng cáo')) {
                 el.style.display = 'none';
                 if (el.parentElement) el.parentElement.style.display = 'none';
