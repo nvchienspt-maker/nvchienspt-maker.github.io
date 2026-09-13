@@ -1,6 +1,7 @@
 (function() {
     // Cờ kiểm soát: Chỉ bấm "Xem tiếp" DUY NHẤT 1 LẦN trong suốt phiên xem
     var hasHandledResume = false;
+    var hasReloadedForTimeout = false;
 
     function simClick(el) {
         if (!el) return;
@@ -26,13 +27,15 @@
         } catch(e) {}
     }
 
-    // Ép video quảng cáo tua thẳng về giây cuối cùng
+    // Ép video quảng cáo tua thẳng về giây cuối cùng (CHỈ áp dụng cho video <= 120s)
     function fastForwardAd(doc) {
         try {
             var vids = doc.querySelectorAll('video');
             for (var vIdx = 0; vIdx < vids.length; vIdx++) {
                 var v = vids[vIdx];
-                if (v && v.duration && isFinite(v.duration) && v.currentTime < v.duration) {
+                // BẢO VỆ PHIM CHÍNH: Video quảng cáo không bao giờ quá 2 phút (120s).
+                // Nếu v.duration > 120s thì đây chắc chắn là phim, tuyệt đối KHÔNG tua.
+                if (v && v.duration && isFinite(v.duration) && v.duration <= 120 && v.currentTime < v.duration) {
                     v.currentTime = v.duration;
                 }
             }
@@ -42,14 +45,59 @@
     function handleAutoActions(doc) {
         if (!doc) return;
 
-        // Phát hiện theo class quảng cáo hoặc bộ đếm thời gian quảng cáo
+        // 1. XỬ LÝ LỖI "KHỞI TẠO PLAYER QUÁ LÂU"
+        var timeoutTexts = ['khởi tạo player quá lâu', 'tải lại trang để thử lại'];
+        var allElements = doc.querySelectorAll('button, div, span, a, p');
+
+        for (var t = 0; t < allElements.length; t++) {
+            var item = allElements[t];
+            var itemTxt = (item.textContent || '').trim().toLowerCase();
+
+            // Nếu xuất hiện thông báo lỗi khởi tạo quá lâu
+            if (itemTxt.includes('khởi tạo player quá lâu')) {
+                var v = doc.querySelector('video');
+                // Nếu video phim đã nạp xong và có thể chạy, ẩn thông báo và phát tiếp
+                if (v && (v.readyState >= 2 || v.currentTime > 0)) {
+                    var box = item.closest('[class*="modal"], [class*="dialog"], [class*="notice"], [class*="popup"], [class*="mask"]');
+                    if (box) box.style.display = 'none';
+                    item.style.display = 'none';
+                    v.play();
+                    return;
+                } else if (!hasReloadedForTimeout) {
+                    // Nếu player thực sự bị treo, tự bấm nút "Tải lại trang"
+                    var reloadBtn = doc.querySelector('button, [role="button"], a');
+                    for (var b = 0; b < allElements.length; b++) {
+                        var btnTxt = (allElements[b].textContent || '').trim().toLowerCase();
+                        if (btnTxt === 'tải lại trang' || btnTxt.includes('tải lại trang')) {
+                            hasReloadedForTimeout = true;
+                            simClick(allElements[b]);
+                            return;
+                        }
+                    }
+                }
+            }
+
+            // Tự động bấm nút "Đóng thông báo" khi tài nguyên quảng cáo chưa tải được
+            if (itemTxt === 'đóng thông báo' || itemTxt.includes('đóng thông báo')) {
+                simClick(item);
+                var modal = item.closest('[class*="modal"], [class*="dialog"], [class*="notice"], [class*="popup"], [class*="mask"]');
+                if (modal) modal.style.display = 'none';
+                item.style.display = 'none';
+
+                var vid = doc.querySelector('video');
+                if (vid && vid.paused) {
+                    vid.play();
+                }
+                return;
+            }
+        }
+
+        // 2. PHÁT HIỆN VÀ ÉP TUA QUẢNG CÁO
         var adClasses = [
             '[class*="ad-showing"]',
             '[class*="ad-playing"]',
             '[class*="ad-countdown"]',
             '[class*="ad-timer"]',
-            '[class*="art-ads"]',
-            '[class*="video-ads"]',
             '.jw-flag-ads'
         ];
         for (var a = 0; a < adClasses.length; a++) {
@@ -60,7 +108,7 @@
             }
         }
 
-        // 1. TỰ ĐỘNG BỎ QUA QUẢNG CÁO (Skip Ads)
+        // 3. TỰ ĐỘNG BỎ QUA QUẢNG CÁO (Skip Ads)
         var directSelectors = [
             '.art-ads-skip',
             '.art-skip',
@@ -79,24 +127,9 @@
             }
         }
 
-        var all = doc.querySelectorAll('button, div, span, a, p');
-        for (var i = 0; i < all.length; i++) {
-            var el = all[i];
+        for (var i = 0; i < allElements.length; i++) {
+            var el = allElements[i];
             var txt = (el.textContent || '').trim().toLowerCase();
-
-            // Tự động bấm nút "Đóng thông báo" khi tài nguyên quảng cáo bị chặn
-            if (txt === 'đóng thông báo' || txt.includes('đóng thông báo')) {
-                simClick(el);
-                var modal = el.closest('[class*="modal"], [class*="dialog"], [class*="notice"], [class*="popup"], [class*="mask"], [class*="wrap"]');
-                if (modal) modal.style.display = 'none';
-                el.style.display = 'none';
-
-                var v = doc.querySelector('video');
-                if (v && v.paused) {
-                    v.play();
-                }
-                return;
-            }
 
             // Phát hiện bộ đếm giây quảng cáo qua text
             if ((txt.includes('quảng cáo sau') || txt.includes('bỏ qua sau') || txt.includes('ad in')) && /\d+/.test(txt)) {
@@ -121,7 +154,7 @@
                 }
             }
 
-            // 2. TỰ ĐỘNG BẤM "XEM TIẾP" / "TIẾP TỤC XEM" (CHỈ BẤM 1 LẦN)
+            // 4. TỰ ĐỘNG BẤM "XEM TIẾP" / "TIẾP TỤC XEM" (CHỈ BẤM 1 LẦN)
             if (!hasHandledResume && (txt === 'xem tiếp' || txt === 'tiếp tục xem' || txt.includes('xem tiếp từ'))) {
                 var hasChildResume = false;
                 for (var k = 0; k < el.children.length; k++) {
@@ -145,28 +178,28 @@
 
                     // Chờ player nhảy mốc thời gian xong (800ms) rồi mới kích hoạt Play nếu video vẫn đang dừng
                     setTimeout(function() {
-                        var v = doc.querySelector('video');
-                        if (v && v.paused) {
-                            v.play();
+                        var vPlay = doc.querySelector('video');
+                        if (vPlay && vPlay.paused) {
+                            vPlay.play();
                         }
                     }, 800);
                     return;
                 }
             }
 
-            // 3. Ẩn cảnh báo chặn quảng cáo / lỗi tải tài nguyên quảng cáo
+            // 5. Ẩn cảnh báo chặn quảng cáo / lỗi tải tài nguyên
             if (txt.includes('có dấu hiệu chặn quảng cáo') || txt.includes('tài nguyên quảng cáo chưa tải được')) {
-                var box = el.closest('[class*="modal"], [class*="dialog"], [class*="notice"], [class*="popup"], [class*="mask"]');
-                if (box) {
-                    box.style.display = 'none';
+                var boxAlert = el.closest('[class*="modal"], [class*="dialog"], [class*="notice"], [class*="popup"], [class*="mask"]');
+                if (boxAlert) {
+                    boxAlert.style.display = 'none';
                 } else {
                     el.style.display = 'none';
                     if (el.parentElement) el.parentElement.style.display = 'none';
                 }
 
-                var v = doc.querySelector('video');
-                if (v && v.paused) {
-                    v.play();
+                var vAlert = doc.querySelector('video');
+                if (vAlert && vAlert.paused) {
+                    vAlert.play();
                 }
                 return;
             }
