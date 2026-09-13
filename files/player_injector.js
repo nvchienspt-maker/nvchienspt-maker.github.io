@@ -1,4 +1,7 @@
 (function() {
+    // Cờ kiểm soát: Chỉ bấm "Xem tiếp" DUY NHẤT 1 LẦN trong suốt phiên xem
+    var hasHandledResume = false;
+
     function simClick(el) {
         if (!el) return;
         try {
@@ -26,7 +29,7 @@
     function handleAutoActions(doc) {
         if (!doc) return;
 
-        // 1. Quét theo class/selector phổ biến
+        // 1. TỰ ĐỘNG BỎ QUA QUẢNG CÁO (Skip Ads)
         var directSelectors = [
             '.art-ads-skip',
             '.art-skip',
@@ -38,54 +41,72 @@
         ];
         for (var s = 0; s < directSelectors.length; s++) {
             var directBtn = doc.querySelector(directSelectors[s]);
-            if (directBtn) {
+            if (directBtn && directBtn.offsetWidth > 0) {
                 simClick(directBtn);
                 return;
             }
         }
 
-        // 2. Tìm đúng phần tử chứa chữ "bỏ qua" hoặc "skip"
         var all = doc.querySelectorAll('button, div, span, a, p');
         for (var i = 0; i < all.length; i++) {
             var el = all[i];
             var txt = (el.textContent || '').trim().toLowerCase();
 
+            // Xử lý nút bỏ qua quảng cáo qua text
             if (txt.includes('bỏ qua') || txt.includes('skip ad')) {
-                var hasChildWithText = false;
+                var hasChildSkip = false;
                 for (var c = 0; c < el.children.length; c++) {
-                    var cTxt = (el.children[c].textContent || '').toLowerCase();
-                    if (cTxt.includes('bỏ qua') || cTxt.includes('skip ad')) {
-                        hasChildWithText = true;
+                    if ((el.children[c].textContent || '').toLowerCase().includes('bỏ qua')) {
+                        hasChildSkip = true;
                         break;
                     }
                 }
-                if (!hasChildWithText) {
+                if (!hasChildSkip) {
                     simClick(el);
-                    if (el.parentElement) simClick(el.parentElement);
                     var closestBtn = el.closest('button, [role="button"], a, [class*="skip"]');
                     if (closestBtn && closestBtn !== el) simClick(closestBtn);
                     return;
                 }
             }
 
-            // 3. Tự động ấn "Tiếp tục xem"
-            if (txt === 'tiếp tục xem') {
-                simClick(el);
-                if (el.parentElement) simClick(el.parentElement);
-                var v = doc.querySelector('video');
-                if (v) v.play();
-                return;
-            }
-        }
+            // 2. TỰ ĐỘNG BẤM "XEM TIẾP" / "TIẾP TỤC XEM" (CHỈ BẤM 1 LẦN)
+            if (!hasHandledResume && (txt === 'xem tiếp' || txt === 'tiếp tục xem' || txt.includes('xem tiếp từ'))) {
+                var hasChildResume = false;
+                for (var k = 0; k < el.children.length; k++) {
+                    var cTxt = (el.children[k].textContent || '').toLowerCase();
+                    if (cTxt.includes('xem tiếp') || cTxt.includes('tiếp tục xem')) {
+                        hasChildResume = true;
+                        break;
+                    }
+                }
 
-        // 4. Ẩn thông báo chặn quảng cáo
-        var divs = doc.getElementsByTagName('div');
-        for (var k = 0; k < divs.length; k++) {
-            var elDiv = divs[k];
-            if (elDiv.innerText && elDiv.innerText.includes('Có dấu hiệu chặn quảng cáo')) {
-                elDiv.style.display = 'none';
-                if (elDiv.parentElement) elDiv.parentElement.style.display = 'none';
-                break;
+                if (!hasChildResume) {
+                    hasHandledResume = true; // Khóa cờ ngay lập tức để không click lặp lại
+                    simClick(el);
+
+                    // Ẩn thông báo ngay lập tức để giao diện không bị chập chờn
+                    el.style.display = 'none';
+                    var noticeContainer = el.closest('.art-notice, [class*="notice"], [class*="dialog"]');
+                    if (noticeContainer) {
+                        noticeContainer.style.display = 'none';
+                    }
+
+                    // Chờ player nhảy mốc thời gian xong (800ms) rồi mới kích hoạt Play nếu video vẫn đang dừng
+                    setTimeout(function() {
+                        var v = doc.querySelector('video');
+                        if (v && v.paused) {
+                            v.play();
+                        }
+                    }, 800);
+                    return;
+                }
+            }
+
+            // 3. Ẩn cảnh báo chặn quảng cáo
+            if (txt.includes('có dấu hiệu chặn quảng cáo')) {
+                el.style.display = 'none';
+                if (el.parentElement) el.parentElement.style.display = 'none';
+                return;
             }
         }
     }
