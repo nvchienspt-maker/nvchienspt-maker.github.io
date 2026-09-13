@@ -84,6 +84,20 @@
             var el = all[i];
             var txt = (el.textContent || '').trim().toLowerCase();
 
+            // Tự động bấm nút "Đóng thông báo" khi tài nguyên quảng cáo bị chặn
+            if (txt === 'đóng thông báo' || txt.includes('đóng thông báo')) {
+                simClick(el);
+                var modal = el.closest('[class*="modal"], [class*="dialog"], [class*="notice"], [class*="popup"], [class*="mask"], [class*="wrap"]');
+                if (modal) modal.style.display = 'none';
+                el.style.display = 'none';
+
+                var v = doc.querySelector('video');
+                if (v && v.paused) {
+                    v.play();
+                }
+                return;
+            }
+
             // Phát hiện bộ đếm giây quảng cáo qua text
             if ((txt.includes('quảng cáo sau') || txt.includes('bỏ qua sau') || txt.includes('ad in')) && /\d+/.test(txt)) {
                 fastForwardAd(doc);
@@ -140,10 +154,20 @@
                 }
             }
 
-            // 3. Ẩn cảnh báo chặn quảng cáo
-            if (txt.includes('có dấu hiệu chặn quảng cáo')) {
-                el.style.display = 'none';
-                if (el.parentElement) el.parentElement.style.display = 'none';
+            // 3. Ẩn cảnh báo chặn quảng cáo / lỗi tải tài nguyên quảng cáo
+            if (txt.includes('có dấu hiệu chặn quảng cáo') || txt.includes('tài nguyên quảng cáo chưa tải được')) {
+                var box = el.closest('[class*="modal"], [class*="dialog"], [class*="notice"], [class*="popup"], [class*="mask"]');
+                if (box) {
+                    box.style.display = 'none';
+                } else {
+                    el.style.display = 'none';
+                    if (el.parentElement) el.parentElement.style.display = 'none';
+                }
+
+                var v = doc.querySelector('video');
+                if (v && v.paused) {
+                    v.play();
+                }
                 return;
             }
         }
