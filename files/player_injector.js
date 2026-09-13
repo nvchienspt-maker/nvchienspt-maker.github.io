@@ -26,8 +26,39 @@
         } catch(e) {}
     }
 
+    // Ép video quảng cáo tua thẳng về giây cuối cùng
+    function fastForwardAd(doc) {
+        try {
+            var vids = doc.querySelectorAll('video');
+            for (var vIdx = 0; vIdx < vids.length; vIdx++) {
+                var v = vids[vIdx];
+                if (v && v.duration && isFinite(v.duration) && v.currentTime < v.duration) {
+                    v.currentTime = v.duration;
+                }
+            }
+        } catch(e) {}
+    }
+
     function handleAutoActions(doc) {
         if (!doc) return;
+
+        // Phát hiện theo class quảng cáo hoặc bộ đếm thời gian quảng cáo
+        var adClasses = [
+            '[class*="ad-showing"]',
+            '[class*="ad-playing"]',
+            '[class*="ad-countdown"]',
+            '[class*="ad-timer"]',
+            '[class*="art-ads"]',
+            '[class*="video-ads"]',
+            '.jw-flag-ads'
+        ];
+        for (var a = 0; a < adClasses.length; a++) {
+            var adEl = doc.querySelector(adClasses[a]);
+            if (adEl && (adEl.offsetWidth > 0 || adEl.offsetHeight > 0)) {
+                fastForwardAd(doc);
+                break;
+            }
+        }
 
         // 1. TỰ ĐỘNG BỎ QUA QUẢNG CÁO (Skip Ads)
         var directSelectors = [
@@ -42,6 +73,7 @@
         for (var s = 0; s < directSelectors.length; s++) {
             var directBtn = doc.querySelector(directSelectors[s]);
             if (directBtn && directBtn.offsetWidth > 0) {
+                fastForwardAd(doc);
                 simClick(directBtn);
                 return;
             }
@@ -52,8 +84,14 @@
             var el = all[i];
             var txt = (el.textContent || '').trim().toLowerCase();
 
+            // Phát hiện bộ đếm giây quảng cáo qua text
+            if ((txt.includes('quảng cáo sau') || txt.includes('bỏ qua sau') || txt.includes('ad in')) && /\d+/.test(txt)) {
+                fastForwardAd(doc);
+            }
+
             // Xử lý nút bỏ qua quảng cáo qua text
             if (txt.includes('bỏ qua') || txt.includes('skip ad')) {
+                fastForwardAd(doc);
                 var hasChildSkip = false;
                 for (var c = 0; c < el.children.length; c++) {
                     if ((el.children[c].textContent || '').toLowerCase().includes('bỏ qua')) {
