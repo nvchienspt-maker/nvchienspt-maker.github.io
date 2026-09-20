@@ -1,8 +1,9 @@
 {
   "repository": "nvchienspt-maker/nvchienspt-maker.github.io",
-  "total_files": 37,
-  "total_icons": 40,
+  "total_files": 38,
+  "total_icons": 41,
   "icons": {
+    "Cobalt.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/Cobalt.png",
     "app-adb.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-adb.png",
     "app-chophim.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-chophim.png",
     "app-coccoc.png": "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/icons/app-coccoc.png",
@@ -53,7 +54,7 @@
       "release_title": "Upload bởi NVC",
       "file_name": "adb_v1.0.apk",
       "size_bytes": 39200,
-      "download_count": 0,
+      "download_count": 1,
       "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/adb_v1.0.apk",
       "created_at": "2026-09-12T08:41:53Z",
       "published_at": "2026-09-12T08:43:44Z"
@@ -69,6 +70,19 @@
       "download_count": 0,
       "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/chophim_v1.1.0.apk",
       "created_at": "2026-09-12T08:41:53Z",
+      "published_at": "2026-09-12T08:43:44Z"
+    },
+    {
+      "name": "cobalt-arm",
+      "version": "",
+      "group": "Ứng Dụng TV",
+      "release_tag": "v1.0.1",
+      "release_title": "Upload bởi NVC",
+      "file_name": "cobalt-arm.apk",
+      "size_bytes": 97195140,
+      "download_count": 0,
+      "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/cobalt-arm.apk",
+      "created_at": "2026-09-20T01:01:06Z",
       "published_at": "2026-09-12T08:43:44Z"
     },
     {
@@ -183,7 +197,7 @@
       "release_title": "Upload bởi NVC",
       "file_name": "mstore.apk",
       "size_bytes": 13217420,
-      "download_count": 0,
+      "download_count": 1,
       "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/mstore.apk",
       "created_at": "2026-09-12T08:42:14Z",
       "published_at": "2026-09-12T08:43:44Z"
@@ -235,7 +249,7 @@
       "release_title": "Upload bởi NVC",
       "file_name": "nvcphim_v2.3.9.apk",
       "size_bytes": 20772787,
-      "download_count": 0,
+      "download_count": 1,
       "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvcphim_v2.3.9.apk",
       "created_at": "2026-09-12T09:28:44Z",
       "published_at": "2026-09-12T08:43:44Z"
@@ -247,10 +261,10 @@
       "release_tag": "v1.0.1",
       "release_title": "Upload bởi NVC",
       "file_name": "nvcstore_v1.0.2.apk",
-      "size_bytes": 3786193,
-      "download_count": 0,
+      "size_bytes": 3786321,
+      "download_count": 4,
       "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvcstore_v1.0.2.apk",
-      "created_at": "2026-09-12T13:44:31Z",
+      "created_at": "2026-09-12T14:03:21Z",
       "published_at": "2026-09-12T08:43:44Z"
     },
     {
@@ -261,7 +275,7 @@
       "release_title": "Upload bởi NVC",
       "file_name": "nvctivi_v1.1.2.apk",
       "size_bytes": 4781094,
-      "download_count": 6,
+      "download_count": 8,
       "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvctivi_v1.1.2.apk",
       "created_at": "2026-09-12T09:28:48Z",
       "published_at": "2026-09-12T08:43:44Z"
@@ -300,7 +314,7 @@
       "release_title": "Upload bởi NVC",
       "file_name": "quantv_v250921.apk",
       "size_bytes": 8627202,
-      "download_count": 0,
+      "download_count": 1,
       "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/quantv_v250921.apk",
       "created_at": "2026-09-12T08:42:28Z",
       "published_at": "2026-09-12T08:43:44Z"
@@ -404,7 +418,7 @@
       "release_title": "Upload bởi NVC",
       "file_name": "vapp_v1.0.2.apk",
       "size_bytes": 66949236,
-      "download_count": 0,
+      "download_count": 2,
       "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/vapp_v1.0.2.apk",
       "created_at": "2026-09-12T08:42:53Z",
       "published_at": "2026-09-12T08:43:44Z"
@@ -430,7 +444,7 @@
       "release_title": "Upload bởi NVC",
       "file_name": "vietmitv_v18.apk",
       "size_bytes": 9179167,
-      "download_count": 0,
+      "download_count": 1,
       "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/vietmitv_v18.apk",
       "created_at": "2026-09-12T08:42:53Z",
       "published_at": "2026-09-12T08:43:44Z"
@@ -443,7 +457,7 @@
       "release_title": "Upload bởi NVC",
       "file_name": "vietplaytv_v2.4.apk",
       "size_bytes": 9782026,
-      "download_count": 0,
+      "download_count": 1,
       "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/vietplaytv_v2.4.apk",
       "created_at": "2026-09-12T08:42:58Z",
       "published_at": "2026-09-12T08:43:44Z"
@@ -508,7 +522,7 @@
       "release_title": "Upload bởi NVC",
       "file_name": "ytbtizen_v1.0.8.apk",
       "size_bytes": 16834975,
-      "download_count": 0,
+      "download_count": 1,
       "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/ytbtizen_v1.0.8.apk",
       "created_at": "2026-09-12T09:28:55Z",
       "published_at": "2026-09-12T08:43:44Z"
