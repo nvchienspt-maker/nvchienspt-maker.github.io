@@ -107,27 +107,32 @@ jobs:
 
           def get_app_display_name(file_name):
               stem = os.path.splitext(file_name)[0]
-              app_key = stem.split('_')[0].strip().lower()
-              if app_key in APP_NAMES:
-                  return APP_NAMES[app_key]
+              # Xóa dấu _ và - để tìm chuẩn (VD: NVC_Tivi_v1.1.5 -> nvctiviv1.1.5)
+              clean_stem = stem.lower().replace('_', '').replace('-', '')
+              
+              # Duyệt qua các key trong app_name.txt (ưu tiên key dài)
               for key in sorted(APP_NAMES.keys(), key=len, reverse=True):
-                  if stem.lower().startswith(key):
+                  clean_key = key.lower().replace('_', '').replace('-', '')
+                  if clean_stem.startswith(clean_key):
                       return APP_NAMES[key]
-              return stem.split('_')[0].strip()
+              
+              # Fallback: Lấy phần tử đầu tiên trước dấu '_' hoặc '-' nếu không khớp
+              return re.split(r'[_\-]', stem)[0].strip()
 
           def get_app_group(file_name):
               stem = os.path.splitext(file_name)[0].lower()
-              if any(k in stem for k in ["movie", "phim", "cinema", "rap", "hbomax", "netflix"]):
+              clean_stem = stem.replace('_', '').replace('-', '')
+              if any(k in clean_stem for k in ["movie", "phim", "cinema", "rap", "hbomax", "netflix"]):
                   return "Xem Phim"
-              if any(k in stem for k in ["tivi", "vtv", "mytv", "fpt", "vietmi", "vietplay", "vapp", "quantv", "tv360", "getout"]):
+              if any(k in clean_stem for k in ["tivi", "vtv", "mytv", "fpt", "vietmi", "vietplay", "vapp", "quantv", "tv360", "getout"]):
                   return "Truyền Hình"
-              if any(k in stem for k in ["cobalt", "ytb", "youtube", "smarttube", "tiktok"]):
+              if any(k in clean_stem for k in ["cobalt", "ytb", "youtube", "smarttube", "tiktok"]):
                   return "Giải Trí"
-              if any(k in stem for k in ["voice", "kiki", "map"]):
+              if any(k in clean_stem for k in ["voice", "kiki", "map"]):
                   return "Tiện Ích Voice"
-              if any(k in stem for k in ["ezviz", "yoosee", "imou", "adb", "coccoc", "tvbro"]):
+              if any(k in clean_stem for k in ["ezviz", "yoosee", "imou", "adb", "coccoc", "tvbro"]):
                   return "Công Cụ"
-              if any(k in stem for k in ["store", "nvcstore", "mstore", "vxmstore"]):
+              if any(k in clean_stem for k in ["store", "nvcstore", "mstore", "vxmstore"]):
                   return "Apps Store"
               return "Khác"
 
