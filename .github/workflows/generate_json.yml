@@ -11,6 +11,11 @@ on:
       - 'apps/**'                # Chạy khi có app mới được upload vào thư mục apps
   workflow_dispatch:             # Cho phép bấm nút chạy thủ công bất kỳ lúc nào
 
+# CẤU HÌNH NGĂN CHẶN XUNG ĐỘT KHI UPLOAD NHIỀU FILE LIÊN TỤC
+concurrency:
+  group: "build-json"
+  cancel-in-progress: true
+
 jobs:
   build-json:
     runs-on: ubuntu-latest
@@ -20,6 +25,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0         # BẮT BUỘC: Tải toàn bộ lịch sử để pull/rebase không bị lỗi từ chối
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -261,22 +268,12 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-          # 1. Lưu tạm file data.json vừa tạo ra bộ nhớ tạm
-          cp data.json /tmp/data.json
-
-          # 2. Lấy commit mới nhất từ remote và ép nhánh local khớp hoàn toàn với remote
-          git fetch origin main
-          git reset --hard origin/main
-
-          # 3. Đưa file data.json mới trở lại thư mục làm việc
-          cp /tmp/data.json data.json
-
-          # 4. Kiểm tra nếu có thay đổi thì commit và push thẳng (luôn luôn là fast-forward sạch sẽ)
           git add data.json
           if ! git diff --staged --quiet; then
             git commit -m "Auto-update data.json"
-            git push origin HEAD:main
+            # Tự động gộp mã với remote nếu máy chủ có update mới trước khi đẩy
+            git pull origin main --rebase --autostash
+            git push origin main
           else
             echo "data.json không có thay đổi mới, bỏ qua commit."
           fi
