@@ -377,7 +377,7 @@
       display: flex;
       align-items: center;
       gap: 16px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .app-avatar {
@@ -444,6 +444,16 @@
       color: var(--text-dim);
     }
 
+    .badge-sources {
+      font-size: 11px;
+      font-weight: 600;
+      color: #8b5cf6;
+      background: rgba(139, 92, 246, 0.12);
+      padding: 2px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(139, 92, 246, 0.25);
+    }
+
     .badge-filename {
       font-size: 11px;
       font-weight: 500;
@@ -471,8 +481,8 @@
       display: flex;
       align-items: center;
       gap: 14px;
-      padding: 12px 0;
-      margin-bottom: 16px;
+      padding: 10px 0;
+      margin-bottom: 14px;
       border-top: 1px dashed var(--border-color);
       border-bottom: 1px dashed var(--border-color);
       font-size: 12px;
@@ -486,17 +496,25 @@
     }
 
     /* ================= CÁC NÚT TẢI VỀ THÔNG MINH ================= */
-    .card-actions {
+    .downloads-container {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .download-row {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
+      width: 100%;
     }
 
     .btn-dl {
       flex: 1;
-      padding: 10px 16px;
+      padding: 10px 14px;
       border-radius: 12px;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       text-decoration: none;
       display: flex;
@@ -505,7 +523,15 @@
       gap: 8px;
       cursor: pointer;
       border: none;
-      transition: transform 0.2s ease, background-color 0.2s ease;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-dl span {
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .btn-dl-apk {
@@ -515,6 +541,16 @@
     }
     .btn-dl-apk:hover {
       background: #059669;
+      transform: translateY(-2px);
+    }
+
+    .btn-dl-direct {
+      background: #0284c7;
+      color: #ffffff;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+    }
+    .btn-dl-direct:hover {
+      background: #0369a1;
       transform: translateY(-2px);
     }
 
@@ -549,8 +585,8 @@
     }
 
     .btn-icon-action {
-      width: 42px;
-      height: 42px;
+      width: 40px;
+      height: 40px;
       border-radius: 12px;
       border: 1px solid var(--border-color);
       background: var(--input-bg);
@@ -559,7 +595,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 15px;
+      font-size: 14px;
+      flex-shrink: 0;
       transition: all 0.2s ease;
     }
 
@@ -646,7 +683,7 @@
     <div class="hero-box">
       <div class="hero-text">
         <h2>Khám phá & Tải ứng dụng</h2>
-        <p>Kho lưu trữ phần mềm, bản dựng Android APK và công cụ được phân nhóm và đồng bộ trực tiếp từ GitHub Releases.</p>
+        <p>Kho lưu trữ phần mềm, bản dựng Android APK và công cụ được phân nhóm và đồng bộ trực tiếp từ GitHub Releases và GitHub Pages.</p>
       </div>
       <div class="stats-container">
         <div class="stat-badge">
@@ -669,7 +706,7 @@
 
     <div class="search-input-group">
       <i class="fa-solid fa-magnifying-glass"></i>
-      <input type="text" id="searchInput" placeholder="Tìm tên ứng dụng, file APK...">
+      <input type="text" id="searchInput" placeholder="Tìm tên ứng dụng, file APK, nhóm...">
     </div>
   </div>
 
@@ -692,7 +729,7 @@
 
   <script>
     const DATA_URL = './data.json';
-    const RAW_URL = 'https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/main/data.json';
+    const FALLBACK_URL = 'https://nvchienspt-maker.github.io/data.json';
 
     let filesData = [];
     let iconsMap = {};
@@ -879,30 +916,48 @@
       };
     }
 
-    function getDownloadButton(item) {
-      const type = getFileType(item.file_name);
+    // ================= SINH NÚT TẢI CHO TỪNG FILE =================
+    function renderDownloadRow(dl, isMulti) {
+      const type = getFileType(dl.file_name);
       let btnClass = 'btn-dl-generic';
       let icon = 'fa-solid fa-download';
       let label = 'Tải Xuống';
 
-      if (type === 'apk') {
-        btnClass = 'btn-dl-apk';
-        icon = 'fa-brands fa-android';
-        label = 'Cài đặt APK';
-      } else if (type === 'windows') {
-        btnClass = 'btn-dl-windows';
-        icon = 'fa-brands fa-windows';
-        label = 'Tải cho PC';
-      } else if (type === 'archive') {
-        btnClass = 'btn-dl-archive';
-        icon = 'fa-solid fa-file-zipper';
-        label = 'Tải file nén';
+      if (!isMulti) {
+        if (type === 'apk') {
+          btnClass = 'btn-dl-apk';
+          icon = 'fa-brands fa-android';
+          label = 'Cài đặt APK';
+        } else if (type === 'windows') {
+          btnClass = 'btn-dl-windows';
+          icon = 'fa-brands fa-windows';
+          label = 'Tải cho PC';
+        } else if (type === 'archive') {
+          btnClass = 'btn-dl-archive';
+          icon = 'fa-solid fa-file-zipper';
+          label = 'Tải file nén';
+        }
+      } else {
+        if (dl.source === 'release') {
+          btnClass = (type === 'apk') ? 'btn-dl-apk' : 'btn-dl-generic';
+          icon = 'fa-brands fa-github';
+          label = 'Server 1 (GitHub Release)';
+        } else {
+          btnClass = 'btn-dl-direct';
+          icon = 'fa-solid fa-bolt';
+          label = 'Server 2 (Tải trực tiếp)';
+        }
       }
 
       return `
-        <a href="${item.download_url}" class="btn-dl ${btnClass}" target="_blank" rel="noopener noreferrer">
-          <i class="${icon}"></i> ${label}
-        </a>
+        <div class="download-row">
+          <a href="${dl.download_url}" class="btn-dl ${btnClass}" target="_blank" rel="noopener noreferrer">
+            <i class="${icon}"></i> <span>${label}</span>
+          </a>
+          <button class="btn-icon-action" title="Sao chép link tải" onclick="copyToClipboard('${dl.download_url}')">
+            <i class="fa-regular fa-copy"></i>
+          </button>
+        </div>
       `;
     }
 
@@ -916,24 +971,26 @@
     }
 
     // ================= XỬ LÝ ĐỘ ƯU TIÊN VÀ ICON CHO GROUP =================
-    // Cho các nhóm "Xem TV", "Xem phim" lên đầu danh sách
     function getGroupPriority(groupName) {
       const g = (groupName || '').toLowerCase().trim();
-      if (g.includes('tv') || g.includes('truyền hình')) return 1;
-      if (g.includes('phim') || g.includes('movie') || g.includes('cinema')) return 2;
-      if (g.includes('media') || g.includes('video')) return 3;
-      if (g.includes('công cụ') || g.includes('tiện ích') || g.includes('tool')) return 4;
+      if (g.includes('truyền hình') || g.includes('tivi')) return 1;
+      if (g.includes('xem phim') || g.includes('phim') || g.includes('movie')) return 2;
+      if (g.includes('giải trí')) return 3;
+      if (g.includes('store')) return 4;
+      if (g.includes('voice')) return 5;
+      if (g.includes('công cụ')) return 6;
       if (g === 'khác' || g === 'other' || !g) return 999;
       return 10;
     }
 
     function getGroupIcon(groupName) {
       const g = (groupName || '').toLowerCase().trim();
-      if (g.includes('tv') || g.includes('truyền hình')) return 'fa-solid fa-tv';
-      if (g.includes('phim') || g.includes('movie')) return 'fa-solid fa-film';
-      if (g.includes('công cụ') || g.includes('tiện ích')) return 'fa-solid fa-wrench';
-      if (g.includes('nhạc') || g.includes('audio')) return 'fa-solid fa-music';
-      if (g.includes('game') || g.includes('trò chơi')) return 'fa-solid fa-gamepad';
+      if (g.includes('truyền hình') || g.includes('tivi')) return 'fa-solid fa-tv';
+      if (g.includes('xem phim') || g.includes('phim') || g.includes('movie')) return 'fa-solid fa-film';
+      if (g.includes('giải trí')) return 'fa-brands fa-youtube';
+      if (g.includes('store')) return 'fa-solid fa-store';
+      if (g.includes('voice')) return 'fa-solid fa-microphone';
+      if (g.includes('công cụ')) return 'fa-solid fa-wrench';
       return 'fa-solid fa-layer-group';
     }
 
@@ -957,7 +1014,6 @@
 
       categoryPills.innerHTML = pillsHtml;
 
-      // Gán sự kiện click cho các tab
       categoryPills.querySelectorAll('.pill-btn').forEach(btn => {
         btn.addEventListener('click', () => {
           categoryPills.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
@@ -972,15 +1028,20 @@
     function renderGroups() {
       const q = searchInput.value.toLowerCase().trim();
 
-      // 1. Lọc theo từ khóa tìm kiếm
-      const filtered = filesData.filter(item => {
-        const appName = (item.name || '').toLowerCase();
-        const fileName = (item.file_name || '').toLowerCase();
-        const tag = (item.release_tag || '').toLowerCase();
-        const title = (item.release_title || '').toLowerCase();
-        const group = (item.group || '').toLowerCase();
+      // 1. Lọc theo từ khóa tìm kiếm (tên app, nhóm, version, tên file)
+      const filtered = filesData.filter(app => {
+        const appName = (app.name || '').toLowerCase();
+        const appGroup = (app.group || '').toLowerCase();
+        const appVersion = (app.version || '').toLowerCase();
 
-        return appName.includes(q) || fileName.includes(q) || tag.includes(q) || title.includes(q) || group.includes(q);
+        if (appName.includes(q) || appGroup.includes(q) || appVersion.includes(q)) return true;
+
+        return (app.downloads || []).some(dl => {
+          const fn = (dl.file_name || '').toLowerCase();
+          const tag = (dl.release_tag || '').toLowerCase();
+          const title = (dl.release_title || '').toLowerCase();
+          return fn.includes(q) || tag.includes(q) || title.includes(q);
+        });
       });
 
       if (filtered.length === 0) {
@@ -995,15 +1056,15 @@
 
       // 2. Gom nhóm ứng dụng theo biến "group"
       const groupedData = {};
-      filtered.forEach(item => {
-        const groupName = (item.group && item.group.trim()) ? item.group.trim() : 'Ứng dụng khác';
+      filtered.forEach(app => {
+        const groupName = (app.group && app.group.trim()) ? app.group.trim() : 'Khác';
         if (!groupedData[groupName]) {
           groupedData[groupName] = [];
         }
-        groupedData[groupName].push(item);
+        groupedData[groupName].push(app);
       });
 
-      // 3. Sắp xếp danh sách nhóm: Đưa "Xem TV", "Xem phim" lên đầu
+      // 3. Sắp xếp danh sách nhóm theo thứ tự ưu tiên
       const sortedGroupKeys = Object.keys(groupedData).sort((a, b) => {
         const pA = getGroupPriority(a);
         const pB = getGroupPriority(b);
@@ -1029,7 +1090,7 @@
       // 5. Kết xuất HTML từng nhóm
       let html = '';
       displayGroups.forEach(groupName => {
-        const items = groupedData[groupName];
+        const apps = groupedData[groupName];
         const groupIcon = getGroupIcon(groupName);
 
         html += `
@@ -1039,18 +1100,28 @@
                 <div class="group-icon-tag"><i class="${groupIcon}"></i></div>
                 <h3 class="group-title">${groupName}</h3>
               </div>
-              <span class="group-count">${items.length} ứng dụng</span>
+              <span class="group-count">${apps.length} ứng dụng</span>
             </div>
 
             <div class="apps-grid">
-              ${items.map(item => {
-                const appName = item.name || item.file_name || 'Ứng dụng';
-                const fileName = item.file_name || '';
-                const visuals = getFileVisuals(fileName, appName);
-                const dlBtn = getDownloadButton(item);
-                const sizeStr = formatBytes(item.size_bytes);
-                const dlCount = item.download_count || 0;
-                const hasCustomName = item.name && item.file_name && item.name !== item.file_name;
+              ${apps.map(app => {
+                const appName = app.name || 'Ứng dụng';
+                const downloads = app.downloads || [];
+                const primaryDl = downloads[0] || {};
+                const primaryFileName = primaryDl.file_name || '';
+                const visuals = getFileVisuals(primaryFileName, appName);
+                
+                const appVersion = app.version || primaryDl.version || primaryDl.release_tag || 'v1.0';
+                const versionBadge = appVersion.toLowerCase().startsWith('v') ? appVersion : `v${appVersion}`;
+                
+                const totalDlCount = downloads.reduce((acc, d) => acc + (d.download_count || 0), 0);
+                const sizeStr = formatBytes(primaryDl.size_bytes);
+                const isMulti = downloads.length > 1;
+
+                // Tìm tiêu đề release hiển thị
+                const releaseInfo = downloads.find(d => d.release_title && d.release_title !== "Direct GitHub Upload")?.release_title 
+                                   || primaryDl.release_title 
+                                   || 'Bản phát hành chính thức';
 
                 return `
                   <div class="app-card">
@@ -1062,11 +1133,11 @@
                         <div class="app-meta">
                           <div class="app-title" title="${appName}">${appName}</div>
                           <div class="app-tags-row">
-                            <span class="badge-version">${item.release_tag || 'v1.0'}</span>
-                            <span class="badge-cat">${visuals.type.toUpperCase()}</span>
-                            ${hasCustomName ? `<span class="badge-filename" title="${fileName}">${fileName}</span>` : ''}
+                            <span class="badge-version">${versionBadge}</span>
+                            <span class="badge-cat">${visuals.type.toUpperCase()}</span>${isMulti ? `<span class="badge-sources"><i class="fa-solid fa-link"></i> ${downloads.length} nguồn tải</span>` : ''}
+                            ${primaryFileName && primaryFileName !== appName ? `<span class="badge-filename" title="${primaryFileName}">${primaryFileName}</span>` : ''}
                           </div>
-                          <div class="app-release-title">${item.release_title || 'Bản phát hành chính thức'}</div>
+                          <div class="app-release-title">${releaseInfo}</div>
                         </div>
                       </div>
 
@@ -1077,16 +1148,13 @@
                         </div>
                         <div class="spec-item" title="Tổng lượt tải xuống">
                           <i class="fa-solid fa-cloud-arrow-down"></i>
-                          <span>${dlCount.toLocaleString()} lượt</span>
+                          <span>${totalDlCount.toLocaleString()} lượt</span>
                         </div>
                       </div>
                     </div>
 
-                    <div class="card-actions">
-                      ${dlBtn}
-                      <button class="btn-icon-action" title="Sao chép link tải" onclick="copyToClipboard('${item.download_url}')">
-                        <i class="fa-regular fa-copy"></i>
-                      </button>
+                    <div class="downloads-container">
+                      ${downloads.map(dl => renderDownloadRow(dl, isMulti)).join('')}
                     </div>
                   </div>
                 `;
@@ -1107,18 +1175,46 @@
           res = await fetch(`${DATA_URL}?v=${Date.now()}`);
           if (!res.ok) throw new Error();
         } catch {
-          res = await fetch(`${RAW_URL}?v=${Date.now()}`);
+          res = await fetch(`${FALLBACK_URL}?v=${Date.now()}`);
         }
 
         const data = await res.json();
-        filesData = data.files || [];
+        const rawList = data.apps || data.files || [];
+
+        // Đảm bảo tương thích cả cấu trúc mới và cấu trúc cũ
+        filesData = rawList.map(item => {
+          if (item.downloads && Array.isArray(item.downloads)) {
+            return item;
+          }
+          return {
+            name: item.name || item.file_name || 'Ứng dụng',
+            version: item.version || '',
+            group: item.group || 'Khác',
+            downloads: [{
+              source: item.source || 'release',
+              file_name: item.file_name || '',
+              version: item.version || '',
+              size_bytes: item.size_bytes || 0,
+              download_url: item.download_url || '',
+              release_tag: item.release_tag || '',
+              release_title: item.release_title || '',
+              download_count: item.download_count || 0
+            }]
+          };
+        });
+
         iconsMap = data.icons || {};
 
         statFiles.innerText = filesData.length;
-        const totalDl = filesData.reduce((acc, curr) => acc + (curr.download_count || 0), 0);
+
+        // Tính tổng lượt tải trên toàn bộ các link tải
+        const totalDl = filesData.reduce((acc, app) => {
+          const appDl = (app.downloads || []).reduce((dAcc, d) => dAcc + (d.download_count || 0), 0);
+          return acc + appDl;
+        }, 0);
         statDownloads.innerText = totalDl.toLocaleString();
 
-        // Thu thập các nhóm duy nhất và tạo tab
+        // Thu thập các nhóm và tạo tab lọc
         const allGroups = new Set();
         filesData.forEach(item => {
           if (item.group && item.group.trim()) {
@@ -1126,7 +1222,6 @@
           }
         });
 
-        // Sắp xếp các tab theo thứ tự ưu tiên
         const sortedPillGroups = Array.from(allGroups).sort((a, b) => {
           const pA = getGroupPriority(a);
           const pB = getGroupPriority(b);
