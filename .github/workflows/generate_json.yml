@@ -274,12 +274,15 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # ĐÂY LÀ DÒNG FIX LỖI DETACHED HEAD:
+          git checkout -B main
+
           git add data.json
           if ! git diff --staged --quiet; then
             git commit -m "Auto-update data.json"
-            # Tự động gộp mã với remote nếu máy chủ có update mới trước khi đẩy
             git pull origin main --rebase --autostash
-            git push origin HEAD:main
+            git push origin main
           else
             echo "data.json không có thay đổi mới, bỏ qua commit."
           fi
