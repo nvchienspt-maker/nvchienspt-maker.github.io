@@ -1,1 +1,248 @@
-Cobalt: 
+[cobalt]
+name = TizenTube Cobalt TV (YouTube không quảng cáo)
+package = org.chromium.cobalt
+developer = Cobalt TV Team
+compatibility = Android TV 5.0+, Google TV, Xiaomi TV
+remote = Hỗ trợ 100% Remote D-pad & Chuột bay
+description = Phiên bản YouTube Cobalt mã nguồn mở tối ưu hoá riêng cho Android TV và Xiaomi TV, chặn 100% quảng cáo, hỗ trợ phát chuẩn 4K 60fps HDR và âm thanh vòm sống động.
+features = Chặn hoàn toàn quảng cáo video YouTube | Hỗ trợ phát chuẩn 4K 60fps HDR | Điều khiển mượt mà bằng Remote TV | Không cần Google Play Services
+
+[smarttube]
+name = SmartTube Stable
+package = com.teamsmart.videomanager.tv
+developer = Yuliskov (Mã nguồn mở)
+compatibility = Android TV 4.3+ / FireOS / Google TV
+remote = Tối ưu phím tắt D-pad, Voice và Chuột bay
+description = Trình phát YouTube mã nguồn mở số 1 cho Android TV, tích hợp SponsorBlock tự động bỏ qua intro/tài trợ, chặn quảng cáo, hỗ trợ video 8K AV1 và đa tài khoản.
+features = Tự động bỏ qua quảng cáo & tài trợ SponsorBlock | Phát video 4K/8K HDR 60fps codec AV1 | Tùy biến phụ đề và giao diện | Đồng bộ tài khoản Google an toàn
+
+[coccoc]
+name = Trình duyệt Cốc Cốc TV
+package = com.coccoc.trinhduyet
+developer = Cốc Cốc Company
+compatibility = Android TV 5.0 trở lên
+remote = Hỗ trợ D-pad và con trỏ chuột ảo
+description = Trình duyệt web quốc dân tối ưu hóa cho màn hình TV, tích hợp tính năng chặn quảng cáo phiền toái, hỗ trợ xem bóng đá, phim trực tuyến và tải video tốc độ cao.
+features = Tự động chặn quảng cáo độc hại và banner | Chế độ duyệt web tối ưu cho Remote TV | Xem trực tiếp bóng đá và phim online | Tìm kiếm thông minh bằng tiếng Việt
+
+[fptplay]
+name = FPT Play
+package = com.fpt.play
+developer = FPT Telecom Corporation
+compatibility = Android TV 5.0 trở lên
+remote = Tương thích 100% Remote Android TV
+description = Dịch vụ truyền hình trực tuyến hàng đầu Việt Nam với hơn 150 kênh truyền hình trong nước & quốc tế, độc quyền các giải thể thao đỉnh cao Ngoại Hạng Anh, Cúp C1 UEFA.
+features = Trực tiếp bóng đá Ngoại Hạng Anh, UEFA Champions League | Kho phim điện ảnh, phim bộ độc quyền Full HD/4K | Xem lại chương trình trong 72 giờ
+
+[tv360]
+name = TV360 Smart TV
+package = com.viettel.tv360.box
+developer = Viettel Telecom
+compatibility = Android TV 5.1 trở lên
+remote = Tương thích hoàn toàn Remote thông minh
+description = Ứng dụng truyền hình giải trí số của Viettel với gần 200 kênh truyền hình đặc sắc, kho phim bom tấn cùng bản quyền phát sóng các giải đấu thể thao hàng đầu.
+features = Gần 200 kênh truyền hình VTV, HTV, VTC và quốc tế | Phát trực tiếp các giải bóng đá và sự kiện thể thao | Kho phim chiếu rạp chất lượng cao
+
+[vtvgo]
+name = VTV Go
+package = vn.vtv.vtvgo
+developer = VTV Digital
+compatibility = Android TV / Android Box
+remote = Phím số chuyển kênh trực tiếp trên Remote
+description = Hệ thống truyền hình số quốc gia chính thức của Đài Truyền hình Việt Nam, cho phép xem trực tiếp toàn bộ kênh VTV1 đến VTV9 và kho nội dung tin tức đồ sộ.
+features = Xem trực tiếp tất cả kênh sóng VTV chất lượng cao | Xem lại lịch phát sóng lên tới 7 ngày | Hoàn toàn miễn phí
+
+[kiki]
+name = Giọng nói Kiki
+package = com.zalo.zaloai.kiki
+developer = Zalo AI Lab
+compatibility = Android TV 7.0+
+remote = Tương thích nút Micro trên Remote Bluetooth
+description = Trợ lý giọng nói tiếng Việt Kiki thông minh do Zalo AI phát triển, nhận diện chính xác giọng nói cả 3 miền Bắc - Trung - Nam, hỗ trợ mở nhạc, phim và tìm kiếm nhanh.
+features = Mở video YouTube, kênh truyền hình bằng khẩu lệnh tiếng Việt | Tra cứu thời tiết, giá vàng, tin tức | Nhận diện phương ngữ tự nhiên
+
+[adb]
+name = Việt Xiaomi ADB Terminal
+package = com.vxm.adb
+developer = Việt Xiaomi Community
+compatibility = Android TV 5.0+
+remote = Hỗ trợ bàn phím ảo và Remote
+description = Công cụ hỗ trợ quản trị hệ thống và chạy lệnh ADB trên Xiaomi TV, cho phép gỡ ứng dụng rác hệ thống, cấp quyền đặc biệt và tăng tốc thiết bị.
+features = Chạy lệnh ADB không cần máy tính PC | Gỡ bỏ ứng dụng hệ thống rác tiết kiệm dung lượng | Giao diện điều khiển thuận tiện trên TV
+
+[project]
+name = Projectivy Launcher
+package = com.spocky.projengmenu
+developer = Spocky (XDA Developers)
+compatibility = Android TV 7.0+
+remote = Điều khiển chuẩn Android TV
+description = Trình khởi chạy thay thế tốt nhất cho Android TV, không có quảng cáo Google, tốc độ mượt mà và khả năng tùy biến không giới hạn.
+features = Thay thế hoàn toàn màn hình chính mặc định | Tùy biến danh mục ứng dụng và hình nền | Tiết kiệm RAM và tăng tốc khởi động TV đến 30%
+
+[mytv]
+name = MyTV Box
+package = com.vnpt.mytv.tv
+developer = VNPT Media
+compatibility = Android TV 5.0+
+remote = Hỗ trợ Remote TV VNPT & Chuẩn Android TV
+description = Dịch vụ truyền hình đa phương tiện chất lượng cao của VNPT với gần 200 kênh truyền hình trong nước & quốc tế.
+
+[chophim]
+name = Chợ Phim 4K
+package = com.chophim.tv
+developer = Chợ Phim Team
+compatibility = Android TV 5.0 trở lên
+remote = Hỗ trợ Remote TV D-pad
+description = Kho tổng hợp phim điện ảnh, phim rạp bom tấn và phim bộ chất lượng cao 4K với phụ đề tiếng Việt chuẩn, tốc độ tải phim cực nhanh.
+
+[phim4k]
+name = Phim4K Cinema
+package = com.phim4k.tv
+developer = Phim4K Media
+compatibility = Android TV 6.0 trở lên
+remote = Điều khiển chuẩn Remote TV
+description = Ứng dụng xem phim chuyên biệt chuẩn độ phân giải 4K, hỗ trợ âm thanh vòm Dolby Atmos.
+
+[ezviz]
+name = EZVIZ Camera TV
+package = com.ezviz
+developer = EZVIZ Inc.
+compatibility = Android TV 5.0 trở lên
+remote = Điều khiển Remote D-pad
+description = Ứng dụng quan sát hệ thống camera an ninh EZVIZ trên màn hình lớn Tivi, hỗ trợ xem trực tiếp nhiều camera cùng lúc.
+
+[imou]
+name = Imou Life TV
+package = com.mm.android.smartlifeiot
+developer = Imou Tech
+compatibility = Android TV 5.0+
+remote = Remote TV D-pad
+description = Giải pháp giám sát camera an ninh thông minh Imou Life trực tiếp trên Smart TV gia đình bạn.
+
+[yoosee]
+name = Yoosee Camera TV
+package = com.yoosee
+developer = Yoosee Team
+compatibility = Android TV 5.0+
+remote = Remote D-pad
+description = Ứng dụng kết nối và quản lý các dòng camera WiFi Yoosee trên màn hình Tivi một cách dễ dàng.
+
+[tvbro]
+name = Trình duyệt TV Bro
+package = com.phlox.tvwebbrowser
+developer = Phlox (Mã nguồn mở)
+compatibility = Android TV 5.0+
+remote = Hoàn hảo cho Remote TV D-pad
+description = Trình duyệt web mã nguồn mở tối ưu hóa hoàn hảo cho điều khiển từ xa D-Pad trên Android TV, tích hợp chặn quảng cáo.
+
+[tiktok]
+name = TikTok AndroidTV
+package = com.tiktok.tv
+developer = TikTok Pte. Ltd.
+compatibility = Android TV 5.0+
+remote = Remote TV D-pad
+description = Trải nghiệm xem video ngắn giải trí TikTok trên màn hình lớn với chế độ tự động phát liên tục và điều khiển bằng Remote.
+
+[vietmitv]
+name = VietMITV
+package = com.vietmi.tv
+developer = Việt Xiaomi Group
+compatibility = Android TV 5.0+
+remote = Remote Xiaomi & Android TV
+description = Ứng dụng xem truyền hình Việt Nam đặc sắc, load kênh siêu tốc, tối ưu hóa dành cho dòng TV Xiaomi.
+
+[vietmitvvoice]
+name = VietMITV Gán Phím
+package = com.vietmi.voice
+developer = Việt Xiaomi Group
+compatibility = Android TV 5.0+
+remote = Remote TV Voice
+description = Tiện ích gán phím tắt và mở kênh truyền hình bằng giọng nói trên điều khiển TV Xiaomi.
+
+[vietplaytv]
+name = VietPlayTV
+package = com.vietplay.tv
+developer = VietPlay Group
+compatibility = Android TV 5.0+
+remote = Remote TV D-pad
+description = Hệ thống xem truyền hình và video giải trí tốc độ cao, hỗ trợ nhiều luồng phát dự phòng ổn định.
+
+[quantv]
+name = QuanTV
+package = com.quantv.app
+developer = QuanTV Dev
+compatibility = Android TV 5.0+
+remote = Remote D-pad
+description = Ứng dụng truyền hình giải trí đa kênh cho Tivi thông minh với nhiều chương trình đặc sắc.
+
+[vapp]
+name = VAppTV
+package = com.vapp.tv
+developer = VApp Team
+compatibility = Android TV 5.0+
+remote = Remote TV
+description = Ứng dụng xem truyền hình và video trực tuyến tiện lợi cho gia đình.
+
+[getout]
+name = Get Out TV
+package = com.getout.tv
+developer = GetOut Dev
+compatibility = Android TV 5.0+
+remote = Remote TV D-pad
+description = Ứng dụng giải trí và truyền hình trực tuyến nhanh chóng cho Android TV.
+
+[mapvoice]
+name = MapVoice Assistant
+package = com.mapvoice.tv
+developer = Voice Map Group
+compatibility = Android 5.0+
+remote = Nút Micro Voice & Cảm ứng
+description = Ứng dụng bản đồ và điều khiển tìm kiếm địa điểm, chỉ đường bằng giọng nói tối ưu cho Android Box và màn hình ô tô Android.
+
+[supervoice]
+name = Super Voice
+package = com.supervoice.tv
+developer = Super Voice Lab
+compatibility = Android 5.0+
+remote = Remote Bluetooth có Mic
+description = Công cụ trợ lý điều khiển giọng nói đa năng cho Android Box, hỗ trợ nhận lệnh điều khiển mọi tính năng thiết bị.
+
+[mstore]
+name = MStore2 TV
+package = com.mstore.app
+developer = MStore Team
+compatibility = Android TV 5.0+
+remote = Remote TV D-pad
+description = Kho tải ứng dụng chuyên dụng dành cho Android Box và Tivi thông minh, tổng hợp nhiều app giải trí chọn lọc.
+
+[nvcstore]
+name = NVC Store
+package = com.nvcstore.app
+developer = NVC Store Official
+compatibility = Android TV 5.0 trở lên / Google TV / Xiaomi TV
+remote = Tối ưu hoàn hảo Remote D-pad & Chuột
+description = Kho ứng dụng chuyên biệt số 1 cho Android TV, TV Box và Xiaomi TV, hỗ trợ tải đa luồng tốc độ cao, cập nhật tự động và cài đặt từ xa qua mạng LAN.
+
+[vxmstore]
+name = Việt Xiaomi Store
+package = com.vxmstore.app
+developer = Việt Xiaomi Group
+compatibility = Xiaomi TV MIUI / Android TV
+remote = Remote Xiaomi chính hãng
+description = Kho ứng dụng tiện ích và công cụ tối ưu chuyên biệt cho cộng đồng người dùng Xiaomi TV tại Việt Nam.
+
+[ytbtizen]
+name = Tizen Tube GoogleTV
+package = org.chromium.cobalt.tizen
+developer = TizenTube Team
+compatibility = Google TV / Android TV 7.0+
+remote = Remote Google TV & D-pad
+description = Bản YouTube TizenTube tối ưu hóa cao cho các thiết bị Google TV và Android TV thế hệ mới, mượt mà và không quảng cáo.
+
+[ytbtq]
+name = YouTube XiaomiTV Nội Địa
+package = com.google.android.youtube.tv
+developer = Xiaomi TV Modder
+compatibility = Xiaomi TV MIUI TV / PatchWall
+remote = Remote Xiaomi Bluetooth & Hồng ngoại
+description = Bản YouTube tương thích chuyên sâu cho các dòng Xiaomi TV nội địa Trung Quốc, giải quyết triệt để vấn đề không có Google Play Services.
