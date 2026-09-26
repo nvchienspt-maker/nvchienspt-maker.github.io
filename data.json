@@ -1,7 +1,7 @@
 {
   "repository": "nvchienspt-maker/nvchienspt-maker.github.io",
   "total_apps": 38,
-  "total_files": 41,
+  "total_files": 38,
   "total_icons": 41,
   "icons": {
     "app-adb.png": "https://nvchienspt-maker.github.io/icons/app-adb.png",
@@ -272,18 +272,6 @@
           "download_count": 10,
           "created_at": "2026-09-12T08:42:14Z",
           "published_at": "2026-09-12T08:43:44Z"
-        },
-        {
-          "source": "direct",
-          "file_name": "mstore.apk",
-          "version": "",
-          "size_bytes": 13217420,
-          "download_url": "https://nvchienspt-maker.github.io/apps/mstore.apk",
-          "release_tag": null,
-          "release_title": "Direct GitHub Upload",
-          "download_count": 0,
-          "created_at": null,
-          "published_at": null
         }
       ]
     },
@@ -379,18 +367,6 @@
           "download_count": 1,
           "created_at": "2026-09-26T06:12:21Z",
           "published_at": "2026-09-12T08:43:44Z"
-        },
-        {
-          "source": "direct",
-          "file_name": "nvcstore_v1.0.2.apk",
-          "version": "1.0.2",
-          "size_bytes": 3786321,
-          "download_url": "https://nvchienspt-maker.github.io/apps/nvcstore_v1.0.2.apk",
-          "release_tag": null,
-          "release_title": "Direct GitHub Upload",
-          "download_count": 0,
-          "created_at": null,
-          "published_at": null
         }
       ]
     },
@@ -624,7 +600,7 @@
     },
     {
       "name": "VietMITV",
-      "version": "20.0",
+      "version": "",
       "group": "Truyền Hình",
       "downloads": [
         {
@@ -638,18 +614,6 @@
           "download_count": 2,
           "created_at": "2026-09-26T01:31:06Z",
           "published_at": "2026-09-12T08:43:44Z"
-        },
-        {
-          "source": "direct",
-          "file_name": "VietMiTV_v20.0.apk",
-          "version": "20.0",
-          "size_bytes": 2127919,
-          "download_url": "https://nvchienspt-maker.github.io/apps/VietMiTV_v20.0.apk",
-          "release_tag": null,
-          "release_title": "Direct GitHub Upload",
-          "download_count": 0,
-          "created_at": null,
-          "published_at": null
         }
       ]
     },
@@ -1032,18 +996,6 @@
           "download_count": 10,
           "created_at": "2026-09-12T08:42:14Z",
           "published_at": "2026-09-12T08:43:44Z"
-        },
-        {
-          "source": "direct",
-          "file_name": "mstore.apk",
-          "version": "",
-          "size_bytes": 13217420,
-          "download_url": "https://nvchienspt-maker.github.io/apps/mstore.apk",
-          "release_tag": null,
-          "release_title": "Direct GitHub Upload",
-          "download_count": 0,
-          "created_at": null,
-          "published_at": null
         }
       ]
     },
@@ -1139,18 +1091,6 @@
           "download_count": 1,
           "created_at": "2026-09-26T06:12:21Z",
           "published_at": "2026-09-12T08:43:44Z"
-        },
-        {
-          "source": "direct",
-          "file_name": "nvcstore_v1.0.2.apk",
-          "version": "1.0.2",
-          "size_bytes": 3786321,
-          "download_url": "https://nvchienspt-maker.github.io/apps/nvcstore_v1.0.2.apk",
-          "release_tag": null,
-          "release_title": "Direct GitHub Upload",
-          "download_count": 0,
-          "created_at": null,
-          "published_at": null
         }
       ]
     },
@@ -1384,7 +1324,7 @@
     },
     {
       "name": "VietMITV",
-      "version": "20.0",
+      "version": "",
       "group": "Truyền Hình",
       "downloads": [
         {
@@ -1398,18 +1338,6 @@
           "download_count": 2,
           "created_at": "2026-09-26T01:31:06Z",
           "published_at": "2026-09-12T08:43:44Z"
-        },
-        {
-          "source": "direct",
-          "file_name": "VietMiTV_v20.0.apk",
-          "version": "20.0",
-          "size_bytes": 2127919,
-          "download_url": "https://nvchienspt-maker.github.io/apps/VietMiTV_v20.0.apk",
-          "release_tag": null,
-          "release_title": "Direct GitHub Upload",
-          "download_count": 0,
-          "created_at": null,
-          "published_at": null
         }
       ]
     },
