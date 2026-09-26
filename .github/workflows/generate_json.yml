@@ -47,36 +47,51 @@ jobs:
               "Accept": "application/vnd.github.v3+json"
           }
 
-          # Tải bảng ánh xạ tên hiển thị từ file app_name.txt online
+          # Domain GitHub Pages thay vì dùng raw.githubusercontent.com
+          BASE_PAGES_URL = "https://nvchienspt-maker.github.io"
+
+          # Tải bảng ánh xạ tên hiển thị từ file app_name.txt (đọc local trước, nếu không có mới tải qua Pages)
           APP_NAMES = {}
-          APP_NAMES_URL = "https://raw.githubusercontent.com/nvchienspt-maker/nvchienspt-maker.github.io/refs/heads/main/files/app_name.txt"
-          try:
-              res_names = requests.get(APP_NAMES_URL, timeout=15)
-              if res_names.status_code == 200:
-                  content = res_names.text.strip()
-                  # Thử parse JSON hoặc Python dictionary
+          local_app_name_path = os.path.join("files", "app_name.txt")
+          content = ""
+
+          if os.path.exists(local_app_name_path):
+              try:
+                  with open(local_app_name_path, "r", encoding="utf-8") as f:
+                      content = f.read().strip()
+              except Exception as e:
+                  print(f"Không thể đọc file local app_name.txt ({e})")
+
+          if not content:
+              APP_NAMES_URL = f"{BASE_PAGES_URL}/files/app_name.txt"
+              try:
+                  res_names = requests.get(APP_NAMES_URL, timeout=15)
+                  if res_names.status_code == 200:
+                      content = res_names.text.strip()
+              except Exception as e:
+                  print(f"Cảnh báo: Không thể tải app_name.txt ({e})")
+
+          if content:
+              try:
+                  parsed = json.loads(content)
+              except Exception:
                   try:
-                      parsed = json.loads(content)
+                      import ast
+                      parsed = ast.literal_eval(content)
                   except Exception:
-                      try:
-                          import ast
-                          parsed = ast.literal_eval(content)
-                      except Exception:
-                          # Đọc theo từng dòng nếu là dạng text thuần (key: value, key = value hoặc key|value)
-                          parsed = {}
-                          for line in content.splitlines():
-                              line = line.strip()
-                              if not line or line.startswith("#"):
-                                  continue
-                              for sep in [":", "=", "|"]:
-                                  if sep in line:
-                                      k, v = line.split(sep, 1)
-                                      parsed[k.strip().strip('"\'').lower()] = v.strip().strip('"\',')
-                                      break
-                  if isinstance(parsed, dict):
-                      APP_NAMES = {str(k).strip().lower(): str(v).strip() for k, v in parsed.items()}
-          except Exception as e:
-              print(f"Cảnh báo: Không thể tải app_name.txt ({e})")
+                      # Đọc theo từng dòng nếu là dạng text thuần (key: value, key = value hoặc key|value)
+                      parsed = {}
+                      for line in content.splitlines():
+                          line = line.strip()
+                          if not line or line.startswith("#"):
+                              continue
+                          for sep in [":", "=", "|"]:
+                              if sep in line:
+                                  k, v = line.split(sep, 1)
+                                  parsed[k.strip().strip('"\'').lower()] = v.strip().strip('"\',')
+                                  break
+              if isinstance(parsed, dict):
+                  APP_NAMES = {str(k).strip().lower(): str(v).strip() for k, v in parsed.items()}
 
           def get_app_display_name(file_name):
               stem = os.path.splitext(file_name)[0]
@@ -95,7 +110,7 @@ jobs:
                   return "Xem Phim"
               if any(k in stem for k in ["tivi", "vtv", "mytv", "fpt", "vietmi", "vietplay", "vapp", "quantv", "tv360", "getout"]):
                   return "Truyền Hình"
-              if any(k in stem for k in ["Cobalt", "ytb", "youtube", "smarttube", "tiktok"]):
+              if any(k in stem for k in ["cobalt", "ytb", "youtube", "smarttube", "tiktok"]):
                   return "Giải Trí"
               if any(k in stem for k in ["voice", "kiki", "map"]):
                   return "Tiện Ích Voice"
@@ -152,7 +167,7 @@ jobs:
                           "file_name": f,
                           "size_bytes": os.path.getsize(full_path),
                           "download_count": 0,
-                          "download_url": f"https://raw.githubusercontent.com/{repo}/main/{rel_path}",
+                          "download_url": f"{BASE_PAGES_URL}/{rel_path}",
                           "release_tag": None,
                           "release_title": "Direct GitHub Upload",
                           "created_at": None,
@@ -167,7 +182,7 @@ jobs:
                       "file_name": f,
                       "size_bytes": os.path.getsize(f),
                       "download_count": 0,
-                      "download_url": f"https://raw.githubusercontent.com/{repo}/main/{f}",
+                      "download_url": f"{BASE_PAGES_URL}/{f}",
                       "release_tag": None,
                       "release_title": "Direct GitHub Upload",
                       "created_at": None,
@@ -190,7 +205,7 @@ jobs:
                       "downloads": []
                   }
 
-              # Cập nhật version nếu ban đầu chưa nhận diện được version
+              # Cập nhật version nếu ban đầu chưa nhận diện được
               if app_version and not apps_map[app_name]["version"]:
                   apps_map[app_name]["version"] = app_version
 
@@ -218,9 +233,9 @@ jobs:
               for root, _, files in os.walk(icon_dir):
                   for f in sorted(files):
                       if f.lower().endswith(valid_exts):
-                          rel_path = os.path.relpath(os.path.join(root, f), ".")
-                          raw_url = f"https://raw.githubusercontent.com/{repo}/main/{rel_path}"
-                          icons_dict[f] = raw_url
+                          rel_path = os.path.relpath(os.path.join(root, f), ".").replace(os.sep, "/")
+                          page_icon_url = f"{BASE_PAGES_URL}/{rel_path}"
+                          icons_dict[f] = page_icon_url
 
           # 4. Ghi dữ liệu ra file data.json
           output = {
