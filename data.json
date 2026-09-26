@@ -21,6 +21,7 @@
     "app-netflix.png": "https://nvchienspt-maker.github.io/icons/app-netflix.png",
     "app-nvcmovie.png": "https://nvchienspt-maker.github.io/icons/app-nvcmovie.png",
     "app-nvcphim.png": "https://nvchienspt-maker.github.io/icons/app-nvcphim.png",
+    "app-nvcstore.png": "https://nvchienspt-maker.github.io/icons/app-nvcstore.png",
     "app-nvctivi.png": "https://nvchienspt-maker.github.io/icons/app-nvctivi.png",
     "app-phim4k.png": "https://nvchienspt-maker.github.io/icons/app-phim4k.png",
     "app-project.png": "https://nvchienspt-maker.github.io/icons/app-project.png",
@@ -43,8 +44,7 @@
     "app-yoosee.png": "https://nvchienspt-maker.github.io/icons/app-yoosee.png",
     "app-ytbTQ.png": "https://nvchienspt-maker.github.io/icons/app-ytbTQ.png",
     "app-ytbtizen.png": "https://nvchienspt-maker.github.io/icons/app-ytbtizen.png",
-    "app_Cobalt.jpg": "https://nvchienspt-maker.github.io/icons/app_Cobalt.jpg",
-    "nvcstore.png": "https://nvchienspt-maker.github.io/icons/nvcstore.png"
+    "app_Cobalt.jpg": "https://nvchienspt-maker.github.io/icons/app_Cobalt.jpg"
   },
   "apps": [
     {
