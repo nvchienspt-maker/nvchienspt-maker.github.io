@@ -8,7 +8,8 @@ on:
       - main
     paths:
       - 'icons/**'               # Chạy khi có icon mới được upload/thay đổi
-      - 'apps/**'               # Chạy khi có app mới được upload trực tiếp
+      - 'apps/**'                # Chạy khi có app mới được upload vào thư mục apps
+      - 'files/**'               # Chạy khi có app mới được upload vào thư mục files
   workflow_dispatch:             # Cho phép bấm nút chạy thủ công bất kỳ lúc nào
 
 jobs:
@@ -50,26 +51,29 @@ jobs:
           # Domain GitHub Pages thay vì dùng raw.githubusercontent.com
           BASE_PAGES_URL = "https://nvchienspt-maker.github.io"
 
-          # Tải bảng ánh xạ tên hiển thị từ  app_name.txt (đọc local trước, nếu không có mới tải qua Pages)
+          # Tải bảng ánh xạ tên hiển thị từ app_name.txt (hỗ trợ kiểm tra cả thư mục apps/ và files/)
           APP_NAMES = {}
-          local_app_name_path = os.path.join("s", "app_name.txt")
           content = ""
-
-          if os.path.exists(local_app_name_path):
-              try:
-                  with open(local_app_name_path, "r", encoding="utf-8") as f:
-                      content = f.read().strip()
-              except Exception as e:
-                  print(f"Không thể đọc  local app_name.txt ({e})")
+          for candidate_path in [os.path.join("apps", "app_name.txt"), os.path.join("files", "app_name.txt")]:
+              if os.path.exists(candidate_path):
+                  try:
+                      with open(candidate_path, "r", encoding="utf-8") as f:
+                          content = f.read().strip()
+                          if content:
+                              break
+                  except Exception as e:
+                      print(f"Không thể đọc file {candidate_path} ({e})")
 
           if not content:
-              APP_NAMES_URL = f"{BASE_PAGES_URL}/s/app_name.txt"
-              try:
-                  res_names = requests.get(APP_NAMES_URL, timeout=15)
-                  if res_names.status_code == 200:
-                      content = res_names.text.strip()
-              except Exception as e:
-                  print(f"Cảnh báo: Không thể tải app_name.txt ({e})")
+              for candidate_url in [f"{BASE_PAGES_URL}/apps/app_name.txt", f"{BASE_PAGES_URL}/files/app_name.txt"]:
+                  try:
+                      res_names = requests.get(candidate_url, timeout=15)
+                      if res_names.status_code == 200:
+                          content = res_names.text.strip()
+                          if content:
+                              break
+                  except Exception:
+                      pass
 
           if content:
               try:
@@ -79,7 +83,6 @@ jobs:
                       import ast
                       parsed = ast.literal_eval(content)
                   except Exception:
-                      # Đọc theo từng dòng nếu là dạng text thuần (key: value, key = value hoặc key|value)
                       parsed = {}
                       for line in content.splitlines():
                           line = line.strip()
@@ -93,9 +96,8 @@ jobs:
               if isinstance(parsed, dict):
                   APP_NAMES = {str(k).strip().lower(): str(v).strip() for k, v in parsed.items()}
 
-          def get_app_display_name(_name):
-              stem = os.path.splitext(_name)[0]
-              # Lấy đoạn đầu của tên app trước dấu '_' (ví dụ: chophim_v1.1.0.apk -> chophim)
+          def get_app_display_name(file_name):
+              stem = os.path.splitext(file_name)[0]
               app_key = stem.split('_')[0].strip().lower()
               if app_key in APP_NAMES:
                   return APP_NAMES[app_key]
@@ -104,8 +106,8 @@ jobs:
                       return APP_NAMES[key]
               return stem.split('_')[0].strip()
 
-          def get_app_group(_name):
-              stem = os.path.splitext(_name)[0].lower()
+          def get_app_group(file_name):
+              stem = os.path.splitext(file_name)[0].lower()
               if any(k in stem for k in ["movie", "phim", "cinema", "rap", "hbomax", "netflix"]):
                   return "Xem Phim"
               if any(k in stem for k in ["tivi", "vtv", "mytv", "fpt", "vietmi", "vietplay", "vapp", "quantv", "tv360", "getout"]):
@@ -120,13 +122,13 @@ jobs:
                   return "Apps Store"
               return "Khác"
 
-          def get_app_version(_name):
-              match = re.search(r'[_-]v?(\d+(?:\.\d+)+)', _name, re.IGNORECASE)
+          def get_app_version(file_name):
+              match = re.search(r'[_-]v?(\d+(?:\.\d+)+)', file_name, re.IGNORECASE)
               if match:
                   return match.group(1)
               return ""
 
-          raw_s = []
+          raw_files = []
 
           # 1. Lấy toàn bộ assets từ tất cả Releases
           releases_url = f"https://api.github.com/repos/{repo}/releases"
@@ -139,10 +141,10 @@ jobs:
               published_at = rel.get("published_at")
               
               for asset in rel.get("assets", []):
-                  _name = asset.get("name") or ""
-                  raw_s.append({
+                  file_name = asset.get("name") or ""
+                  raw_files.append({
                       "source": "release",
-                      "_name": _name,
+                      "file_name": file_name,
                       "size_bytes": asset.get("size"),
                       "download_count": asset.get("download_count"),
                       "download_url": asset.get("browser_download_url"),
@@ -152,27 +154,27 @@ jobs:
                       "published_at": published_at
                   })
 
-          # 1.1. Quét các file upload trực tiếp vào GitHub (thư mục 'files' hoặc file cài đặt ở thư mục gốc)
+          # 1.1. Quét các file upload trực tiếp vào thư mục 'apps' và 'files'
           valid_app_exts = (".apk", ".xapk", ".apks", ".zip", ".rar", ".7z", ".ipa", ".wgt", ".exe")
-          direct_dir = "files"
-          if os.path.exists(direct_dir):
-              for root, _, files in os.walk(direct_dir):
-                  for f in sorted(files):
-                      if f.lower() in ["app_name.txt", ".gitkeep"] or f.lower().endswith((".txt", ".md")):
-                          continue
-                      full_path = os.path.join(root, f)
-                      rel_path = os.path.relpath(full_path, ".").replace(os.sep, "/")
-                      raw_files.append({
-                          "source": "direct",
-                          "file_name": f,
-                          "size_bytes": os.path.getsize(full_path),
-                          "download_count": 0,
-                          "download_url": f"{BASE_PAGES_URL}/{rel_path}",
-                          "release_tag": None,
-                          "release_title": "Direct GitHub Upload",
-                          "created_at": None,
-                          "published_at": None
-                      })
+          for direct_dir in ["apps", "files"]:
+              if os.path.exists(direct_dir):
+                  for root, _, files in os.walk(direct_dir):
+                      for f in sorted(files):
+                          if f.lower() in ["app_name.txt", ".gitkeep"] or f.lower().endswith((".txt", ".md")):
+                              continue
+                          full_path = os.path.join(root, f)
+                          rel_path = os.path.relpath(full_path, ".").replace(os.sep, "/")
+                          raw_files.append({
+                              "source": "direct",
+                              "file_name": f,
+                              "size_bytes": os.path.getsize(full_path),
+                              "download_count": 0,
+                              "download_url": f"{BASE_PAGES_URL}/{rel_path}",
+                              "release_tag": None,
+                              "release_title": "Direct GitHub Upload",
+                              "created_at": None,
+                              "published_at": None
+                          })
 
           # Quét thêm file cài đặt ở thư mục gốc (nếu có)
           for f in sorted(os.listdir(".")):
@@ -205,7 +207,6 @@ jobs:
                       "downloads": []
                   }
 
-              # Cập nhật version nếu ban đầu chưa nhận diện được
               if app_version and not apps_map[app_name]["version"]:
                   apps_map[app_name]["version"] = app_version
 
