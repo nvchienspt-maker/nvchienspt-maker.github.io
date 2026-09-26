@@ -115,7 +115,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/coccoc_v133.4.405.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 0,
+          "download_count": 1,
           "created_at": "2026-09-26T09:26:06Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -313,38 +313,38 @@
     },
     {
       "name": "NVC Movie",
-      "version": "3.5.3",
+      "version": "3.5.6",
       "group": "Xem Phim",
       "downloads": [
         {
           "source": "release",
-          "file_name": "nvcmovie_v3.5.3.apk",
-          "version": "3.5.3",
-          "size_bytes": 4119626,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvcmovie_v3.5.3.apk",
+          "file_name": "nvcmovie_v3.5.6.apk",
+          "version": "3.5.6",
+          "size_bytes": 17392598,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvcmovie_v3.5.6.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 4,
-          "created_at": "2026-09-12T09:28:40Z",
+          "download_count": 0,
+          "created_at": "2026-09-26T10:29:02Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
       ]
     },
     {
       "name": "NVC Phim",
-      "version": "2.3.9",
+      "version": "2.4.2",
       "group": "Xem Phim",
       "downloads": [
         {
           "source": "release",
-          "file_name": "nvcphim_v2.3.9.apk",
-          "version": "2.3.9",
-          "size_bytes": 20772787,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvcphim_v2.3.9.apk",
+          "file_name": "nvcphim_v2.4.2.apk",
+          "version": "2.4.2",
+          "size_bytes": 20772919,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvcphim_v2.4.2.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 9,
-          "created_at": "2026-09-12T09:28:44Z",
+          "download_count": 0,
+          "created_at": "2026-09-26T10:25:06Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
       ]
@@ -377,12 +377,12 @@
           "source": "release",
           "file_name": "nvctivi_v1.1.7.apk",
           "version": "1.1.7",
-          "size_bytes": 6041962,
+          "size_bytes": 6041958,
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvctivi_v1.1.7.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 0,
-          "created_at": "2026-09-26T09:27:45Z",
+          "download_count": 1,
+          "created_at": "2026-09-26T09:54:08Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
       ]
@@ -839,7 +839,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/coccoc_v133.4.405.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 0,
+          "download_count": 1,
           "created_at": "2026-09-26T09:26:06Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -1037,38 +1037,38 @@
     },
     {
       "name": "NVC Movie",
-      "version": "3.5.3",
+      "version": "3.5.6",
       "group": "Xem Phim",
       "downloads": [
         {
           "source": "release",
-          "file_name": "nvcmovie_v3.5.3.apk",
-          "version": "3.5.3",
-          "size_bytes": 4119626,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvcmovie_v3.5.3.apk",
+          "file_name": "nvcmovie_v3.5.6.apk",
+          "version": "3.5.6",
+          "size_bytes": 17392598,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvcmovie_v3.5.6.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 4,
-          "created_at": "2026-09-12T09:28:40Z",
+          "download_count": 0,
+          "created_at": "2026-09-26T10:29:02Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
       ]
     },
     {
       "name": "NVC Phim",
-      "version": "2.3.9",
+      "version": "2.4.2",
       "group": "Xem Phim",
       "downloads": [
         {
           "source": "release",
-          "file_name": "nvcphim_v2.3.9.apk",
-          "version": "2.3.9",
-          "size_bytes": 20772787,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvcphim_v2.3.9.apk",
+          "file_name": "nvcphim_v2.4.2.apk",
+          "version": "2.4.2",
+          "size_bytes": 20772919,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvcphim_v2.4.2.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 9,
-          "created_at": "2026-09-12T09:28:44Z",
+          "download_count": 0,
+          "created_at": "2026-09-26T10:25:06Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
       ]
@@ -1101,12 +1101,12 @@
           "source": "release",
           "file_name": "nvctivi_v1.1.7.apk",
           "version": "1.1.7",
-          "size_bytes": 6041962,
+          "size_bytes": 6041958,
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvctivi_v1.1.7.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 0,
-          "created_at": "2026-09-26T09:27:45Z",
+          "download_count": 1,
+          "created_at": "2026-09-26T09:54:08Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
       ]
