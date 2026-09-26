@@ -261,5 +261,22 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+          # 1. Lưu tạm file data.json vừa tạo ra bộ nhớ tạm
+          cp data.json /tmp/data.json
+
+          # 2. Lấy commit mới nhất từ remote và ép nhánh local khớp hoàn toàn với remote
+          git fetch origin main
+          git reset --hard origin/main
+
+          # 3. Đưa file data.json mới trở lại thư mục làm việc
+          cp /tmp/data.json data.json
+
+          # 4. Kiểm tra nếu có thay đổi thì commit và push thẳng (luôn luôn là fast-forward sạch sẽ)
           git add data.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update data.json" && git push)
+          if ! git diff --staged --quiet; then
+            git commit -m "Auto-update data.json"
+            git push origin HEAD:main
+          else
+            echo "data.json không có thay đổi mới, bỏ qua commit."
+          fi
