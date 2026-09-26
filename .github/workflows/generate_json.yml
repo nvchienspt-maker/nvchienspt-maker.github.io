@@ -108,12 +108,12 @@ jobs:
 
           def get_app_display_name(file_name):
               stem = os.path.splitext(file_name)[0]
-              # Xóa dấu _ và - để tìm chuẩn (VD: NVC_Tivi_v1.1.5 -> nvctiviv1.1.5)
-              clean_stem = stem.lower().replace('_', '').replace('-', '')
+              # Xóa toàn bộ dấu _, -, khoảng trắng và dấu chấm để so khớp tuyệt đối
+              clean_stem = re.sub(r'[-_.\s]+', '', stem.lower())
               
               # Duyệt qua các key trong app_name.txt (ưu tiên key dài)
               for key in sorted(APP_NAMES.keys(), key=len, reverse=True):
-                  clean_key = key.lower().replace('_', '').replace('-', '')
+                  clean_key = re.sub(r'[-_.\s]+', '', key.lower())
                   if clean_stem.startswith(clean_key):
                       return APP_NAMES[key]
               
@@ -122,7 +122,7 @@ jobs:
 
           def get_app_group(file_name):
               stem = os.path.splitext(file_name)[0].lower()
-              clean_stem = stem.replace('_', '').replace('-', '')
+              clean_stem = re.sub(r'[-_.\s]+', '', stem)
               if any(k in clean_stem for k in ["movie", "phim", "cinema", "rap", "hbomax", "netflix"]):
                   return "Xem Phim"
               if any(k in clean_stem for k in ["tivi", "vtv", "mytv", "fpt", "vietmi", "vietplay", "vapp", "quantv", "tv360", "getout"]):
@@ -131,7 +131,7 @@ jobs:
                   return "Giải Trí"
               if any(k in clean_stem for k in ["voice", "kiki", "map"]):
                   return "Tiện Ích Voice"
-              if any(k in clean_stem for k in ["file", "x-plore", "manager", "adb", "explorer", "commander", "tool"]):
+              if any(k in clean_stem for k in ["file", "xplore", "manager", "adb", "explorer", "commander", "tool"]):
                   return "Công Cụ"
               if any(k in clean_stem for k in ["store", "nvcstore", "mstore", "vxmstore"]):
                   return "Apps Store"
