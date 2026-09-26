@@ -7,8 +7,9 @@ on:
     branches:
       - main
     paths:
-      - 'icons/**'              # Chạy khi có icon mới được upload/thay đổi
-  workflow_dispatch:          # Cho phép bấm nút chạy thủ công bất kỳ lúc nào
+      - 'icons/**'               # Chạy khi có icon mới được upload/thay đổi
+      - 'files/**'               # Chạy khi có file mới được upload trực tiếp
+  workflow_dispatch:             # Cho phép bấm nút chạy thủ công bất kỳ lúc nào
 
 jobs:
   build-json:
@@ -94,13 +95,15 @@ jobs:
                   return "Xem Phim"
               if any(k in stem for k in ["tivi", "vtv", "mytv", "fpt", "vietmi", "vietplay", "vapp", "quantv", "tv360", "getout"]):
                   return "Truyền Hình"
-              if any(k in stem for k in ["ytb", "youtube", "smarttube", "tiktok"]):
+              if any(k in stem for k in ["Cobalt", "ytb", "youtube", "smarttube", "tiktok"]):
                   return "Giải Trí"
               if any(k in stem for k in ["voice", "kiki", "map"]):
                   return "Tiện Ích Voice"
               if any(k in stem for k in ["ezviz", "yoosee", "imou", "adb", "coccoc", "tvbro"]):
-                  return "Công Cụ System"
-              return "Ứng Dụng TV"
+                  return "Công Cụ"
+              if any(k in stem for k in ["store", "nvcstore", "mstore", "vxmstore"]):
+                  return "Apps Store"
+              return "Khác"
 
           def get_app_version(file_name):
               match = re.search(r'[_-]v?(\d+(?:\.\d+)+)', file_name, re.IGNORECASE)
@@ -108,12 +111,13 @@ jobs:
                   return match.group(1)
               return ""
 
+          raw_files = []
+
           # 1. Lấy toàn bộ assets từ tất cả Releases
           releases_url = f"https://api.github.com/repos/{repo}/releases"
           res = requests.get(releases_url, headers=headers)
           releases_data = res.json() if res.status_code == 200 else []
 
-          files_list = []
           for rel in releases_data:
               tag_name = rel.get("tag_name")
               release_name = rel.get("name") or tag_name
@@ -121,25 +125,91 @@ jobs:
               
               for asset in rel.get("assets", []):
                   file_name = asset.get("name") or ""
-                  app_name = get_app_display_name(file_name)
-                  app_group = get_app_group(file_name)
-                  app_version = get_app_version(file_name)
-                  
-                  files_list.append({
-                      "name": app_name,
-                      "version": app_version,
-                      "group": app_group,
-                      "release_tag": tag_name,
-                      "release_title": release_name,
+                  raw_files.append({
+                      "source": "release",
                       "file_name": file_name,
                       "size_bytes": asset.get("size"),
                       "download_count": asset.get("download_count"),
                       "download_url": asset.get("browser_download_url"),
+                      "release_tag": tag_name,
+                      "release_title": release_name,
                       "created_at": asset.get("created_at"),
                       "published_at": published_at
                   })
 
-          # 2. Quét link các file icon trong thư mục 'icons'
+          # 1.1. Quét các file upload trực tiếp vào GitHub (thư mục 'files' hoặc file cài đặt ở thư mục gốc)
+          valid_app_exts = (".apk", ".xapk", ".apks", ".zip", ".rar", ".7z", ".ipa", ".wgt", ".exe")
+          direct_dir = "files"
+          if os.path.exists(direct_dir):
+              for root, _, files in os.walk(direct_dir):
+                  for f in sorted(files):
+                      if f.lower() in ["app_name.txt", ".gitkeep"] or f.lower().endswith((".txt", ".md")):
+                          continue
+                      full_path = os.path.join(root, f)
+                      rel_path = os.path.relpath(full_path, ".").replace(os.sep, "/")
+                      raw_files.append({
+                          "source": "direct",
+                          "file_name": f,
+                          "size_bytes": os.path.getsize(full_path),
+                          "download_count": 0,
+                          "download_url": f"https://raw.githubusercontent.com/{repo}/main/{rel_path}",
+                          "release_tag": None,
+                          "release_title": "Direct GitHub Upload",
+                          "created_at": None,
+                          "published_at": None
+                      })
+
+          # Quét thêm file cài đặt ở thư mục gốc (nếu có)
+          for f in sorted(os.listdir(".")):
+              if os.path.isfile(f) and f.lower().endswith(valid_app_exts):
+                  raw_files.append({
+                      "source": "direct",
+                      "file_name": f,
+                      "size_bytes": os.path.getsize(f),
+                      "download_count": 0,
+                      "download_url": f"https://raw.githubusercontent.com/{repo}/main/{f}",
+                      "release_tag": None,
+                      "release_title": "Direct GitHub Upload",
+                      "created_at": None,
+                      "published_at": None
+                  })
+
+          # 2. Gom nhóm các file cùng ứng dụng lại với nhau
+          apps_map = {}
+          for item in raw_files:
+              file_name = item["file_name"]
+              app_name = get_app_display_name(file_name)
+              app_group = get_app_group(file_name)
+              app_version = get_app_version(file_name)
+
+              if app_name not in apps_map:
+                  apps_map[app_name] = {
+                      "name": app_name,
+                      "version": app_version,
+                      "group": app_group,
+                      "downloads": []
+                  }
+
+              # Cập nhật version nếu ban đầu chưa nhận diện được version
+              if app_version and not apps_map[app_name]["version"]:
+                  apps_map[app_name]["version"] = app_version
+
+              apps_map[app_name]["downloads"].append({
+                  "source": item["source"],
+                  "file_name": file_name,
+                  "version": app_version,
+                  "size_bytes": item["size_bytes"],
+                  "download_url": item["download_url"],
+                  "release_tag": item["release_tag"],
+                  "release_title": item["release_title"],
+                  "download_count": item["download_count"],
+                  "created_at": item["created_at"],
+                  "published_at": item["published_at"]
+              })
+
+          apps_list = list(apps_map.values())
+
+          # 3. Quét link các file icon trong thư mục 'icons'
           icons_dict = {}
           icon_dir = "icons"
           valid_exts = (".png", ".jpg", ".jpeg", ".svg", ".webp", ".ico")
@@ -152,19 +222,21 @@ jobs:
                           raw_url = f"https://raw.githubusercontent.com/{repo}/main/{rel_path}"
                           icons_dict[f] = raw_url
 
-          # 3. Ghi dữ liệu ra file data.json
+          # 4. Ghi dữ liệu ra file data.json
           output = {
               "repository": repo,
-              "total_files": len(files_list),
+              "total_apps": len(apps_list),
+              "total_files": len(raw_files),
               "total_icons": len(icons_dict),
               "icons": icons_dict,
-              "files": files_list
+              "apps": apps_list,
+              "files": apps_list
           }
 
           with open("data.json", "w", encoding="utf-8") as f:
               json.dump(output, f, ensure_ascii=False, indent=2)
 
-          print(f"Done! Exported {len(files_list)} files and {len(icons_dict)} icons.")
+          print(f"Done! Exported {len(apps_list)} apps ({len(raw_files)} files) and {len(icons_dict)} icons.")
           EOF
 
       - name: Commit and Push data.json
