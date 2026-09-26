@@ -1,4 +1,5 @@
 adb: Việt Xiaomi ADB Terminal,
+Cobalt: TizenTube Cobalt TV (YouTube không quảng cáo)
 chophim: Chợ Phim,
 coccoc: Trình duyệt Cốc Cốc TV,
 ezviz: EZVIZ Camera,
