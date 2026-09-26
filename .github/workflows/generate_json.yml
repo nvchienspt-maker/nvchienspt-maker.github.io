@@ -26,7 +26,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0         # BẮT BUỘC: Tải toàn bộ lịch sử để pull/rebase không bị lỗi từ chối
+          ref: main              # BẮT BUỘC: Ép tải nhánh main thay vì Tag của release
+          fetch-depth: 0         # BẮT BUỘC: Tải toàn bộ lịch sử để pull/rebase không bị lỗi
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -278,7 +279,7 @@ jobs:
             git commit -m "Auto-update data.json"
             # Tự động gộp mã với remote nếu máy chủ có update mới trước khi đẩy
             git pull origin main --rebase --autostash
-            git push origin main
+            git push origin HEAD:main
           else
             echo "data.json không có thay đổi mới, bỏ qua commit."
           fi
