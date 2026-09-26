@@ -130,7 +130,7 @@ jobs:
                   return "Giải Trí"
               if any(k in clean_stem for k in ["voice", "kiki", "map"]):
                   return "Tiện Ích Voice"
-              if any(k in clean_stem for k in ["ezviz", "yoosee", "imou", "adb", "coccoc", "tvbro"]):
+              if any(k in clean_stem for k in ["file", "x-plore", "manager", "adb", "explorer", "commander", "tool"]):
                   return "Công Cụ"
               if any(k in clean_stem for k in ["store", "nvcstore", "mstore", "vxmstore"]):
                   return "Apps Store"
