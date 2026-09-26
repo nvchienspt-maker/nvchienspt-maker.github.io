@@ -1,3 +1,10 @@
+[xplore]
+name = Quản lý tệp
+compatibility = Android TV 5.0+, Google TV, Xiaomi TV
+remote = Hỗ trợ 100% Remote D-pad & Chuột bay
+description = Trình quản lý tệp khung kép, xem dạng cây, hỗ trợ Root, FTP, SMB, đám mây (Cloud).
+features = X-plore là trình quản lý tệp khung kép với chế độ xem dạng cây, LAN / Root / Clouds và hơn thế nữa.
+
 [cobalt]
 name = TizenTube Cobalt TV (YouTube không quảng cáo)
 package = org.chromium.cobalt
