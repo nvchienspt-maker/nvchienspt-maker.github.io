@@ -8,7 +8,7 @@ description = Phiên bản YouTube Cobalt mã nguồn mở tối ưu hoá riêng
 features = Chặn hoàn toàn quảng cáo video YouTube | Hỗ trợ phát chuẩn 4K 60fps HDR | Điều khiển mượt mà bằng Remote TV | Không cần Google Play Services
 
 [smarttube]
-name = SmartTube Stable
+name = SmartTube Stable (YouTube không quảng cáo)
 package = com.teamsmart.videomanager.tv
 developer = Yuliskov (Mã nguồn mở)
 compatibility = Android TV 4.3+ / FireOS / Google TV
@@ -86,6 +86,18 @@ developer = VNPT Media
 compatibility = Android TV 5.0+
 remote = Hỗ trợ Remote TV VNPT & Chuẩn Android TV
 description = Dịch vụ truyền hình đa phương tiện chất lượng cao của VNPT với gần 200 kênh truyền hình trong nước & quốc tế.
+
+[nvcmovie]
+name = NVC Movie
+compatibility = Android TV 6.0 trở lên
+remote = Điều khiển chuẩn Remote TV
+description = Ứng dụng xem phim chuyên biệt cho điện thoại, TV từ nhiều nguồn, do NVC Spaces phát triển: https://chienzz.web.app/.
+
+[nvcphim]
+name = NVC Phim
+compatibility = Android TV 6.0 trở lên
+remote = Điều khiển chuẩn Remote TV
+description = Ứng dụng xem phim chuyên biệt cho điện thoại, TV từ nhiều nguồn, do NVC Spaces phát triển: https://chienzz.web.app/.
 
 [chophim]
 name = Chợ Phim 4K
