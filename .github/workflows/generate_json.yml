@@ -9,7 +9,6 @@ on:
     paths:
       - 'icons/**'               # Chạy khi có icon mới được upload/thay đổi
       - 'apps/**'                # Chạy khi có app mới được upload vào thư mục apps
-     # - 'files/**'               # Chạy khi có app mới được upload vào thư mục files
   workflow_dispatch:             # Cho phép bấm nút chạy thủ công bất kỳ lúc nào
 
 jobs:
@@ -51,21 +50,24 @@ jobs:
           # Domain GitHub Pages thay vì dùng raw.githubusercontent.com
           BASE_PAGES_URL = "https://nvchienspt-maker.github.io"
 
-          # Tải bảng ánh xạ tên hiển thị từ app_name.txt (hỗ trợ kiểm tra cả thư mục apps/ và files/)
+          # Tải bảng ánh xạ tên hiển thị từ app_name.txt (đọc local trong thư mục apps trước)
           APP_NAMES = {}
+          local_app_name_path = os.path.join("apps", "app_name.txt")
           content = ""
-          for candidate_path in [os.path.join("apps", "app_name.txt"), os.path.join("files", "app_name.txt")]:
-              if os.path.exists(candidate_path):
-                  try:
-                      with open(candidate_path, "r", encoding="utf-8") as f:
-                          content = f.read().strip()
-                          if content:
-                              break
-                  except Exception as e:
-                      print(f"Không thể đọc file {candidate_path} ({e})")
+
+          if os.path.exists(local_app_name_path):
+              try:
+                  with open(local_app_name_path, "r", encoding="utf-8") as f:
+                      content = f.read().strip()
+              except Exception as e:
+                  print(f"Không thể đọc file local app_name.txt ({e})")
 
           if not content:
-              for candidate_url in [f"{BASE_PAGES_URL}/apps/app_name.txt", f"{BASE_PAGES_URL}/files/app_name.txt"]:
+              candidate_urls = [
+                  f"{BASE_PAGES_URL}/apps/app_name.txt",
+                  f"{BASE_PAGES_URL}/files/app_name.txt"
+              ]
+              for candidate_url in candidate_urls:
                   try:
                       res_names = requests.get(candidate_url, timeout=15)
                       if res_names.status_code == 200:
@@ -154,27 +156,27 @@ jobs:
                       "published_at": published_at
                   })
 
-          # 1.1. Quét các file upload trực tiếp vào thư mục 'apps' và 'files'
+          # 1.1. Quét các file upload trực tiếp vào thư mục 'apps'
           valid_app_exts = (".apk", ".xapk", ".apks", ".zip", ".rar", ".7z", ".ipa", ".wgt", ".exe")
-          for direct_dir in ["apps", "files"]:
-              if os.path.exists(direct_dir):
-                  for root, _, files in os.walk(direct_dir):
-                      for f in sorted(files):
-                          if f.lower() in ["app_name.txt", ".gitkeep"] or f.lower().endswith((".txt", ".md")):
-                              continue
-                          full_path = os.path.join(root, f)
-                          rel_path = os.path.relpath(full_path, ".").replace(os.sep, "/")
-                          raw_files.append({
-                              "source": "direct",
-                              "file_name": f,
-                              "size_bytes": os.path.getsize(full_path),
-                              "download_count": 0,
-                              "download_url": f"{BASE_PAGES_URL}/{rel_path}",
-                              "release_tag": None,
-                              "release_title": "Direct GitHub Upload",
-                              "created_at": None,
-                              "published_at": None
-                          })
+          direct_dir = "apps"
+          if os.path.exists(direct_dir):
+              for root, _, files in os.walk(direct_dir):
+                  for f in sorted(files):
+                      if f.lower() in ["app_name.txt", ".gitkeep"] or f.lower().endswith((".txt", ".md")):
+                          continue
+                      full_path = os.path.join(root, f)
+                      rel_path = os.path.relpath(full_path, ".").replace(os.sep, "/")
+                      raw_files.append({
+                          "source": "direct",
+                          "file_name": f,
+                          "size_bytes": os.path.getsize(full_path),
+                          "download_count": 0,
+                          "download_url": f"{BASE_PAGES_URL}/{rel_path}",
+                          "release_tag": None,
+                          "release_title": "Direct GitHub Upload",
+                          "created_at": None,
+                          "published_at": None
+                      })
 
           # Quét thêm file cài đặt ở thư mục gốc (nếu có)
           for f in sorted(os.listdir(".")):
