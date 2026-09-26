@@ -1,3 +1,4 @@
+xplore: Trình quản lý tệp X-Plore
 adb: Việt Xiaomi ADB Terminal,
 Cobalt: TizenTube Cobalt TV (YouTube không quảng cáo)
 chophim: Chợ Phim,
