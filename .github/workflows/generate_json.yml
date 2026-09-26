@@ -9,7 +9,7 @@ on:
     paths:
       - 'icons/**'               # Chạy khi có icon mới được upload/thay đổi
       - 'apps/**'                # Chạy khi có app mới được upload vào thư mục apps
-      - 'files/**'               # Chạy khi có app mới được upload vào thư mục files
+     # - 'files/**'               # Chạy khi có app mới được upload vào thư mục files
   workflow_dispatch:             # Cho phép bấm nút chạy thủ công bất kỳ lúc nào
 
 jobs:
