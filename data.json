@@ -1,7 +1,7 @@
 {
   "repository": "nvchienspt-maker/nvchienspt-maker.github.io",
-  "total_apps": 39,
-  "total_files": 39,
+  "total_apps": 40,
+  "total_files": 43,
   "total_icons": 41,
   "icons": {
     "app-adb.png": "https://nvchienspt-maker.github.io/icons/app-adb.png",
@@ -60,7 +60,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/adb_v1.0.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 1,
+          "download_count": 2,
           "created_at": "2026-09-12T08:41:53Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -79,7 +79,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/chophim_v1.1.0.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 1,
+          "download_count": 2,
           "created_at": "2026-09-12T08:41:53Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -98,7 +98,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/cobalt_v2.0.2.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 0,
+          "download_count": 1,
           "created_at": "2026-09-26T01:32:09Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -117,7 +117,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/coccoc.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 0,
+          "download_count": 1,
           "created_at": "2026-09-12T08:41:54Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -269,9 +269,21 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/mstore.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 7,
+          "download_count": 8,
           "created_at": "2026-09-12T08:42:14Z",
           "published_at": "2026-09-12T08:43:44Z"
+        },
+        {
+          "source": "direct",
+          "file_name": "mstore.apk",
+          "version": "",
+          "size_bytes": 13217420,
+          "download_url": "https://nvchienspt-maker.github.io/apps/mstore.apk",
+          "release_tag": null,
+          "release_title": "Direct GitHub Upload",
+          "download_count": 0,
+          "created_at": null,
+          "published_at": null
         }
       ]
     },
@@ -367,6 +379,18 @@
           "download_count": 29,
           "created_at": "2026-09-12T14:03:21Z",
           "published_at": "2026-09-12T08:43:44Z"
+        },
+        {
+          "source": "direct",
+          "file_name": "nvcstore_v1.0.2.apk",
+          "version": "1.0.2",
+          "size_bytes": 3786321,
+          "download_url": "https://nvchienspt-maker.github.io/apps/nvcstore_v1.0.2.apk",
+          "release_tag": null,
+          "release_title": "Direct GitHub Upload",
+          "download_count": 0,
+          "created_at": null,
+          "published_at": null
         }
       ]
     },
@@ -600,7 +624,7 @@
     },
     {
       "name": "VietMITV",
-      "version": "",
+      "version": "20.0",
       "group": "Truyền Hình",
       "downloads": [
         {
@@ -614,6 +638,18 @@
           "download_count": 0,
           "created_at": "2026-09-26T01:31:06Z",
           "published_at": "2026-09-12T08:43:44Z"
+        },
+        {
+          "source": "direct",
+          "file_name": "VietMiTV_v20.0.apk",
+          "version": "20.0",
+          "size_bytes": 2127919,
+          "download_url": "https://nvchienspt-maker.github.io/apps/VietMiTV_v20.0.apk",
+          "release_tag": null,
+          "release_title": "Direct GitHub Upload",
+          "download_count": 0,
+          "created_at": null,
+          "published_at": null
         }
       ]
     },
@@ -766,6 +802,25 @@
           "download_count": 0,
           "created_at": "2026-09-12T09:29:01Z",
           "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "NVC",
+      "version": "1.1.5",
+      "group": "Truyền Hình",
+      "downloads": [
+        {
+          "source": "direct",
+          "file_name": "NVC_Tivi_v1.1.5.apk",
+          "version": "1.1.5",
+          "size_bytes": 6041926,
+          "download_url": "https://nvchienspt-maker.github.io/apps/NVC_Tivi_v1.1.5.apk",
+          "release_tag": null,
+          "release_title": "Direct GitHub Upload",
+          "download_count": 0,
+          "created_at": null,
+          "published_at": null
         }
       ]
     },
@@ -803,7 +858,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/adb_v1.0.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 1,
+          "download_count": 2,
           "created_at": "2026-09-12T08:41:53Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -822,7 +877,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/chophim_v1.1.0.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 1,
+          "download_count": 2,
           "created_at": "2026-09-12T08:41:53Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -841,7 +896,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/cobalt_v2.0.2.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 0,
+          "download_count": 1,
           "created_at": "2026-09-26T01:32:09Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -860,7 +915,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/coccoc.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 0,
+          "download_count": 1,
           "created_at": "2026-09-12T08:41:54Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -1012,9 +1067,21 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/mstore.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 7,
+          "download_count": 8,
           "created_at": "2026-09-12T08:42:14Z",
           "published_at": "2026-09-12T08:43:44Z"
+        },
+        {
+          "source": "direct",
+          "file_name": "mstore.apk",
+          "version": "",
+          "size_bytes": 13217420,
+          "download_url": "https://nvchienspt-maker.github.io/apps/mstore.apk",
+          "release_tag": null,
+          "release_title": "Direct GitHub Upload",
+          "download_count": 0,
+          "created_at": null,
+          "published_at": null
         }
       ]
     },
@@ -1110,6 +1177,18 @@
           "download_count": 29,
           "created_at": "2026-09-12T14:03:21Z",
           "published_at": "2026-09-12T08:43:44Z"
+        },
+        {
+          "source": "direct",
+          "file_name": "nvcstore_v1.0.2.apk",
+          "version": "1.0.2",
+          "size_bytes": 3786321,
+          "download_url": "https://nvchienspt-maker.github.io/apps/nvcstore_v1.0.2.apk",
+          "release_tag": null,
+          "release_title": "Direct GitHub Upload",
+          "download_count": 0,
+          "created_at": null,
+          "published_at": null
         }
       ]
     },
@@ -1343,7 +1422,7 @@
     },
     {
       "name": "VietMITV",
-      "version": "",
+      "version": "20.0",
       "group": "Truyền Hình",
       "downloads": [
         {
@@ -1357,6 +1436,18 @@
           "download_count": 0,
           "created_at": "2026-09-26T01:31:06Z",
           "published_at": "2026-09-12T08:43:44Z"
+        },
+        {
+          "source": "direct",
+          "file_name": "VietMiTV_v20.0.apk",
+          "version": "20.0",
+          "size_bytes": 2127919,
+          "download_url": "https://nvchienspt-maker.github.io/apps/VietMiTV_v20.0.apk",
+          "release_tag": null,
+          "release_title": "Direct GitHub Upload",
+          "download_count": 0,
+          "created_at": null,
+          "published_at": null
         }
       ]
     },
@@ -1509,6 +1600,25 @@
           "download_count": 0,
           "created_at": "2026-09-12T09:29:01Z",
           "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "NVC",
+      "version": "1.1.5",
+      "group": "Truyền Hình",
+      "downloads": [
+        {
+          "source": "direct",
+          "file_name": "NVC_Tivi_v1.1.5.apk",
+          "version": "1.1.5",
+          "size_bytes": 6041926,
+          "download_url": "https://nvchienspt-maker.github.io/apps/NVC_Tivi_v1.1.5.apk",
+          "release_tag": null,
+          "release_title": "Direct GitHub Upload",
+          "download_count": 0,
+          "created_at": null,
+          "published_at": null
         }
       ]
     },
