@@ -2,7 +2,7 @@
   "repository": "nvchienspt-maker/nvchienspt-maker.github.io",
   "total_apps": 40,
   "total_files": 40,
-  "total_icons": 40,
+  "total_icons": 41,
   "icons": {
     "adb.png": "https://nvchienspt-maker.github.io/icons/adb.png",
     "chophim.png": "https://nvchienspt-maker.github.io/icons/chophim.png",
@@ -33,6 +33,7 @@
     "tiktoklite.png": "https://nvchienspt-maker.github.io/icons/tiktoklite.png",
     "tv360.png": "https://nvchienspt-maker.github.io/icons/tv360.png",
     "tvbro.png": "https://nvchienspt-maker.github.io/icons/tvbro.png",
+    "tvfoss.png": "https://nvchienspt-maker.github.io/icons/tvfoss.png",
     "vapptv.png": "https://nvchienspt-maker.github.io/icons/vapptv.png",
     "vietmitv.png": "https://nvchienspt-maker.github.io/icons/vietmitv.png",
     "vietmitvvoice.png": "https://nvchienspt-maker.github.io/icons/vietmitvvoice.png",
