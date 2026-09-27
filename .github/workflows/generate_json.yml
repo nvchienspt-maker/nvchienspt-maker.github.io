@@ -131,7 +131,7 @@ jobs:
                   return "Giải Trí"
               if any(k in clean_stem for k in ["voice", "kiki", "map"]):
                   return "Tiện Ích Voice"
-              if any(k in clean_stem for k in ["file", "xplore", "manager", "adb", "explorer", "commander", "tool"]):
+              if any(k in clean_stem for k in ["tvfoss", "file", "xplore", "manager", "adb", "explorer", "commander", "tool"]):
                   return "Công Cụ"
               if any(k in clean_stem for k in ["store", "nvcstore", "mstore", "vxmstore"]):
                   return "Apps Store"
@@ -275,14 +275,18 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
-          # ĐÂY LÀ DÒNG FIX LỖI DETACHED HEAD:
-          git checkout -B main
-
           git add data.json
           if ! git diff --staged --quiet; then
             git commit -m "Auto-update data.json"
-            git pull origin main --rebase --autostash
-            git push origin main
+            
+            # Fetch trạng thái mới nhất của nhánh main trên remote
+            git fetch origin main
+            
+            # Đồng bộ thay đổi bằng rebase để tránh xung đột
+            git rebase origin/main
+            
+            # BẮT BUỘC: Đẩy thẳng từ trạng thái HEAD lên nhánh main
+            git push origin HEAD:main
           else
             echo "data.json không có thay đổi mới, bỏ qua commit."
           fi
