@@ -1,7 +1,7 @@
 {
   "repository": "nvchienspt-maker/nvchienspt-maker.github.io",
   "total_apps": 40,
-  "total_files": 40,
+  "total_files": 41,
   "total_icons": 41,
   "icons": {
     "adb.png": "https://nvchienspt-maker.github.io/icons/adb.png",
@@ -48,6 +48,25 @@
   },
   "apps": [
     {
+      "name": "Việt Xiaomi ADB Terminal",
+      "version": "1.0",
+      "group": "Công Cụ",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "adb_v1.0.apk",
+          "version": "1.0",
+          "size_bytes": 39200,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/adb_v1.0.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 4,
+          "created_at": "2026-09-12T08:41:53Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
       "name": "Chợ Phim",
       "version": "1.1.0",
       "group": "Xem Phim",
@@ -67,20 +86,58 @@
       ]
     },
     {
-      "name": "Việt Xiaomi ADB Terminal",
-      "version": "1.0",
-      "group": "Công Cụ",
+      "name": "TizenTube Cobalt TV (YouTube không quảng cáo)",
+      "version": "2.0.2",
+      "group": "Giải Trí",
       "downloads": [
         {
           "source": "release",
-          "file_name": "adb_v1.0.apk",
-          "version": "1.0",
-          "size_bytes": 39200,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/adb_v1.0.apk",
+          "file_name": "cobalt_v2.0.2.apk",
+          "version": "2.0.2",
+          "size_bytes": 97195140,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/cobalt_v2.0.2.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 4,
-          "created_at": "2026-09-12T08:41:53Z",
+          "download_count": 3,
+          "created_at": "2026-09-26T01:32:09Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "Trình duyệt Cốc Cốc TV",
+      "version": "133.4.405",
+      "group": "Khác",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "coccoc_v133.4.405.apk",
+          "version": "133.4.405",
+          "size_bytes": 136812004,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/coccoc_v133.4.405.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 2,
+          "created_at": "2026-09-26T09:26:06Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "EZVIZ Camera",
+      "version": "1.1.0408",
+      "group": "Khác",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "ezviz_v1.1.0408.apk",
+          "version": "1.1.0408",
+          "size_bytes": 91314470,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/ezviz_v1.1.0408.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 0,
+          "created_at": "2026-09-27T01:12:05Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
       ]
@@ -105,6 +162,25 @@
       ]
     },
     {
+      "name": "Get Out",
+      "version": "2.0",
+      "group": "Truyền Hình",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "getout_v2.0.apk",
+          "version": "2.0",
+          "size_bytes": 14468047,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/getout_v2.0.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 4,
+          "created_at": "2026-09-27T01:19:37Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
       "name": "HBO Max",
       "version": "7.3.0.69",
       "group": "Xem Phim",
@@ -124,6 +200,25 @@
       ]
     },
     {
+      "name": "Imou Camera",
+      "version": "1.2.9000",
+      "group": "Khác",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "imou_v1.2.9000.apk",
+          "version": "1.2.9000",
+          "size_bytes": 75376527,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/imou_v1.2.9000.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 0,
+          "created_at": "2026-09-27T01:12:24Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
       "name": "Giọng nói Kiki",
       "version": "24.01.01",
       "group": "Tiện Ích Voice",
@@ -138,6 +233,44 @@
           "release_title": "Upload bởi NVC",
           "download_count": 2,
           "created_at": "2026-09-12T08:42:08Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "MapVoice",
+      "version": "2.0",
+      "group": "Tiện Ích Voice",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "mapvoice_v2.0.apk",
+          "version": "2.0",
+          "size_bytes": 8878009,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/mapvoice_v2.0.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 0,
+          "created_at": "2026-09-27T01:19:47Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "MStore2",
+      "version": "2.0.0",
+      "group": "Apps Store",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "mstore_v2.0.0.apk",
+          "version": "2.0.0",
+          "size_bytes": 13217420,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/mstore_v2.0.0.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 3,
+          "created_at": "2026-09-27T01:09:56Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
       ]
@@ -181,20 +314,108 @@
       ]
     },
     {
-      "name": "Phim4K",
-      "version": "2.6.8",
+      "name": "NVC Movie",
+      "version": "3.5.6",
       "group": "Xem Phim",
       "downloads": [
         {
           "source": "release",
-          "file_name": "phim4k_v2.6.8.apk",
-          "version": "2.6.8",
-          "size_bytes": 13976718,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/phim4k_v2.6.8.apk",
+          "file_name": "nvcmovie_v3.5.6.apk",
+          "version": "3.5.6",
+          "size_bytes": 17392598,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvcmovie_v3.5.6.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 13,
-          "created_at": "2026-09-12T08:42:22Z",
+          "download_count": 9,
+          "created_at": "2026-09-26T10:29:02Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "NVC Phim",
+      "version": "2.4.3",
+      "group": "Xem Phim",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "NVCPhim_v2.4.3.apk",
+          "version": "2.4.3",
+          "size_bytes": 20855699,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/NVCPhim_v2.4.3.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 0,
+          "created_at": "2026-10-09T12:41:36Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "NVC Store",
+      "version": "1.0.4",
+      "group": "Apps Store",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "nvcstore_v1.0.4.apk",
+          "version": "1.0.4",
+          "size_bytes": 3764749,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvcstore_v1.0.4.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 31,
+          "created_at": "2026-09-27T00:45:59Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        },
+        {
+          "source": "release",
+          "file_name": "NVCStore_v1.0.5.apk",
+          "version": "1.0.5",
+          "size_bytes": 3764609,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/NVCStore_v1.0.5.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 0,
+          "created_at": "2026-10-09T12:40:50Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "NVC Tivi",
+      "version": "1.1.6",
+      "group": "Truyền Hình",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "nvctivi_v1.1.6.apk",
+          "version": "1.1.6",
+          "size_bytes": 6058346,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvctivi_v1.1.6.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 17,
+          "created_at": "2026-09-27T00:27:55Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "Phim4K",
+      "version": "2.7.0",
+      "group": "Xem Phim",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "phim4k_v2.7.0.apk",
+          "version": "2.7.0",
+          "size_bytes": 13992883,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/phim4k_v2.7.0.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 0,
+          "created_at": "2026-10-09T12:46:39Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
       ]
@@ -214,6 +435,25 @@
           "release_title": "Upload bởi NVC",
           "download_count": 8,
           "created_at": "2026-09-12T08:42:24Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "QuanTV",
+      "version": "25.09.21",
+      "group": "Truyền Hình",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "quantv_v25.09.21.apk",
+          "version": "25.09.21",
+          "size_bytes": 8627202,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/quantv_v25.09.21.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 2,
+          "created_at": "2026-09-27T01:10:35Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
       ]
@@ -257,6 +497,63 @@
       ]
     },
     {
+      "name": "SmartTube Stable",
+      "version": "32.47",
+      "group": "Giải Trí",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "SmartTube_v32.47.apk",
+          "version": "32.47",
+          "size_bytes": 25040930,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/SmartTube_v32.47.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 6,
+          "created_at": "2026-09-20T01:18:19Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "Super Voice",
+      "version": "2.0",
+      "group": "Tiện Ích Voice",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "supervoice_v2.0.apk",
+          "version": "2.0",
+          "size_bytes": 8936074,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/supervoice_v2.0.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 0,
+          "created_at": "2026-09-27T01:19:44Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "TikTok AndroidTV",
+      "version": "39.9.3",
+      "group": "Giải Trí",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "tiktok_v39.9.3.apk",
+          "version": "39.9.3",
+          "size_bytes": 27747041,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/tiktok_v39.9.3.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 0,
+          "created_at": "2026-09-27T01:09:46Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
       "name": "TV360",
       "version": "5.4",
       "group": "Truyền Hình",
@@ -276,6 +573,44 @@
       ]
     },
     {
+      "name": "Trình duyệt TV Bro",
+      "version": "1.8.6",
+      "group": "Khác",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "tvbro_v1.8.6.apk",
+          "version": "1.8.6",
+          "size_bytes": 5731201,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/tvbro_v1.8.6.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 2,
+          "created_at": "2026-09-27T01:10:39Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "Ultimate File Manager Pro",
+      "version": "2.1.4",
+      "group": "Công Cụ",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "tvfoss_v2.1.4.apk",
+          "version": "2.1.4",
+          "size_bytes": 253556786,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/tvfoss_v2.1.4.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 12,
+          "created_at": "2026-09-27T01:55:51Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
       "name": "VAppTV",
       "version": "1.0.2",
       "group": "Truyền Hình",
@@ -290,6 +625,44 @@
           "release_title": "Upload bởi NVC",
           "download_count": 5,
           "created_at": "2026-09-12T08:42:53Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "VietMITV Gán Phím",
+      "version": "11.0",
+      "group": "Truyền Hình",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "vietmitvvoice_v11.0.apk",
+          "version": "11.0",
+          "size_bytes": 9041199,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/vietmitvvoice_v11.0.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 0,
+          "created_at": "2026-09-27T00:48:24Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "VietMITV",
+      "version": "20.0",
+      "group": "Truyền Hình",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "VietMiTV_v20.0.apk",
+          "version": "20.0",
+          "size_bytes": 2127919,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/VietMiTV_v20.0.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 5,
+          "created_at": "2026-09-27T01:10:13Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
       ]
@@ -371,6 +744,44 @@
       ]
     },
     {
+      "name": "Trình quản lý tệp X-Plore",
+      "version": "4.19.28",
+      "group": "Công Cụ",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "xplore_v4.19.28.apk",
+          "version": "4.19.28",
+          "size_bytes": 7344996,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/xplore_v4.19.28.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 3,
+          "created_at": "2026-09-26T13:42:17Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "Yoosee Camera",
+      "version": "46.06.17",
+      "group": "Khác",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "yoosee_v46.06.17.apk",
+          "version": "46.06.17",
+          "size_bytes": 135858678,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/yoosee_v46.06.17.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 0,
+          "created_at": "2026-09-27T01:11:29Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
       "name": "Tizen Tube GoogleTV",
       "version": "1.0.8",
       "group": "Giải Trí",
@@ -404,405 +815,6 @@
           "release_title": "Upload bởi NVC",
           "download_count": 3,
           "created_at": "2026-09-12T09:29:01Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "SmartTube Stable",
-      "version": "32.47",
-      "group": "Giải Trí",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "SmartTube_v32.47.apk",
-          "version": "32.47",
-          "size_bytes": 25040930,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/SmartTube_v32.47.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 6,
-          "created_at": "2026-09-20T01:18:19Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "TizenTube Cobalt TV (YouTube không quảng cáo)",
-      "version": "2.0.2",
-      "group": "Giải Trí",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "cobalt_v2.0.2.apk",
-          "version": "2.0.2",
-          "size_bytes": 97195140,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/cobalt_v2.0.2.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 3,
-          "created_at": "2026-09-26T01:32:09Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "Trình duyệt Cốc Cốc TV",
-      "version": "133.4.405",
-      "group": "Khác",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "coccoc_v133.4.405.apk",
-          "version": "133.4.405",
-          "size_bytes": 136812004,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/coccoc_v133.4.405.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 2,
-          "created_at": "2026-09-26T09:26:06Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "NVC Phim",
-      "version": "2.4.2",
-      "group": "Xem Phim",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "nvcphim_v2.4.2.apk",
-          "version": "2.4.2",
-          "size_bytes": 20772919,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvcphim_v2.4.2.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 7,
-          "created_at": "2026-09-26T10:25:06Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "NVC Movie",
-      "version": "3.5.6",
-      "group": "Xem Phim",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "nvcmovie_v3.5.6.apk",
-          "version": "3.5.6",
-          "size_bytes": 17392598,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvcmovie_v3.5.6.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 9,
-          "created_at": "2026-09-26T10:29:02Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "Trình quản lý tệp X-Plore",
-      "version": "4.19.28",
-      "group": "Công Cụ",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "xplore_v4.19.28.apk",
-          "version": "4.19.28",
-          "size_bytes": 7344996,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/xplore_v4.19.28.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 3,
-          "created_at": "2026-09-26T13:42:17Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "NVC Tivi",
-      "version": "1.1.6",
-      "group": "Truyền Hình",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "nvctivi_v1.1.6.apk",
-          "version": "1.1.6",
-          "size_bytes": 6058346,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvctivi_v1.1.6.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 17,
-          "created_at": "2026-09-27T00:27:55Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "NVC Store",
-      "version": "1.0.4",
-      "group": "Apps Store",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "nvcstore_v1.0.4.apk",
-          "version": "1.0.4",
-          "size_bytes": 3764749,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvcstore_v1.0.4.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 31,
-          "created_at": "2026-09-27T00:45:59Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "VietMITV Gán Phím",
-      "version": "11.0",
-      "group": "Truyền Hình",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "vietmitvvoice_v11.0.apk",
-          "version": "11.0",
-          "size_bytes": 9041199,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/vietmitvvoice_v11.0.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 0,
-          "created_at": "2026-09-27T00:48:24Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "TikTok AndroidTV",
-      "version": "39.9.3",
-      "group": "Giải Trí",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "tiktok_v39.9.3.apk",
-          "version": "39.9.3",
-          "size_bytes": 27747041,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/tiktok_v39.9.3.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 0,
-          "created_at": "2026-09-27T01:09:46Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "MStore2",
-      "version": "2.0.0",
-      "group": "Apps Store",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "mstore_v2.0.0.apk",
-          "version": "2.0.0",
-          "size_bytes": 13217420,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/mstore_v2.0.0.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 3,
-          "created_at": "2026-09-27T01:09:56Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "VietMITV",
-      "version": "20.0",
-      "group": "Truyền Hình",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "VietMiTV_v20.0.apk",
-          "version": "20.0",
-          "size_bytes": 2127919,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/VietMiTV_v20.0.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 5,
-          "created_at": "2026-09-27T01:10:13Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "QuanTV",
-      "version": "25.09.21",
-      "group": "Truyền Hình",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "quantv_v25.09.21.apk",
-          "version": "25.09.21",
-          "size_bytes": 8627202,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/quantv_v25.09.21.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 2,
-          "created_at": "2026-09-27T01:10:35Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "Trình duyệt TV Bro",
-      "version": "1.8.6",
-      "group": "Khác",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "tvbro_v1.8.6.apk",
-          "version": "1.8.6",
-          "size_bytes": 5731201,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/tvbro_v1.8.6.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 2,
-          "created_at": "2026-09-27T01:10:39Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "Yoosee Camera",
-      "version": "46.06.17",
-      "group": "Khác",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "yoosee_v46.06.17.apk",
-          "version": "46.06.17",
-          "size_bytes": 135858678,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/yoosee_v46.06.17.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 0,
-          "created_at": "2026-09-27T01:11:29Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "EZVIZ Camera",
-      "version": "1.1.0408",
-      "group": "Khác",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "ezviz_v1.1.0408.apk",
-          "version": "1.1.0408",
-          "size_bytes": 91314470,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/ezviz_v1.1.0408.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 0,
-          "created_at": "2026-09-27T01:12:05Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "Imou Camera",
-      "version": "1.2.9000",
-      "group": "Khác",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "imou_v1.2.9000.apk",
-          "version": "1.2.9000",
-          "size_bytes": 75376527,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/imou_v1.2.9000.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 0,
-          "created_at": "2026-09-27T01:12:24Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "Get Out",
-      "version": "2.0",
-      "group": "Truyền Hình",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "getout_v2.0.apk",
-          "version": "2.0",
-          "size_bytes": 14468047,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/getout_v2.0.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 4,
-          "created_at": "2026-09-27T01:19:37Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "Super Voice",
-      "version": "2.0",
-      "group": "Tiện Ích Voice",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "supervoice_v2.0.apk",
-          "version": "2.0",
-          "size_bytes": 8936074,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/supervoice_v2.0.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 0,
-          "created_at": "2026-09-27T01:19:44Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "MapVoice",
-      "version": "2.0",
-      "group": "Tiện Ích Voice",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "mapvoice_v2.0.apk",
-          "version": "2.0",
-          "size_bytes": 8878009,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/mapvoice_v2.0.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 0,
-          "created_at": "2026-09-27T01:19:47Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "Ultimate File Manager Pro",
-      "version": "2.1.4",
-      "group": "Công Cụ",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "tvfoss_v2.1.4.apk",
-          "version": "2.1.4",
-          "size_bytes": 253556786,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/tvfoss_v2.1.4.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 12,
-          "created_at": "2026-09-27T01:55:51Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
       ]
@@ -810,6 +822,25 @@
   ],
   "files": [
     {
+      "name": "Việt Xiaomi ADB Terminal",
+      "version": "1.0",
+      "group": "Công Cụ",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "adb_v1.0.apk",
+          "version": "1.0",
+          "size_bytes": 39200,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/adb_v1.0.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 4,
+          "created_at": "2026-09-12T08:41:53Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
       "name": "Chợ Phim",
       "version": "1.1.0",
       "group": "Xem Phim",
@@ -829,20 +860,58 @@
       ]
     },
     {
-      "name": "Việt Xiaomi ADB Terminal",
-      "version": "1.0",
-      "group": "Công Cụ",
+      "name": "TizenTube Cobalt TV (YouTube không quảng cáo)",
+      "version": "2.0.2",
+      "group": "Giải Trí",
       "downloads": [
         {
           "source": "release",
-          "file_name": "adb_v1.0.apk",
-          "version": "1.0",
-          "size_bytes": 39200,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/adb_v1.0.apk",
+          "file_name": "cobalt_v2.0.2.apk",
+          "version": "2.0.2",
+          "size_bytes": 97195140,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/cobalt_v2.0.2.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 4,
-          "created_at": "2026-09-12T08:41:53Z",
+          "download_count": 3,
+          "created_at": "2026-09-26T01:32:09Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "Trình duyệt Cốc Cốc TV",
+      "version": "133.4.405",
+      "group": "Khác",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "coccoc_v133.4.405.apk",
+          "version": "133.4.405",
+          "size_bytes": 136812004,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/coccoc_v133.4.405.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 2,
+          "created_at": "2026-09-26T09:26:06Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "EZVIZ Camera",
+      "version": "1.1.0408",
+      "group": "Khác",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "ezviz_v1.1.0408.apk",
+          "version": "1.1.0408",
+          "size_bytes": 91314470,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/ezviz_v1.1.0408.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 0,
+          "created_at": "2026-09-27T01:12:05Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
       ]
@@ -867,6 +936,25 @@
       ]
     },
     {
+      "name": "Get Out",
+      "version": "2.0",
+      "group": "Truyền Hình",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "getout_v2.0.apk",
+          "version": "2.0",
+          "size_bytes": 14468047,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/getout_v2.0.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 4,
+          "created_at": "2026-09-27T01:19:37Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
       "name": "HBO Max",
       "version": "7.3.0.69",
       "group": "Xem Phim",
@@ -886,6 +974,25 @@
       ]
     },
     {
+      "name": "Imou Camera",
+      "version": "1.2.9000",
+      "group": "Khác",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "imou_v1.2.9000.apk",
+          "version": "1.2.9000",
+          "size_bytes": 75376527,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/imou_v1.2.9000.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 0,
+          "created_at": "2026-09-27T01:12:24Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
       "name": "Giọng nói Kiki",
       "version": "24.01.01",
       "group": "Tiện Ích Voice",
@@ -900,6 +1007,44 @@
           "release_title": "Upload bởi NVC",
           "download_count": 2,
           "created_at": "2026-09-12T08:42:08Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "MapVoice",
+      "version": "2.0",
+      "group": "Tiện Ích Voice",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "mapvoice_v2.0.apk",
+          "version": "2.0",
+          "size_bytes": 8878009,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/mapvoice_v2.0.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 0,
+          "created_at": "2026-09-27T01:19:47Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "MStore2",
+      "version": "2.0.0",
+      "group": "Apps Store",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "mstore_v2.0.0.apk",
+          "version": "2.0.0",
+          "size_bytes": 13217420,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/mstore_v2.0.0.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 3,
+          "created_at": "2026-09-27T01:09:56Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
       ]
@@ -943,20 +1088,108 @@
       ]
     },
     {
-      "name": "Phim4K",
-      "version": "2.6.8",
+      "name": "NVC Movie",
+      "version": "3.5.6",
       "group": "Xem Phim",
       "downloads": [
         {
           "source": "release",
-          "file_name": "phim4k_v2.6.8.apk",
-          "version": "2.6.8",
-          "size_bytes": 13976718,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/phim4k_v2.6.8.apk",
+          "file_name": "nvcmovie_v3.5.6.apk",
+          "version": "3.5.6",
+          "size_bytes": 17392598,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvcmovie_v3.5.6.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 13,
-          "created_at": "2026-09-12T08:42:22Z",
+          "download_count": 9,
+          "created_at": "2026-09-26T10:29:02Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "NVC Phim",
+      "version": "2.4.3",
+      "group": "Xem Phim",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "NVCPhim_v2.4.3.apk",
+          "version": "2.4.3",
+          "size_bytes": 20855699,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/NVCPhim_v2.4.3.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 0,
+          "created_at": "2026-10-09T12:41:36Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "NVC Store",
+      "version": "1.0.4",
+      "group": "Apps Store",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "nvcstore_v1.0.4.apk",
+          "version": "1.0.4",
+          "size_bytes": 3764749,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvcstore_v1.0.4.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 31,
+          "created_at": "2026-09-27T00:45:59Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        },
+        {
+          "source": "release",
+          "file_name": "NVCStore_v1.0.5.apk",
+          "version": "1.0.5",
+          "size_bytes": 3764609,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/NVCStore_v1.0.5.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 0,
+          "created_at": "2026-10-09T12:40:50Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "NVC Tivi",
+      "version": "1.1.6",
+      "group": "Truyền Hình",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "nvctivi_v1.1.6.apk",
+          "version": "1.1.6",
+          "size_bytes": 6058346,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvctivi_v1.1.6.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 17,
+          "created_at": "2026-09-27T00:27:55Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "Phim4K",
+      "version": "2.7.0",
+      "group": "Xem Phim",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "phim4k_v2.7.0.apk",
+          "version": "2.7.0",
+          "size_bytes": 13992883,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/phim4k_v2.7.0.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 0,
+          "created_at": "2026-10-09T12:46:39Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
       ]
@@ -976,6 +1209,25 @@
           "release_title": "Upload bởi NVC",
           "download_count": 8,
           "created_at": "2026-09-12T08:42:24Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "QuanTV",
+      "version": "25.09.21",
+      "group": "Truyền Hình",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "quantv_v25.09.21.apk",
+          "version": "25.09.21",
+          "size_bytes": 8627202,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/quantv_v25.09.21.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 2,
+          "created_at": "2026-09-27T01:10:35Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
       ]
@@ -1019,6 +1271,63 @@
       ]
     },
     {
+      "name": "SmartTube Stable",
+      "version": "32.47",
+      "group": "Giải Trí",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "SmartTube_v32.47.apk",
+          "version": "32.47",
+          "size_bytes": 25040930,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/SmartTube_v32.47.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 6,
+          "created_at": "2026-09-20T01:18:19Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "Super Voice",
+      "version": "2.0",
+      "group": "Tiện Ích Voice",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "supervoice_v2.0.apk",
+          "version": "2.0",
+          "size_bytes": 8936074,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/supervoice_v2.0.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 0,
+          "created_at": "2026-09-27T01:19:44Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "TikTok AndroidTV",
+      "version": "39.9.3",
+      "group": "Giải Trí",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "tiktok_v39.9.3.apk",
+          "version": "39.9.3",
+          "size_bytes": 27747041,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/tiktok_v39.9.3.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 0,
+          "created_at": "2026-09-27T01:09:46Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
       "name": "TV360",
       "version": "5.4",
       "group": "Truyền Hình",
@@ -1038,6 +1347,44 @@
       ]
     },
     {
+      "name": "Trình duyệt TV Bro",
+      "version": "1.8.6",
+      "group": "Khác",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "tvbro_v1.8.6.apk",
+          "version": "1.8.6",
+          "size_bytes": 5731201,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/tvbro_v1.8.6.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 2,
+          "created_at": "2026-09-27T01:10:39Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "Ultimate File Manager Pro",
+      "version": "2.1.4",
+      "group": "Công Cụ",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "tvfoss_v2.1.4.apk",
+          "version": "2.1.4",
+          "size_bytes": 253556786,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/tvfoss_v2.1.4.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 12,
+          "created_at": "2026-09-27T01:55:51Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
       "name": "VAppTV",
       "version": "1.0.2",
       "group": "Truyền Hình",
@@ -1052,6 +1399,44 @@
           "release_title": "Upload bởi NVC",
           "download_count": 5,
           "created_at": "2026-09-12T08:42:53Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "VietMITV Gán Phím",
+      "version": "11.0",
+      "group": "Truyền Hình",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "vietmitvvoice_v11.0.apk",
+          "version": "11.0",
+          "size_bytes": 9041199,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/vietmitvvoice_v11.0.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 0,
+          "created_at": "2026-09-27T00:48:24Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "VietMITV",
+      "version": "20.0",
+      "group": "Truyền Hình",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "VietMiTV_v20.0.apk",
+          "version": "20.0",
+          "size_bytes": 2127919,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/VietMiTV_v20.0.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 5,
+          "created_at": "2026-09-27T01:10:13Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
       ]
@@ -1133,6 +1518,44 @@
       ]
     },
     {
+      "name": "Trình quản lý tệp X-Plore",
+      "version": "4.19.28",
+      "group": "Công Cụ",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "xplore_v4.19.28.apk",
+          "version": "4.19.28",
+          "size_bytes": 7344996,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/xplore_v4.19.28.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 3,
+          "created_at": "2026-09-26T13:42:17Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "Yoosee Camera",
+      "version": "46.06.17",
+      "group": "Khác",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "yoosee_v46.06.17.apk",
+          "version": "46.06.17",
+          "size_bytes": 135858678,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/yoosee_v46.06.17.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 0,
+          "created_at": "2026-09-27T01:11:29Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
       "name": "Tizen Tube GoogleTV",
       "version": "1.0.8",
       "group": "Giải Trí",
@@ -1166,405 +1589,6 @@
           "release_title": "Upload bởi NVC",
           "download_count": 3,
           "created_at": "2026-09-12T09:29:01Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "SmartTube Stable",
-      "version": "32.47",
-      "group": "Giải Trí",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "SmartTube_v32.47.apk",
-          "version": "32.47",
-          "size_bytes": 25040930,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/SmartTube_v32.47.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 6,
-          "created_at": "2026-09-20T01:18:19Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "TizenTube Cobalt TV (YouTube không quảng cáo)",
-      "version": "2.0.2",
-      "group": "Giải Trí",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "cobalt_v2.0.2.apk",
-          "version": "2.0.2",
-          "size_bytes": 97195140,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/cobalt_v2.0.2.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 3,
-          "created_at": "2026-09-26T01:32:09Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "Trình duyệt Cốc Cốc TV",
-      "version": "133.4.405",
-      "group": "Khác",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "coccoc_v133.4.405.apk",
-          "version": "133.4.405",
-          "size_bytes": 136812004,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/coccoc_v133.4.405.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 2,
-          "created_at": "2026-09-26T09:26:06Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "NVC Phim",
-      "version": "2.4.2",
-      "group": "Xem Phim",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "nvcphim_v2.4.2.apk",
-          "version": "2.4.2",
-          "size_bytes": 20772919,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvcphim_v2.4.2.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 7,
-          "created_at": "2026-09-26T10:25:06Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "NVC Movie",
-      "version": "3.5.6",
-      "group": "Xem Phim",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "nvcmovie_v3.5.6.apk",
-          "version": "3.5.6",
-          "size_bytes": 17392598,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvcmovie_v3.5.6.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 9,
-          "created_at": "2026-09-26T10:29:02Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "Trình quản lý tệp X-Plore",
-      "version": "4.19.28",
-      "group": "Công Cụ",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "xplore_v4.19.28.apk",
-          "version": "4.19.28",
-          "size_bytes": 7344996,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/xplore_v4.19.28.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 3,
-          "created_at": "2026-09-26T13:42:17Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "NVC Tivi",
-      "version": "1.1.6",
-      "group": "Truyền Hình",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "nvctivi_v1.1.6.apk",
-          "version": "1.1.6",
-          "size_bytes": 6058346,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvctivi_v1.1.6.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 17,
-          "created_at": "2026-09-27T00:27:55Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "NVC Store",
-      "version": "1.0.4",
-      "group": "Apps Store",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "nvcstore_v1.0.4.apk",
-          "version": "1.0.4",
-          "size_bytes": 3764749,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvcstore_v1.0.4.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 31,
-          "created_at": "2026-09-27T00:45:59Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "VietMITV Gán Phím",
-      "version": "11.0",
-      "group": "Truyền Hình",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "vietmitvvoice_v11.0.apk",
-          "version": "11.0",
-          "size_bytes": 9041199,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/vietmitvvoice_v11.0.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 0,
-          "created_at": "2026-09-27T00:48:24Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "TikTok AndroidTV",
-      "version": "39.9.3",
-      "group": "Giải Trí",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "tiktok_v39.9.3.apk",
-          "version": "39.9.3",
-          "size_bytes": 27747041,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/tiktok_v39.9.3.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 0,
-          "created_at": "2026-09-27T01:09:46Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "MStore2",
-      "version": "2.0.0",
-      "group": "Apps Store",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "mstore_v2.0.0.apk",
-          "version": "2.0.0",
-          "size_bytes": 13217420,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/mstore_v2.0.0.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 3,
-          "created_at": "2026-09-27T01:09:56Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "VietMITV",
-      "version": "20.0",
-      "group": "Truyền Hình",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "VietMiTV_v20.0.apk",
-          "version": "20.0",
-          "size_bytes": 2127919,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/VietMiTV_v20.0.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 5,
-          "created_at": "2026-09-27T01:10:13Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "QuanTV",
-      "version": "25.09.21",
-      "group": "Truyền Hình",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "quantv_v25.09.21.apk",
-          "version": "25.09.21",
-          "size_bytes": 8627202,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/quantv_v25.09.21.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 2,
-          "created_at": "2026-09-27T01:10:35Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "Trình duyệt TV Bro",
-      "version": "1.8.6",
-      "group": "Khác",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "tvbro_v1.8.6.apk",
-          "version": "1.8.6",
-          "size_bytes": 5731201,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/tvbro_v1.8.6.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 2,
-          "created_at": "2026-09-27T01:10:39Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "Yoosee Camera",
-      "version": "46.06.17",
-      "group": "Khác",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "yoosee_v46.06.17.apk",
-          "version": "46.06.17",
-          "size_bytes": 135858678,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/yoosee_v46.06.17.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 0,
-          "created_at": "2026-09-27T01:11:29Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "EZVIZ Camera",
-      "version": "1.1.0408",
-      "group": "Khác",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "ezviz_v1.1.0408.apk",
-          "version": "1.1.0408",
-          "size_bytes": 91314470,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/ezviz_v1.1.0408.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 0,
-          "created_at": "2026-09-27T01:12:05Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "Imou Camera",
-      "version": "1.2.9000",
-      "group": "Khác",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "imou_v1.2.9000.apk",
-          "version": "1.2.9000",
-          "size_bytes": 75376527,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/imou_v1.2.9000.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 0,
-          "created_at": "2026-09-27T01:12:24Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "Get Out",
-      "version": "2.0",
-      "group": "Truyền Hình",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "getout_v2.0.apk",
-          "version": "2.0",
-          "size_bytes": 14468047,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/getout_v2.0.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 4,
-          "created_at": "2026-09-27T01:19:37Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "Super Voice",
-      "version": "2.0",
-      "group": "Tiện Ích Voice",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "supervoice_v2.0.apk",
-          "version": "2.0",
-          "size_bytes": 8936074,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/supervoice_v2.0.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 0,
-          "created_at": "2026-09-27T01:19:44Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "MapVoice",
-      "version": "2.0",
-      "group": "Tiện Ích Voice",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "mapvoice_v2.0.apk",
-          "version": "2.0",
-          "size_bytes": 8878009,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/mapvoice_v2.0.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 0,
-          "created_at": "2026-09-27T01:19:47Z",
-          "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "Ultimate File Manager Pro",
-      "version": "2.1.4",
-      "group": "Công Cụ",
-      "downloads": [
-        {
-          "source": "release",
-          "file_name": "tvfoss_v2.1.4.apk",
-          "version": "2.1.4",
-          "size_bytes": 253556786,
-          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/tvfoss_v2.1.4.apk",
-          "release_tag": "v1.0.1",
-          "release_title": "Upload bởi NVC",
-          "download_count": 12,
-          "created_at": "2026-09-27T01:55:51Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
       ]
