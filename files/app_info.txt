@@ -1,9 +1,17 @@
+[ferrari]
+name = Ferrari Downloader (Downloader by AFTVnews)
+compatibility = Android TV 5.0+, Google TV, Xiaomi TV
+remote = Hỗ trợ 100% Remote D-pad & Chuột bay
+description = Là ứng dụng tiện ích miễn phí giúp tải xuống tập tin, cài đặt tệp APK từ URL hoặc mã số ngắn (short code) và duyệt web trên các thiết bị Fire TV, Android TV, Google TV, cũng như điện thoại và máy tính bảng Android
+features = • Tải file và APK: Nhập trực tiếp đường dẫn URL hoặc mã số rút gọn từ AFTVnews URL Shortener để tải tập tin hoặc tự động cài đặt ứng dụng APK. • Trình duyệt web tích hợp: Duyệt web trực tiếp trên TV bằng điều khiển từ xa.
+
 [tvfoss]
 name = Ultimate File Manager Pro
 compatibility = Android TV 5.0+, Google TV, Xiaomi TV
 remote = Hỗ trợ 100% Remote D-pad & Chuột bay
 description = Ultimate File Manager Pro (UFM) là trình quản lý tập tin hai cửa sổ hiệu năng cao, đầy đủ tính năng, được thiết kế dành cho người dùng chuyên nghiệp trên các thiết bị Android Mobile, Android TV / Fire TV và Windows PC. 
 features = ⚡ Hiệu quả hai cửa sổ: Xem và quản lý tệp song song giúp thao tác kéo, thả, sao chép và di chuyển dễ dàng. 🖥️ Ứng dụng đồng hành gốc trên PC Windows: Kết nối PC và thiết bị Android của bạn qua Wi-Fi cục bộ với xác thực mã PIN và ghim chứng chỉ TLS — không cần đám mây.
+
 [xplore]
 name = Quản lý tệp
 compatibility = Android TV 5.0+, Google TV, Xiaomi TV
