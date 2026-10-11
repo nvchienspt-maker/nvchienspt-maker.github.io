@@ -1,21 +1,77 @@
 (function() {
-    // --- 1. BỘ CHẶN MẠNG (NETWORK INTERCEPTOR) ---
-    // Bắt mọi request gọi API lấy link phim, đề phòng web thay đổi code lấy link
+    // =========================================================
+    // 1. TIÊM CSS TÀNG HÌNH HOÀN TOÀN KHUNG QUẢNG CÁO
+    // =========================================================
+    var hideAdsCSS = document.createElement('style');
+    hideAdsCSS.innerHTML = `
+        /* Ẩn các class quảng cáo phổ biến của JWPlayer, ArtPlayer, VideoJS */
+        .jw-plugin-googima, .jw-plugin-ads, .jw-ads, 
+        .art-ad, .art-ads, .art-ad-control, .art-ad-countdown,
+        .vjs-ad-playing, .video-js.vjs-ad-playing .vjs-tech,
+        [id^="google_ads_"], [id^="ima-"], [class*="ad-showing"],
+        .ad-container, .ads-manager, .art-notice, .jw-skip {
+            display: none !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            width: 0 !important;
+            height: 0 !important;
+            z-index: -9999 !important;
+        }
+    `;
+    document.head.appendChild(hideAdsCSS);
+
+    // =========================================================
+    // 2. ÉP CÂM TIẾNG VÀ TUA NHANH VIDEO NGAY TỪ GIÂY ĐẦU TIÊN
+    // =========================================================
+    function instantKillAd(v) {
+        // Nếu video có độ dài hợp lệ và dưới 120s (quảng cáo)
+        if (v && v.duration && isFinite(v.duration) && v.duration > 0 && v.duration <= 120) {
+            v.muted = true;           // Khóa mỏ ngay lập tức
+            v.style.opacity = '0';    // Tàng hình video
+
+            // Ép thời gian nhảy đến giây cuối cùng
+            if (v.currentTime < v.duration - 0.5) {
+                v.currentTime = v.duration;
+            }
+        }
+    }
+
+    // Bắt sự kiện Real-time cho mọi thẻ <video> ngay khi nó vừa xuất hiện trong DOM
+    const observer = new MutationObserver(mutations => {
+        mutations.forEach(mutation => {
+            mutation.addedNodes.forEach(node => {
+                if (node.tagName === 'VIDEO') {
+                    // Kích hoạt diệt QC ngay khi video nạp thông tin
+                    node.addEventListener('loadedmetadata', () => instantKillAd(node));
+                    node.addEventListener('timeupdate', () => instantKillAd(node));
+                    node.addEventListener('play', () => instantKillAd(node));
+                }
+            });
+        });
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Quét các thẻ video đã có sẵn trên trang
+    document.querySelectorAll('video').forEach(v => {
+        v.addEventListener('loadedmetadata', () => instantKillAd(v));
+        v.addEventListener('timeupdate', () => instantKillAd(v));
+        v.addEventListener('play', () => instantKillAd(v));
+    });
+
+    // =========================================================
+    // 3. NETWORK INTERCEPTOR (Chặn bắt link phim)
+    // =========================================================
     const originalFetch = window.fetch;
     window.fetch = async function() {
         const url = arguments[0];
         const response = await originalFetch.apply(this, arguments);
-        
         try {
-            // Nếu phát hiện request có dấu hiệu là API trả về m3u8 hoặc mp4 của phim
             if (typeof url === 'string' && (url.includes('/api/') || url.includes('get-movie'))) {
                 response.clone().json().then(data => {
-                    // Logic tìm link m3u8/mp4 từ cục data JSON trả về (có thể thay đổi linh hoạt trên GitHub)
                     let videoUrl = data.link_phim || data.url || data.file; 
                     let v = document.querySelector('video');
                     if (v && videoUrl) {
-                        console.log("Đã bắt được link phim mới:", videoUrl);
-                        // Ép video chạy link mới
                         v.src = videoUrl;
                         v.play();
                     }
@@ -25,8 +81,9 @@
         return response;
     };
 
-
-    // --- 2. BỘ XỬ LÝ GIAO DIỆN (Giữ nguyên code cũ của bạn) ---
+    // =========================================================
+    // 4. BỘ XỬ LÝ CLICK GIAO DIỆN CŨ (Giữ nguyên để phòng hờ)
+    // =========================================================
     var hasHandledResume = false;
     var hasReloadedForTimeout = false;
 
@@ -39,18 +96,10 @@
 
             var events = ['pointerdown', 'mousedown', 'pointerup', 'mouseup', 'click'];
             for (var i = 0; i < events.length; i++) {
-                var ev = new MouseEvent(events[i], {
-                    bubbles: true,
-                    cancelable: true,
-                    view: window,
-                    clientX: x,
-                    clientY: y
-                });
+                var ev = new MouseEvent(events[i], { bubbles: true, cancelable: true, view: window, clientX: x, clientY: y });
                 el.dispatchEvent(ev);
             }
-            if (typeof el.click === 'function') {
-                el.click();
-            }
+            if (typeof el.click === 'function') el.click();
         } catch(e) {}
     }
 
@@ -58,10 +107,7 @@
         try {
             var vids = doc.querySelectorAll('video');
             for (var vIdx = 0; vIdx < vids.length; vIdx++) {
-                var v = vids[vIdx];
-                if (v && v.duration && isFinite(v.duration) && v.duration <= 120 && v.currentTime < v.duration) {
-                    v.currentTime = v.duration;
-                }
+                instantKillAd(vids[vIdx]); // Dùng hàm diệt tận gốc ở trên
             }
         } catch(e) {}
     }
@@ -69,7 +115,6 @@
     function handleAutoActions(doc) {
         if (!doc) return;
 
-        var timeoutTexts = ['khởi tạo player quá lâu', 'tải lại trang để thử lại'];
         var allElements = doc.querySelectorAll('button, div, span, a, p');
 
         for (var t = 0; t < allElements.length; t++) {
@@ -85,7 +130,6 @@
                     v.play();
                     return;
                 } else if (!hasReloadedForTimeout) {
-                    var reloadBtn = doc.querySelector('button, [role="button"], a');
                     for (var b = 0; b < allElements.length; b++) {
                         var btnTxt = (allElements[b].textContent || '').trim().toLowerCase();
                         if (btnTxt === 'tải lại trang' || btnTxt.includes('tải lại trang')) {
@@ -104,19 +148,8 @@
                 item.style.display = 'none';
 
                 var vid = doc.querySelector('video');
-                if (vid && vid.paused) {
-                    vid.play();
-                }
+                if (vid && vid.paused) vid.play();
                 return;
-            }
-        }
-
-        var adClasses = ['[class*="ad-showing"]', '[class*="ad-playing"]', '[class*="ad-countdown"]', '[class*="ad-timer"]', '.jw-flag-ads'];
-        for (var a = 0; a < adClasses.length; a++) {
-            var adEl = doc.querySelector(adClasses[a]);
-            if (adEl && (adEl.offsetWidth > 0 || adEl.offsetHeight > 0)) {
-                fastForwardAd(doc);
-                break;
             }
         }
 
@@ -140,63 +173,30 @@
 
             if (txt.includes('bỏ qua') || txt.includes('skip ad')) {
                 fastForwardAd(doc);
-                var hasChildSkip = false;
-                for (var c = 0; c < el.children.length; c++) {
-                    if ((el.children[c].textContent || '').toLowerCase().includes('bỏ qua')) {
-                        hasChildSkip = true;
-                        break;
-                    }
-                }
-                if (!hasChildSkip) {
-                    simClick(el);
-                    var closestBtn = el.closest('button, [role="button"], a, [class*="skip"]');
-                    if (closestBtn && closestBtn !== el) simClick(closestBtn);
-                    return;
-                }
+                simClick(el);
+                var closestBtn = el.closest('button, [role="button"], a, [class*="skip"]');
+                if (closestBtn && closestBtn !== el) simClick(closestBtn);
+                return;
             }
 
             if (!hasHandledResume && (txt === 'xem tiếp' || txt === 'tiếp tục xem' || txt.includes('xem tiếp từ'))) {
-                var hasChildResume = false;
-                for (var k = 0; k < el.children.length; k++) {
-                    var cTxt = (el.children[k].textContent || '').toLowerCase();
-                    if (cTxt.includes('xem tiếp') || cTxt.includes('tiếp tục xem')) {
-                        hasChildResume = true;
-                        break;
-                    }
-                }
-
-                if (!hasChildResume) {
-                    hasHandledResume = true; 
-                    simClick(el);
-                    el.style.display = 'none';
-                    var noticeContainer = el.closest('.art-notice, [class*="notice"], [class*="dialog"]');
-                    if (noticeContainer) {
-                        noticeContainer.style.display = 'none';
-                    }
-
-                    setTimeout(function() {
-                        var vPlay = doc.querySelector('video');
-                        if (vPlay && vPlay.paused) {
-                            vPlay.play();
-                        }
-                    }, 800);
-                    return;
-                }
+                hasHandledResume = true; 
+                simClick(el);
+                el.style.display = 'none';
+                setTimeout(function() {
+                    var vPlay = doc.querySelector('video');
+                    if (vPlay && vPlay.paused) vPlay.play();
+                }, 800);
+                return;
             }
 
             if (txt.includes('có dấu hiệu chặn quảng cáo') || txt.includes('tài nguyên quảng cáo chưa tải được')) {
                 var boxAlert = el.closest('[class*="modal"], [class*="dialog"], [class*="notice"], [class*="popup"], [class*="mask"]');
-                if (boxAlert) {
-                    boxAlert.style.display = 'none';
-                } else {
-                    el.style.display = 'none';
-                    if (el.parentElement) el.parentElement.style.display = 'none';
-                }
-
+                if (boxAlert) boxAlert.style.display = 'none';
+                else el.style.display = 'none';
+                
                 var vAlert = doc.querySelector('video');
-                if (vAlert && vAlert.paused) {
-                    vAlert.play();
-                }
+                if (vAlert && vAlert.paused) vAlert.play();
                 return;
             }
         }
@@ -218,8 +218,5 @@
 
     setInterval(function() {
         scanAll(document);
-        if (document.body && document.body.style.overflow !== 'auto') {
-            document.body.style.overflow = 'auto';
-        }
     }, 500);
 })();
