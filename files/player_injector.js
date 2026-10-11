@@ -1,67 +1,5 @@
 (function() {
-    // =========================================================
-    // 1. TIÊM CSS TÀNG HÌNH HOÀN TOÀN KHUNG QUẢNG CÁO
-    // =========================================================
-    var hideAdsCSS = document.createElement('style');
-    hideAdsCSS.innerHTML = `
-        /* Ẩn các class quảng cáo phổ biến của JWPlayer, ArtPlayer, VideoJS */
-        .jw-plugin-googima, .jw-plugin-ads, .jw-ads, 
-        .art-ad, .art-ads, .art-ad-control, .art-ad-countdown,
-        .vjs-ad-playing, .video-js.vjs-ad-playing .vjs-tech,
-        [id^="google_ads_"], [id^="ima-"], [class*="ad-showing"],
-        .ad-container, .ads-manager, .art-notice, .jw-skip {
-            display: none !important;
-            opacity: 0 !important;
-            visibility: hidden !important;
-            pointer-events: none !important;
-            width: 0 !important;
-            height: 0 !important;
-            z-index: -9999 !important;
-        }
-    `;
-    document.head.appendChild(hideAdsCSS);
-
-    // =========================================================
-    // 2. ÉP CÂM TIẾNG VÀ TUA NHANH VIDEO NGAY TỪ GIÂY ĐẦU TIÊN
-    // =========================================================
-    function instantKillAd(v) {
-        // Nếu video có độ dài hợp lệ và dưới 120s (quảng cáo)
-        if (v && v.duration && isFinite(v.duration) && v.duration > 0 && v.duration <= 120) {
-            v.muted = true;           // Khóa mỏ ngay lập tức
-            v.style.opacity = '0';    // Tàng hình video
-
-            // Ép thời gian nhảy đến giây cuối cùng
-            if (v.currentTime < v.duration - 0.5) {
-                v.currentTime = v.duration;
-            }
-        }
-    }
-
-    // Bắt sự kiện Real-time cho mọi thẻ <video> ngay khi nó vừa xuất hiện trong DOM
-    const observer = new MutationObserver(mutations => {
-        mutations.forEach(mutation => {
-            mutation.addedNodes.forEach(node => {
-                if (node.tagName === 'VIDEO') {
-                    // Kích hoạt diệt QC ngay khi video nạp thông tin
-                    node.addEventListener('loadedmetadata', () => instantKillAd(node));
-                    node.addEventListener('timeupdate', () => instantKillAd(node));
-                    node.addEventListener('play', () => instantKillAd(node));
-                }
-            });
-        });
-    });
-    observer.observe(document.body, { childList: true, subtree: true });
-
-    // Quét các thẻ video đã có sẵn trên trang
-    document.querySelectorAll('video').forEach(v => {
-        v.addEventListener('loadedmetadata', () => instantKillAd(v));
-        v.addEventListener('timeupdate', () => instantKillAd(v));
-        v.addEventListener('play', () => instantKillAd(v));
-    });
-
-    // =========================================================
-    // 3. NETWORK INTERCEPTOR (Chặn bắt link phim)
-    // =========================================================
+    // 1. CHẶN MẠNG (Đề phòng đổi API lấy phim) - Giữ nguyên vì rất an toàn
     const originalFetch = window.fetch;
     window.fetch = async function() {
         const url = arguments[0];
@@ -81,9 +19,6 @@
         return response;
     };
 
-    // =========================================================
-    // 4. BỘ XỬ LÝ CLICK GIAO DIỆN CŨ (Giữ nguyên để phòng hờ)
-    // =========================================================
     var hasHandledResume = false;
     var hasReloadedForTimeout = false;
 
@@ -93,21 +28,28 @@
             var rect = el.getBoundingClientRect();
             var x = rect.left + rect.width / 2;
             var y = rect.top + rect.height / 2;
-
             var events = ['pointerdown', 'mousedown', 'pointerup', 'mouseup', 'click'];
             for (var i = 0; i < events.length; i++) {
-                var ev = new MouseEvent(events[i], { bubbles: true, cancelable: true, view: window, clientX: x, clientY: y });
-                el.dispatchEvent(ev);
+                el.dispatchEvent(new MouseEvent(events[i], { bubbles: true, cancelable: true, view: window, clientX: x, clientY: y }));
             }
             if (typeof el.click === 'function') el.click();
         } catch(e) {}
     }
 
-    function fastForwardAd(doc) {
+    // 2. ÉP TỐC ĐỘ QUẢNG CÁO (x16 Tốc độ thay vì tua nhảy cóc)
+    function speedUpAd(doc) {
         try {
             var vids = doc.querySelectorAll('video');
             for (var vIdx = 0; vIdx < vids.length; vIdx++) {
-                instantKillAd(vids[vIdx]); // Dùng hàm diệt tận gốc ở trên
+                var v = vids[vIdx];
+                // Chỉ áp dụng với video quảng cáo (thường ngắn hơn 120 giây)
+                if (v && v.duration && isFinite(v.duration) && v.duration <= 120 && v.currentTime < v.duration) {
+                    v.muted = true; // Bắt buộc im lặng
+                    if (v.playbackRate !== 16.0) v.playbackRate = 16.0; // Tua siêu nhanh
+                } else if (v && v.duration > 120) {
+                    // Nếu là phim chính, trả lại tốc độ bình thường để xem
+                    if (v.playbackRate > 5.0) v.playbackRate = 1.0;
+                }
             }
         } catch(e) {}
     }
@@ -146,10 +88,19 @@
                 var modal = item.closest('[class*="modal"], [class*="dialog"], [class*="notice"], [class*="popup"], [class*="mask"]');
                 if (modal) modal.style.display = 'none';
                 item.style.display = 'none';
-
                 var vid = doc.querySelector('video');
                 if (vid && vid.paused) vid.play();
                 return;
+            }
+        }
+
+        // Tăng tốc video quảng cáo khi phát hiện các class quảng cáo
+        var adClasses = ['[class*="ad-showing"]', '[class*="ad-playing"]', '[class*="ad-countdown"]', '[class*="ad-timer"]', '.jw-flag-ads'];
+        for (var a = 0; a < adClasses.length; a++) {
+            var adEl = doc.querySelector(adClasses[a]);
+            if (adEl && (adEl.offsetWidth > 0 || adEl.offsetHeight > 0)) {
+                speedUpAd(doc);
+                break;
             }
         }
 
@@ -157,7 +108,7 @@
         for (var s = 0; s < directSelectors.length; s++) {
             var directBtn = doc.querySelector(directSelectors[s]);
             if (directBtn && directBtn.offsetWidth > 0) {
-                fastForwardAd(doc);
+                speedUpAd(doc);
                 simClick(directBtn);
                 return;
             }
@@ -168,33 +119,57 @@
             var txt = (el.textContent || '').trim().toLowerCase();
 
             if ((txt.includes('quảng cáo sau') || txt.includes('bỏ qua sau') || txt.includes('ad in')) && /\d+/.test(txt)) {
-                fastForwardAd(doc);
+                speedUpAd(doc);
             }
 
             if (txt.includes('bỏ qua') || txt.includes('skip ad')) {
-                fastForwardAd(doc);
-                simClick(el);
-                var closestBtn = el.closest('button, [role="button"], a, [class*="skip"]');
-                if (closestBtn && closestBtn !== el) simClick(closestBtn);
-                return;
+                speedUpAd(doc);
+                var hasChildSkip = false;
+                for (var c = 0; c < el.children.length; c++) {
+                    if ((el.children[c].textContent || '').toLowerCase().includes('bỏ qua')) {
+                        hasChildSkip = true;
+                        break;
+                    }
+                }
+                if (!hasChildSkip) {
+                    simClick(el);
+                    var closestBtn = el.closest('button, [role="button"], a, [class*="skip"]');
+                    if (closestBtn && closestBtn !== el) simClick(closestBtn);
+                    return;
+                }
             }
 
             if (!hasHandledResume && (txt === 'xem tiếp' || txt === 'tiếp tục xem' || txt.includes('xem tiếp từ'))) {
-                hasHandledResume = true; 
-                simClick(el);
-                el.style.display = 'none';
-                setTimeout(function() {
-                    var vPlay = doc.querySelector('video');
-                    if (vPlay && vPlay.paused) vPlay.play();
-                }, 800);
-                return;
+                var hasChildResume = false;
+                for (var k = 0; k < el.children.length; k++) {
+                    var cTxt = (el.children[k].textContent || '').toLowerCase();
+                    if (cTxt.includes('xem tiếp') || cTxt.includes('tiếp tục xem')) {
+                        hasChildResume = true;
+                        break;
+                    }
+                }
+                if (!hasChildResume) {
+                    hasHandledResume = true; 
+                    simClick(el);
+                    el.style.display = 'none';
+                    var noticeContainer = el.closest('.art-notice, [class*="notice"], [class*="dialog"]');
+                    if (noticeContainer) noticeContainer.style.display = 'none';
+
+                    setTimeout(function() {
+                        var vPlay = doc.querySelector('video');
+                        if (vPlay && vPlay.paused) vPlay.play();
+                    }, 800);
+                    return;
+                }
             }
 
             if (txt.includes('có dấu hiệu chặn quảng cáo') || txt.includes('tài nguyên quảng cáo chưa tải được')) {
                 var boxAlert = el.closest('[class*="modal"], [class*="dialog"], [class*="notice"], [class*="popup"], [class*="mask"]');
                 if (boxAlert) boxAlert.style.display = 'none';
-                else el.style.display = 'none';
-                
+                else {
+                    el.style.display = 'none';
+                    if (el.parentElement) el.parentElement.style.display = 'none';
+                }
                 var vAlert = doc.querySelector('video');
                 if (vAlert && vAlert.paused) vAlert.play();
                 return;
@@ -216,7 +191,8 @@
         } catch(e) {}
     }
 
+    // Tăng tốc quét lên 200ms để bắt và xử lý nút nhanh hơn bản cũ rất nhiều
     setInterval(function() {
         scanAll(document);
-    }, 500);
+    }, 200);
 })();
