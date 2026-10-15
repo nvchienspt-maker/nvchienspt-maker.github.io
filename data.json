@@ -1,7 +1,7 @@
 {
   "repository": "nvchienspt-maker/nvchienspt-maker.github.io",
   "total_apps": 42,
-  "total_files": 42,
+  "total_files": 43,
   "total_icons": 42,
   "icons": {
     "Ferrari.png": "https://nvchienspt-maker.github.io/icons/Ferrari.png",
@@ -425,6 +425,18 @@
           "download_count": 4,
           "created_at": "2026-10-09T12:46:39Z",
           "published_at": "2026-09-12T08:43:44Z"
+        },
+        {
+          "source": "direct",
+          "file_name": "phim4k_v2.7.1.apk",
+          "version": "2.7.1",
+          "size_bytes": 14003535,
+          "download_url": "https://nvchienspt-maker.github.io/apps/phim4k_v2.7.1.apk",
+          "release_tag": null,
+          "release_title": "Direct GitHub Upload",
+          "download_count": 0,
+          "created_at": null,
+          "published_at": null
         }
       ]
     },
@@ -1225,6 +1237,18 @@
           "download_count": 4,
           "created_at": "2026-10-09T12:46:39Z",
           "published_at": "2026-09-12T08:43:44Z"
+        },
+        {
+          "source": "direct",
+          "file_name": "phim4k_v2.7.1.apk",
+          "version": "2.7.1",
+          "size_bytes": 14003535,
+          "download_url": "https://nvchienspt-maker.github.io/apps/phim4k_v2.7.1.apk",
+          "release_tag": null,
+          "release_title": "Direct GitHub Upload",
+          "download_count": 0,
+          "created_at": null,
+          "published_at": null
         }
       ]
     },
