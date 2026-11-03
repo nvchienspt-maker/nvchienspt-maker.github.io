@@ -1,7 +1,7 @@
 {
   "repository": "nvchienspt-maker/nvchienspt-maker.github.io",
-  "total_apps": 42,
-  "total_files": 49,
+  "total_apps": 41,
+  "total_files": 48,
   "total_icons": 42,
   "icons": {
     "Ferrari.png": "https://nvchienspt-maker.github.io/icons/Ferrari.png",
@@ -910,25 +910,6 @@
           "published_at": null
         }
       ]
-    },
-    {
-      "name": "1",
-      "version": "",
-      "group": "Khác",
-      "downloads": [
-        {
-          "source": "direct",
-          "file_name": "1",
-          "version": "",
-          "size_bytes": 1,
-          "download_url": "https://nvchienspt-maker.github.io/apps/vxmstore/1",
-          "release_tag": null,
-          "release_title": "Direct GitHub Upload",
-          "download_count": 0,
-          "created_at": null,
-          "published_at": null
-        }
-      ]
     }
   ],
   "files": [
@@ -1787,25 +1768,6 @@
           "version": "2.7.3",
           "size_bytes": 14007996,
           "download_url": "https://nvchienspt-maker.github.io/apps/phim4k/phim4k_v2.7.3.apk",
-          "release_tag": null,
-          "release_title": "Direct GitHub Upload",
-          "download_count": 0,
-          "created_at": null,
-          "published_at": null
-        }
-      ]
-    },
-    {
-      "name": "1",
-      "version": "",
-      "group": "Khác",
-      "downloads": [
-        {
-          "source": "direct",
-          "file_name": "1",
-          "version": "",
-          "size_bytes": 1,
-          "download_url": "https://nvchienspt-maker.github.io/apps/vxmstore/1",
           "release_tag": null,
           "release_title": "Direct GitHub Upload",
           "download_count": 0,
