@@ -1,7 +1,7 @@
 {
   "repository": "nvchienspt-maker/nvchienspt-maker.github.io",
   "total_apps": 42,
-  "total_files": 47,
+  "total_files": 48,
   "total_icons": 42,
   "icons": {
     "Ferrari.png": "https://nvchienspt-maker.github.io/icons/Ferrari.png",
@@ -713,6 +713,18 @@
           "download_count": 15,
           "created_at": "2026-09-27T01:10:13Z",
           "published_at": "2026-09-12T08:43:44Z"
+        },
+        {
+          "source": "direct",
+          "file_name": "VietMITV_v22.0.apk",
+          "version": "22.0",
+          "size_bytes": 2289967,
+          "download_url": "https://nvchienspt-maker.github.io/apps/VietmiTV/VietMITV_v22.0.apk",
+          "release_tag": null,
+          "release_title": "Direct GitHub Upload",
+          "download_count": 0,
+          "created_at": null,
+          "published_at": null
         }
       ]
     },
@@ -1573,6 +1585,18 @@
           "download_count": 15,
           "created_at": "2026-09-27T01:10:13Z",
           "published_at": "2026-09-12T08:43:44Z"
+        },
+        {
+          "source": "direct",
+          "file_name": "VietMITV_v22.0.apk",
+          "version": "22.0",
+          "size_bytes": 2289967,
+          "download_url": "https://nvchienspt-maker.github.io/apps/VietmiTV/VietMITV_v22.0.apk",
+          "release_tag": null,
+          "release_title": "Direct GitHub Upload",
+          "download_count": 0,
+          "created_at": null,
+          "published_at": null
         }
       ]
     },
