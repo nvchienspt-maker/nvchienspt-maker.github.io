@@ -2,7 +2,7 @@
   "repository": "nvchienspt-maker/nvchienspt-maker.github.io",
   "total_apps": 41,
   "total_files": 50,
-  "total_icons": 42,
+  "total_icons": 43,
   "icons": {
     "Ferrari.png": "https://nvchienspt-maker.github.io/icons/Ferrari.png",
     "adb.png": "https://nvchienspt-maker.github.io/icons/adb.png",
@@ -27,6 +27,7 @@
     "phim4k.png": "https://nvchienspt-maker.github.io/icons/phim4k.png",
     "project.png": "https://nvchienspt-maker.github.io/icons/project.png",
     "quantv.png": "https://nvchienspt-maker.github.io/icons/quantv.png",
+    "rapnha.jpg": "https://nvchienspt-maker.github.io/icons/rapnha.jpg",
     "rapphim.png": "https://nvchienspt-maker.github.io/icons/rapphim.png",
     "saigonphim.png": "https://nvchienspt-maker.github.io/icons/saigonphim.png",
     "smarttube.png": "https://nvchienspt-maker.github.io/icons/smarttube.png",
