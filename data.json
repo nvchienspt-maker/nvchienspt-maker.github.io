@@ -1,7 +1,7 @@
 {
   "repository": "nvchienspt-maker/nvchienspt-maker.github.io",
-  "total_apps": 42,
-  "total_files": 51,
+  "total_apps": 43,
+  "total_files": 52,
   "total_icons": 43,
   "icons": {
     "Ferrari.png": "https://nvchienspt-maker.github.io/icons/Ferrari.png",
@@ -937,6 +937,25 @@
       ]
     },
     {
+      "name": "Rạp Nhà",
+      "version": "1.5.2",
+      "group": "Xem Phim",
+      "downloads": [
+        {
+          "source": "direct",
+          "file_name": "RapNha_v1.5.2.apk",
+          "version": "1.5.2",
+          "size_bytes": 5818929,
+          "download_url": "https://nvchienspt-maker.github.io/apps/Rapnha/RapNha_v1.5.2.apk",
+          "release_tag": null,
+          "release_title": "Direct GitHub Upload",
+          "download_count": 0,
+          "created_at": null,
+          "published_at": null
+        }
+      ]
+    },
+    {
       "name": "Phim4K",
       "version": "2.7.3",
       "group": "Xem Phim",
@@ -1836,6 +1855,25 @@
           "version": "",
           "size_bytes": 1,
           "download_url": "https://nvchienspt-maker.github.io/apps/Rapnha/1",
+          "release_tag": null,
+          "release_title": "Direct GitHub Upload",
+          "download_count": 0,
+          "created_at": null,
+          "published_at": null
+        }
+      ]
+    },
+    {
+      "name": "Rạp Nhà",
+      "version": "1.5.2",
+      "group": "Xem Phim",
+      "downloads": [
+        {
+          "source": "direct",
+          "file_name": "RapNha_v1.5.2.apk",
+          "version": "1.5.2",
+          "size_bytes": 5818929,
+          "download_url": "https://nvchienspt-maker.github.io/apps/Rapnha/RapNha_v1.5.2.apk",
           "release_tag": null,
           "release_title": "Direct GitHub Upload",
           "download_count": 0,
