@@ -1,7 +1,7 @@
 {
   "repository": "nvchienspt-maker/nvchienspt-maker.github.io",
   "total_apps": 41,
-  "total_files": 49,
+  "total_files": 50,
   "total_icons": 42,
   "icons": {
     "Ferrari.png": "https://nvchienspt-maker.github.io/icons/Ferrari.png",
@@ -442,6 +442,18 @@
           "version": "2.4.5",
           "size_bytes": 21393032,
           "download_url": "https://nvchienspt-maker.github.io/apps/nvcphim/NVCPhim_v2.4.5.apk",
+          "release_tag": null,
+          "release_title": "Direct GitHub Upload",
+          "download_count": 0,
+          "created_at": null,
+          "published_at": null
+        },
+        {
+          "source": "direct",
+          "file_name": "NVCPhim_v2.4.6.apk",
+          "version": "2.4.6",
+          "size_bytes": 21590100,
+          "download_url": "https://nvchienspt-maker.github.io/apps/nvcphim/NVCPhim_v2.4.6.apk",
           "release_tag": null,
           "release_title": "Direct GitHub Upload",
           "download_count": 0,
@@ -1319,6 +1331,18 @@
           "version": "2.4.5",
           "size_bytes": 21393032,
           "download_url": "https://nvchienspt-maker.github.io/apps/nvcphim/NVCPhim_v2.4.5.apk",
+          "release_tag": null,
+          "release_title": "Direct GitHub Upload",
+          "download_count": 0,
+          "created_at": null,
+          "published_at": null
+        },
+        {
+          "source": "direct",
+          "file_name": "NVCPhim_v2.4.6.apk",
+          "version": "2.4.6",
+          "size_bytes": 21590100,
+          "download_url": "https://nvchienspt-maker.github.io/apps/nvcphim/NVCPhim_v2.4.6.apk",
           "release_tag": null,
           "release_title": "Direct GitHub Upload",
           "download_count": 0,
