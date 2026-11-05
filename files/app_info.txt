@@ -1,3 +1,9 @@
+[rapnha]
+name = Rạp Nhà
+compatibility = Android TV 5.0+, Google TV, Xiaomi TV
+remote = Hỗ trợ 100% Remote D-pad & Chuột bay
+description = Rạp phim ngay tại nhà bạn.
+features = Hàng chục nghìn phim lẻ, phim bộ, hoạt hình — Vietsub, thuyết minh. Giao diện gọn đẹp kiểu Netflix, mở là xem, không cần tài khoản.
 [ferrari]
 name = Ferrari Downloader (Downloader by AFTVnews)
 compatibility = Android TV 5.0+, Google TV, Xiaomi TV
