@@ -1,7 +1,7 @@
 {
   "repository": "nvchienspt-maker/nvchienspt-maker.github.io",
-  "total_apps": 43,
-  "total_files": 54,
+  "total_apps": 42,
+  "total_files": 53,
   "total_icons": 43,
   "icons": {
     "Ferrari.png": "https://nvchienspt-maker.github.io/icons/Ferrari.png",
@@ -926,25 +926,6 @@
           "download_count": 5,
           "created_at": "2026-09-12T09:29:01Z",
           "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "1",
-      "version": "",
-      "group": "Khác",
-      "downloads": [
-        {
-          "source": "direct",
-          "file_name": "1",
-          "version": "",
-          "size_bytes": 1,
-          "download_url": "https://nvchienspt-maker.github.io/apps/Rapnha/1",
-          "release_tag": null,
-          "release_title": "Direct GitHub Upload",
-          "download_count": 0,
-          "created_at": null,
-          "published_at": null
         }
       ]
     },
@@ -1877,25 +1858,6 @@
           "download_count": 5,
           "created_at": "2026-09-12T09:29:01Z",
           "published_at": "2026-09-12T08:43:44Z"
-        }
-      ]
-    },
-    {
-      "name": "1",
-      "version": "",
-      "group": "Khác",
-      "downloads": [
-        {
-          "source": "direct",
-          "file_name": "1",
-          "version": "",
-          "size_bytes": 1,
-          "download_url": "https://nvchienspt-maker.github.io/apps/Rapnha/1",
-          "release_tag": null,
-          "release_title": "Direct GitHub Upload",
-          "download_count": 0,
-          "created_at": null,
-          "published_at": null
         }
       ]
     },
