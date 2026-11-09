@@ -1,7 +1,7 @@
 {
   "repository": "nvchienspt-maker/nvchienspt-maker.github.io",
-  "total_apps": 42,
-  "total_files": 53,
+  "total_apps": 43,
+  "total_files": 54,
   "total_icons": 43,
   "icons": {
     "Ferrari.png": "https://nvchienspt-maker.github.io/icons/Ferrari.png",
@@ -62,7 +62,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/nvcstore/NVCStore_v1.0.7.apk",
           "release_tag": "nvcstore",
           "release_title": "nvcstore",
-          "download_count": 27,
+          "download_count": 30,
           "created_at": "2026-10-29T12:27:50Z",
           "published_at": "2026-10-29T11:47:27Z"
         },
@@ -74,7 +74,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/NVCStore_v1.0.5.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 41,
+          "download_count": 42,
           "created_at": "2026-10-09T13:15:07Z",
           "published_at": "2026-09-12T08:43:44Z"
         },
@@ -576,7 +576,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/saigonphim_v1.7.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 11,
+          "download_count": 13,
           "created_at": "2026-09-12T08:42:34Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -595,7 +595,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/SmartTube_v32.47.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 12,
+          "download_count": 13,
           "created_at": "2026-09-20T01:18:19Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -971,6 +971,25 @@
           "version": "2.7.3",
           "size_bytes": 14007996,
           "download_url": "https://nvchienspt-maker.github.io/apps/phim4k/phim4k_v2.7.3.apk",
+          "release_tag": null,
+          "release_title": "Direct GitHub Upload",
+          "download_count": 0,
+          "created_at": null,
+          "published_at": null
+        }
+      ]
+    },
+    {
+      "name": "1",
+      "version": "",
+      "group": "Khác",
+      "downloads": [
+        {
+          "source": "direct",
+          "file_name": "1",
+          "version": "",
+          "size_bytes": 1,
+          "download_url": "https://nvchienspt-maker.github.io/apps/Getout/1",
           "release_tag": null,
           "release_title": "Direct GitHub Upload",
           "download_count": 0,
@@ -994,7 +1013,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/nvcstore/NVCStore_v1.0.7.apk",
           "release_tag": "nvcstore",
           "release_title": "nvcstore",
-          "download_count": 27,
+          "download_count": 30,
           "created_at": "2026-10-29T12:27:50Z",
           "published_at": "2026-10-29T11:47:27Z"
         },
@@ -1006,7 +1025,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/NVCStore_v1.0.5.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 41,
+          "download_count": 42,
           "created_at": "2026-10-09T13:15:07Z",
           "published_at": "2026-09-12T08:43:44Z"
         },
@@ -1508,7 +1527,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/saigonphim_v1.7.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 11,
+          "download_count": 13,
           "created_at": "2026-09-12T08:42:34Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -1527,7 +1546,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/SmartTube_v32.47.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 12,
+          "download_count": 13,
           "created_at": "2026-09-20T01:18:19Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -1903,6 +1922,25 @@
           "version": "2.7.3",
           "size_bytes": 14007996,
           "download_url": "https://nvchienspt-maker.github.io/apps/phim4k/phim4k_v2.7.3.apk",
+          "release_tag": null,
+          "release_title": "Direct GitHub Upload",
+          "download_count": 0,
+          "created_at": null,
+          "published_at": null
+        }
+      ]
+    },
+    {
+      "name": "1",
+      "version": "",
+      "group": "Khác",
+      "downloads": [
+        {
+          "source": "direct",
+          "file_name": "1",
+          "version": "",
+          "size_bytes": 1,
+          "download_url": "https://nvchienspt-maker.github.io/apps/Getout/1",
           "release_tag": null,
           "release_title": "Direct GitHub Upload",
           "download_count": 0,
