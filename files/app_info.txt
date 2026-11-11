@@ -1,3 +1,10 @@
+[nuvio]
+name = Ứng dụng xem video 
+compatibility = Android TV 5.0+, Google TV, Xiaomi TV
+remote = Hỗ trợ 100% Remote D-pad & Chuột bay
+description = Nuvio là một ứng dụng trung tâm truyền thông (media hub) miễn phí, mã nguồn mở dành cho điện thoại, máy tính bảng, Android TV và các thiết bị khác.
+features = Nuvio hoạt động tương tự Stremio: Ứng dụng này không lưu trữ hay cung cấp sẵn phim, chương trình truyền hình hay link phát trực tuyến. Người dùng cần tự cấu hình các tiện ích bổ sung (addon) và kết hợp với các dịch vụ hỗ trợ (như Debrid hoặc Trakt, SIMKL) để tìm và xem nội.
+
 [rapnha]
 name = Rạp Nhà
 compatibility = Android TV 5.0+, Google TV, Xiaomi TV
