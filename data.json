@@ -1,7 +1,7 @@
 {
   "repository": "nvchienspt-maker/nvchienspt-maker.github.io",
-  "total_apps": 42,
-  "total_files": 54,
+  "total_apps": 43,
+  "total_files": 55,
   "total_icons": 44,
   "icons": {
     "Ferrari.png": "https://nvchienspt-maker.github.io/icons/Ferrari.png",
@@ -386,6 +386,25 @@
           "release_title": "Upload bởi NVC",
           "download_count": 10,
           "created_at": "2026-09-12T08:42:21Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "Ứng dụng xem video miễn phí",
+      "version": "1.1.0",
+      "group": "Khác",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "Nuvio_v1.1.0.apk",
+          "version": "1.1.0",
+          "size_bytes": 53572407,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/Nuvio_v1.1.0.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 0,
+          "created_at": "2026-11-11T02:50:22Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
       ]
@@ -1330,6 +1349,25 @@
           "release_title": "Upload bởi NVC",
           "download_count": 10,
           "created_at": "2026-09-12T08:42:21Z",
+          "published_at": "2026-09-12T08:43:44Z"
+        }
+      ]
+    },
+    {
+      "name": "Ứng dụng xem video miễn phí",
+      "version": "1.1.0",
+      "group": "Khác",
+      "downloads": [
+        {
+          "source": "release",
+          "file_name": "Nuvio_v1.1.0.apk",
+          "version": "1.1.0",
+          "size_bytes": 53572407,
+          "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/Nuvio_v1.1.0.apk",
+          "release_tag": "v1.0.1",
+          "release_title": "Upload bởi NVC",
+          "download_count": 0,
+          "created_at": "2026-11-11T02:50:22Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
       ]
