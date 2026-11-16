@@ -1,7 +1,7 @@
 {
   "repository": "nvchienspt-maker/nvchienspt-maker.github.io",
   "total_apps": 43,
-  "total_files": 55,
+  "total_files": 56,
   "total_icons": 44,
   "icons": {
     "Ferrari.png": "https://nvchienspt-maker.github.io/icons/Ferrari.png",
@@ -63,7 +63,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/nvcstore/NVCStore_v1.0.7.apk",
           "release_tag": "nvcstore",
           "release_title": "nvcstore",
-          "download_count": 33,
+          "download_count": 54,
           "created_at": "2026-10-29T12:27:50Z",
           "published_at": "2026-10-29T11:47:27Z"
         },
@@ -75,7 +75,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/NVCStore_v1.0.5.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 42,
+          "download_count": 43,
           "created_at": "2026-10-09T13:15:07Z",
           "published_at": "2026-09-12T08:43:44Z"
         },
@@ -125,7 +125,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/chophim_v1.1.0.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 19,
+          "download_count": 20,
           "created_at": "2026-09-12T08:41:53Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -239,7 +239,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/getout_v2.0.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 14,
+          "download_count": 16,
           "created_at": "2026-09-27T01:19:37Z",
           "published_at": "2026-09-12T08:43:44Z"
         },
@@ -346,7 +346,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/mstore_v2.0.0.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 9,
+          "download_count": 11,
           "created_at": "2026-09-27T01:09:56Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -403,7 +403,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/Nuvio_v1.1.0.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 0,
+          "download_count": 1,
           "created_at": "2026-11-11T02:50:22Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -422,7 +422,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvcmovie_v3.5.6.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 29,
+          "download_count": 32,
           "created_at": "2026-09-26T10:29:02Z",
           "published_at": "2026-09-12T08:43:44Z"
         },
@@ -444,6 +444,18 @@
           "version": "3.6.1",
           "size_bytes": 19654624,
           "download_url": "https://nvchienspt-maker.github.io/apps/nvcmovie/NVCMovie_v3.6.1.apk",
+          "release_tag": null,
+          "release_title": "Direct GitHub Upload",
+          "download_count": 0,
+          "created_at": null,
+          "published_at": null
+        },
+        {
+          "source": "direct",
+          "file_name": "NVCMovie_v3.6.2.apk",
+          "version": "3.6.2",
+          "size_bytes": 19654624,
+          "download_url": "https://nvchienspt-maker.github.io/apps/nvcmovie/NVCMovie_v3.6.2.apk",
           "release_tag": null,
           "release_title": "Direct GitHub Upload",
           "download_count": 0,
@@ -520,7 +532,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/NVCTivi_v1.1.8.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 22,
+          "download_count": 26,
           "created_at": "2026-10-09T14:00:04Z",
           "published_at": "2026-09-12T08:43:44Z"
         },
@@ -589,7 +601,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/rapphim_v1.1.0.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 12,
+          "download_count": 17,
           "created_at": "2026-09-12T08:42:31Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -608,7 +620,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/saigonphim_v1.7.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 13,
+          "download_count": 14,
           "created_at": "2026-09-12T08:42:34Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -665,7 +677,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/tiktok_v39.9.3.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 3,
+          "download_count": 6,
           "created_at": "2026-09-27T01:09:46Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -936,7 +948,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/ytbtizen_v1.0.8.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 11,
+          "download_count": 12,
           "created_at": "2026-09-12T09:28:55Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -955,7 +967,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/ytbTQ_v1.0.8.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 5,
+          "download_count": 6,
           "created_at": "2026-09-12T09:29:01Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -1026,7 +1038,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/nvcstore/NVCStore_v1.0.7.apk",
           "release_tag": "nvcstore",
           "release_title": "nvcstore",
-          "download_count": 33,
+          "download_count": 54,
           "created_at": "2026-10-29T12:27:50Z",
           "published_at": "2026-10-29T11:47:27Z"
         },
@@ -1038,7 +1050,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/NVCStore_v1.0.5.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 42,
+          "download_count": 43,
           "created_at": "2026-10-09T13:15:07Z",
           "published_at": "2026-09-12T08:43:44Z"
         },
@@ -1088,7 +1100,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/chophim_v1.1.0.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 19,
+          "download_count": 20,
           "created_at": "2026-09-12T08:41:53Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -1202,7 +1214,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/getout_v2.0.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 14,
+          "download_count": 16,
           "created_at": "2026-09-27T01:19:37Z",
           "published_at": "2026-09-12T08:43:44Z"
         },
@@ -1309,7 +1321,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/mstore_v2.0.0.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 9,
+          "download_count": 11,
           "created_at": "2026-09-27T01:09:56Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -1366,7 +1378,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/Nuvio_v1.1.0.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 0,
+          "download_count": 1,
           "created_at": "2026-11-11T02:50:22Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -1385,7 +1397,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/nvcmovie_v3.5.6.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 29,
+          "download_count": 32,
           "created_at": "2026-09-26T10:29:02Z",
           "published_at": "2026-09-12T08:43:44Z"
         },
@@ -1407,6 +1419,18 @@
           "version": "3.6.1",
           "size_bytes": 19654624,
           "download_url": "https://nvchienspt-maker.github.io/apps/nvcmovie/NVCMovie_v3.6.1.apk",
+          "release_tag": null,
+          "release_title": "Direct GitHub Upload",
+          "download_count": 0,
+          "created_at": null,
+          "published_at": null
+        },
+        {
+          "source": "direct",
+          "file_name": "NVCMovie_v3.6.2.apk",
+          "version": "3.6.2",
+          "size_bytes": 19654624,
+          "download_url": "https://nvchienspt-maker.github.io/apps/nvcmovie/NVCMovie_v3.6.2.apk",
           "release_tag": null,
           "release_title": "Direct GitHub Upload",
           "download_count": 0,
@@ -1483,7 +1507,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/NVCTivi_v1.1.8.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 22,
+          "download_count": 26,
           "created_at": "2026-10-09T14:00:04Z",
           "published_at": "2026-09-12T08:43:44Z"
         },
@@ -1552,7 +1576,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/rapphim_v1.1.0.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 12,
+          "download_count": 17,
           "created_at": "2026-09-12T08:42:31Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -1571,7 +1595,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/saigonphim_v1.7.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 13,
+          "download_count": 14,
           "created_at": "2026-09-12T08:42:34Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -1628,7 +1652,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/tiktok_v39.9.3.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 3,
+          "download_count": 6,
           "created_at": "2026-09-27T01:09:46Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -1899,7 +1923,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/ytbtizen_v1.0.8.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 11,
+          "download_count": 12,
           "created_at": "2026-09-12T09:28:55Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
@@ -1918,7 +1942,7 @@
           "download_url": "https://github.com/nvchienspt-maker/nvchienspt-maker.github.io/releases/download/v1.0.1/ytbTQ_v1.0.8.apk",
           "release_tag": "v1.0.1",
           "release_title": "Upload bởi NVC",
-          "download_count": 5,
+          "download_count": 6,
           "created_at": "2026-09-12T09:29:01Z",
           "published_at": "2026-09-12T08:43:44Z"
         }
