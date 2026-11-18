@@ -1,7 +1,7 @@
 {
   "repository": "nvchienspt-maker/nvchienspt-maker.github.io",
   "total_apps": 43,
-  "total_files": 55,
+  "total_files": 54,
   "total_icons": 44,
   "icons": {
     "Ferrari.png": "https://nvchienspt-maker.github.io/icons/Ferrari.png",
@@ -518,18 +518,6 @@
           "version": "1.2.0",
           "size_bytes": 6058606,
           "download_url": "https://nvchienspt-maker.github.io/apps/nvctivi/NVCTivi_v1.2.0.apk",
-          "release_tag": null,
-          "release_title": "Direct GitHub Upload",
-          "download_count": 0,
-          "created_at": null,
-          "published_at": null
-        },
-        {
-          "source": "direct",
-          "file_name": "NVCTivi_v1.2.1.apk",
-          "version": "1.2.1",
-          "size_bytes": 6058634,
-          "download_url": "https://nvchienspt-maker.github.io/apps/nvctivi/NVCTivi_v1.2.1.apk",
           "release_tag": null,
           "release_title": "Direct GitHub Upload",
           "download_count": 0,
@@ -1481,18 +1469,6 @@
           "version": "1.2.0",
           "size_bytes": 6058606,
           "download_url": "https://nvchienspt-maker.github.io/apps/nvctivi/NVCTivi_v1.2.0.apk",
-          "release_tag": null,
-          "release_title": "Direct GitHub Upload",
-          "download_count": 0,
-          "created_at": null,
-          "published_at": null
-        },
-        {
-          "source": "direct",
-          "file_name": "NVCTivi_v1.2.1.apk",
-          "version": "1.2.1",
-          "size_bytes": 6058634,
-          "download_url": "https://nvchienspt-maker.github.io/apps/nvctivi/NVCTivi_v1.2.1.apk",
           "release_tag": null,
           "release_title": "Direct GitHub Upload",
           "download_count": 0,
